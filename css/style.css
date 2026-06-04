@@ -206,3 +206,4 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 /* RESPONSIVE */
 @media(max-width:1024px){.hero-inner{grid-template-columns:1fr}.hero-photo{display:none}.about-grid{grid-template-columns:1fr;gap:2.5rem}.project-featured{grid-template-columns:1fr}.project-mini-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr;gap:3rem}.skills-grid{grid-template-columns:1fr 1fr}.additional-grid{grid-template-columns:1fr 1fr}.soft-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){nav ul{gap:1rem}.skills-grid{grid-template-columns:1fr}.additional-grid{grid-template-columns:1fr 1fr}.soft-grid{grid-template-columns:1fr 1fr}.hero-btns{flex-direction:column}.section{padding:5rem 5%}footer{flex-direction:column;text-align:center}}
+
