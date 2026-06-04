@@ -1,0 +1,423 @@
+cat > /mnt/user-data/outputs/index.html << HTMLEOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Jhojan Camilo Rodríguez — Backend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div class="cursor-glow" id="glow"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">camilo<span>.dev</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-cta" id="navDownload">Download CV</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-glow1"></div>
+    <div class="hero-bg-glow2"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Available for Remote Work 🌎
+      </div>
+      <h1>
+        <span class="name">Jhojan Camilo<br/>Rodríguez</span>
+        <span class="role">Backend Developer · Python · FastAPI · Docker</span>
+      </h1>
+      <p class="hero-sub">
+        I build <strong>scalable APIs</strong> and <strong>secure backend systems</strong> with Python and FastAPI. Systems Engineering student at UNAD, passionate about clean architecture and shipping real products. Based in Colombia 🇨🇴 — open to <strong>remote opportunities worldwide</strong>.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View My Work ↓</a>
+        <a href="#" class="btn btn-secondary" id="heroDownload">⬇ Download CV</a>
+        <a href="https://github.com/Camilorc05-code" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <div class="photo-deco2">🟢 Open to work</div>
+        <div class="photo-border"></div>
+        <div class="photo-inner">
+          <img src="data:image/jpeg;base64,PHOTO_PLACEHOLDER" alt="Jhojan Camilo Rodríguez" loading="eager"/>
+        </div>
+        <div class="photo-deco1">
+          <div class="num">8°</div>
+          <div class="lbl">Semester</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="fancy"/>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">// 01 — About Me</div>
+      <h2>Who I <em>Am</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-p">Hi! I'm <strong>Jhojan Camilo Rodríguez Castañeda</strong>, a Backend Developer from <strong>Paz de Ariporo, Casanare, Colombia</strong> 🇨🇴. I'm passionate about building solid, well-structured APIs and backend systems that actually work in production.</p>
+        <p class="about-p">I'm currently in my <strong>eighth semester of Systems Engineering at UNAD</strong>, continuously expanding my knowledge in backend architecture, databases, cloud tools, and now frontend fundamentals — with one clear goal: <strong>work remotely for international tech companies</strong>.</p>
+        <p class="about-p">I enjoy collaborating in teams, learning fast, and solving real problems with clean, maintainable code. I take pride in writing code that's not just functional but also easy to understand and scale.</p>
+        <div class="about-langs">
+          <div class="lang-badge">
+            <span class="flag">🇪🇸</span>
+            <div class="lang-badge-text">
+              <div class="name">Spanish</div>
+              <div class="level">Native</div>
+            </div>
+          </div>
+          <div class="lang-badge">
+            <span class="flag">🇺🇸</span>
+            <div class="lang-badge-text">
+              <div class="name">English</div>
+              <div class="level">B2 — Intermediate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-cards reveal">
+        <div class="info-card">
+          <div class="info-card-icon">📍</div>
+          <div class="info-card-text">
+            <div class="label">Location</div>
+            <div class="value">Paz de Ariporo, Casanare, Colombia</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🎓</div>
+          <div class="info-card-text">
+            <div class="label">Education</div>
+            <div class="value">Systems Engineering — UNAD (8th Semester)</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">💼</div>
+          <div class="info-card-text">
+            <div class="label">Focus</div>
+            <div class="value">Backend Development · Python · FastAPI</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🌐</div>
+          <div class="info-card-text">
+            <div class="label">Availability</div>
+            <div class="value">Remote · Full-time · Immediately</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">✉️</div>
+          <div class="info-card-text">
+            <div class="label">Email</div>
+            <div class="value">jhojancamilorodriguez2017@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="fancy"/>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">// 02 — Technical Skills</div>
+      <h2>My <em>Stack</em></h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-card-icon" style="background:rgba(0,229,176,.12)">🚀</div>
+          <div><div class="skill-card-title">Backend</div><div class="skill-card-sub">Core expertise</div></div>
+        </div>
+        <div class="tags">
+          <span class="tag">Python 3.11</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span><span class="tag">JWT Auth</span><span class="tag">Passlib/bcrypt</span><span class="tag">Alembic</span><span class="tag">SQLAlchemy ORM</span><span class="tag">python-jose</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-card-icon" style="background:rgba(0,170,255,.12)">🗄️</div>
+          <div><div class="skill-card-title">Databases</div><div class="skill-card-sub">Data layer</div></div>
+        </div>
+        <div class="tags">
+          <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">SQLAlchemy</span><span class="tag">DB Migrations</span><span class="tag">Query Design</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-card-icon" style="background:rgba(124,92,252,.12)">⚙️</div>
+          <div><div class="skill-card-title">DevOps & Tools</div><div class="skill-card-sub">Infrastructure</div></div>
+        </div>
+        <div class="tags">
+          <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Postman</span><span class="tag">VS Code</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-card-icon" style="background:rgba(0,229,176,.12)">🧪</div>
+          <div><div class="skill-card-title">Testing</div><div class="skill-card-sub">Quality assurance</div></div>
+        </div>
+        <div class="tags">
+          <span class="tag">Pytest</span><span class="tag">Unit Testing</span><span class="tag">API Testing</span><span class="tag">Swagger/Redoc</span><span class="tag">Test Coverage</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-card-icon" style="background:rgba(0,170,255,.12)">🌐</div>
+          <div><div class="skill-card-title">Frontend Fundamentals</div><div class="skill-card-sub">Full-stack awareness</div></div>
+        </div>
+        <div class="tags">
+          <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Responsive Design</span><span class="tag">API Integration</span><span class="tag">Vercel</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-card-icon" style="background:rgba(124,92,252,.12)">🔐</div>
+          <div><div class="skill-card-title">Security & Architecture</div><div class="skill-card-sub">Best practices</div></div>
+        </div>
+        <div class="tags">
+          <span class="tag">JWT Tokens</span><span class="tag">Password Hashing</span><span class="tag">Protected Routes</span><span class="tag">RESTful Design</span><span class="tag">Clean Code</span><span class="tag">Agile (Basic)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="fancy"/>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">// 03 — Projects</div>
+      <h2>Featured <em>Work</em></h2>
+    </div>
+    <div class="projects-grid">
+
+      <!-- FEATURED -->
+      <div class="project-featured reveal">
+        <div>
+          <div class="project-badge">⭐ Featured Project · 2026</div>
+          <div class="project-title">TaskFlow Backend API</div>
+          <p class="project-desc">A professional-grade task management REST API built from scratch with FastAPI. Full authentication flow, team management, task CRUD — containerized with Docker and fully tested with Pytest.</p>
+          <ul class="feature-list">
+            <li>JWT Authentication — secure register, login, protected routes</li>
+            <li>Password hashing with bcrypt via Passlib</li>
+            <li>Teams & Tasks with ownership validation</li>
+            <li>Pagination and filtering on list endpoints</li>
+            <li>PostgreSQL + SQLAlchemy ORM + Alembic migrations</li>
+            <li>Dockerized environment with Docker Compose</li>
+            <li>Automated tests with Pytest (3 passed ✓)</li>
+            <li>Full API docs via Swagger / Redoc</li>
+          </ul>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">Docker</span><span class="tag">JWT</span><span class="tag">Pytest</span><span class="tag">Alembic</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="code-window">
+          <div class="code-bar">
+            <div class="code-dot" style="background:#ff5f57"></div>
+            <div class="code-dot" style="background:#febc2e"></div>
+            <div class="code-dot" style="background:#28c840"></div>
+            <span style="font-size:.68rem;color:#3a5a6a;margin-left:.5rem;font-family:'JetBrains Mono',monospace">taskflow / main.py</span>
+          </div>
+          <div class="code-body">
+<span class="cc"># TaskFlow Backend API</span>
+<span class="ck">from</span> <span class="cw">fastapi</span> <span class="ck">import</span> <span class="cw">FastAPI, Depends</span>
+<span class="ck">from</span> <span class="cw">app.routes</span> <span class="ck">import</span> <span class="cw">auth, team, task</span>
+<span class="ck">from</span> <span class="cw">app.auth.jwt_handler</span> <span class="ck">import</span> <span class="cw">get_current_user</span>
+
+<span class="cw">app</span> <span class="cp">=</span> <span class="cf">FastAPI</span><span class="cw">(</span>
+  <span class="cw">title</span><span class="cp">=</span><span class="cs">"TaskFlow API"</span><span class="cw">,</span>
+  <span class="cw">version</span><span class="cp">=</span><span class="cs">"1.0.0"</span>
+<span class="cw">)</span>
+
+<span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(auth.router)</span>
+<span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(team.router)</span>
+<span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(task.router)</span>
+
+<span class="cp">@app.</span><span class="cf">post</span><span class="cw">(</span><span class="cs">"/register"</span><span class="cw">)</span>
+<span class="ck">async def</span> <span class="cf">register</span><span class="cw">(data: UserCreate, db = </span><span class="cf">Depends</span><span class="cw">(get_db)):</span>
+  <span class="ck">return</span> <span class="ck">await</span> <span class="cf">create_user</span><span class="cw">(data, db)</span>
+
+<span class="cp">@app.</span><span class="cf">get</span><span class="cw">(</span><span class="cs">"/tasks/"</span><span class="cw">)</span>
+<span class="ck">async def</span> <span class="cf">list_tasks</span><span class="cw">(</span>
+  <span class="cw">page: int</span> <span class="cp">=</span> <span class="cn">1</span><span class="cw">,</span>
+  <span class="cw">user</span> <span class="cp">=</span> <span class="cf">Depends</span><span class="cw">(get_current_user)</span>
+<span class="cw">):</span>
+  <span class="ck">return</span> <span class="ck">await</span> <span class="cf">get_tasks</span><span class="cw">(user.id, page)</span>
+
+<span class="cc"># $ pytest → 3 passed ✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MINI PROJECTS -->
+      <div class="project-mini-grid">
+        <div class="project-card reveal">
+          <div class="project-num">02 — Learning</div>
+          <div class="project-title" style="font-size:1.1rem">Aprendiendo Python</div>
+          <p class="project-desc" style="font-size:.82rem">Python fundamentals, algorithms, and OOP exercises — the foundation behind all backend work.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">OOP</span><span class="tag">Algorithms</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Camilorc05-code/APRENDIENDO-PYTHON" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="project-card reveal" style="border-style:dashed;opacity:.5">
+          <div class="project-num">03 — Coming Soon</div>
+          <div class="project-title" style="font-size:1.1rem;color:var(--text2)">Next Project</div>
+          <p class="project-desc" style="font-size:.82rem">Something new is being built. Follow on GitHub for updates.</p>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="fancy"/>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">// 04 — Education</div>
+      <h2>Academic <em>Background</em></h2>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-year">2020 — Present</div>
+        <div class="edu-degree">Systems Engineering</div>
+        <div class="edu-school">Universidad Nacional Abierta y a Distancia (UNAD) · Colombia</div>
+        <div class="edu-semester">8th Semester · In Progress</div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem">
+      <div class="section-eyebrow" style="margin-bottom:1.5rem">Additional Skills</div>
+      <div class="additional-grid">
+        <div class="add-card reveal"><div class="add-icon">📐</div><div class="add-name">RESTful API Design</div><div class="add-sub">Best practices</div></div>
+        <div class="add-card reveal"><div class="add-icon">🗂️</div><div class="add-name">Database Design</div><div class="add-sub">Schema modeling</div></div>
+        <div class="add-card reveal"><div class="add-icon">📄</div><div class="add-name">API Documentation</div><div class="add-sub">Swagger / Redoc</div></div>
+        <div class="add-card reveal"><div class="add-icon">🔍</div><div class="add-name">Testing & Debugging</div><div class="add-sub">Quality first</div></div>
+        <div class="add-card reveal"><div class="add-icon">✨</div><div class="add-name">Clean Code</div><div class="add-sub">Maintainability</div></div>
+        <div class="add-card reveal"><div class="add-icon">🔀</div><div class="add-name">Version Control</div><div class="add-sub">Git & GitHub</div></div>
+        <div class="add-card reveal"><div class="add-icon">⚡</div><div class="add-name">Agile Methods</div><div class="add-sub">Basic knowledge</div></div>
+        <div class="add-card reveal"><div class="add-icon">🚀</div><div class="add-name">Deployment</div><div class="add-sub">Docker · Vercel</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem">
+      <div class="section-eyebrow" style="margin-bottom:0">Soft Skills</div>
+      <div class="soft-grid">
+        <div class="soft-card reveal"><div class="soft-icon">🤝</div><div class="soft-name">Teamwork</div></div>
+        <div class="soft-card reveal"><div class="soft-icon">🧩</div><div class="soft-name">Problem Solving</div></div>
+        <div class="soft-card reveal"><div class="soft-icon">💬</div><div class="soft-name">Communication</div></div>
+        <div class="soft-card reveal"><div class="soft-icon">🔄</div><div class="soft-name">Adaptability</div></div>
+        <div class="soft-card reveal"><div class="soft-icon">✅</div><div class="soft-name">Responsibility</div></div>
+        <div class="soft-card reveal"><div class="soft-icon">📈</div><div class="soft-name">Continuous Learning</div></div>
+        <div class="soft-card reveal"><div class="soft-icon">💡</div><div class="soft-name">Self-Motivation</div></div>
+        <div class="soft-card reveal"><div class="soft-icon">⚡</div><div class="soft-name">Fast Learning</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="fancy"/>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">// 05 — Contact</div>
+      <h2>Let's <em>Connect</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="contact-text">I'm actively looking for <strong style="color:var(--accent)">remote opportunities</strong> as a Backend Developer. If you're building something interesting with Python, FastAPI, or need someone who ships clean, tested code — let's talk. I reply fast.</p>
+        <div class="download-box">
+          <h3>📄 Download My CV</h3>
+          <p>Full resume with projects, skills and education</p>
+          <a href="#" class="btn btn-primary" id="cvDownload" style="display:inline-flex;margin:0 auto">⬇ Download CV (PDF)</a>
+        </div>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:jhojancamilorodriguez2017@gmail.com" class="contact-link">
+          <div class="cl-icon">✉️</div>
+          <div><div class="cl-label">Email</div><div class="cl-value">jhojancamilorodriguez2017@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/jhojan-camilo-rodr%C3%ADguez-casta%C3%B1eda-082a363a0" target="_blank" class="contact-link">
+          <div class="cl-icon">💼</div>
+          <div><div class="cl-label">LinkedIn</div><div class="cl-value">Jhojan Camilo Rodríguez Castañeda</div></div>
+        </a>
+        <a href="https://github.com/Camilorc05-code" target="_blank" class="contact-link">
+          <div class="cl-icon">🐙</div>
+          <div><div class="cl-label">GitHub</div><div class="cl-value">github.com/Camilorc05-code</div></div>
+        </a>
+        <a href="https://wa.me/573145125532" target="_blank" class="contact-link">
+          <div class="cl-icon">📱</div>
+          <div><div class="cl-label">WhatsApp</div><div class="cl-value">+57 314 512 5532</div></div>
+        </a>
+        <a href="https://www.instagram.com/camilorc_05" target="_blank" class="contact-link">
+          <div class="cl-icon">📸</div>
+          <div><div class="cl-label">Instagram</div><div class="cl-value">@camilorc_05</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">camilo<span>.dev</span></div>
+  <div class="footer-text">© 2026 Jhojan Camilo Rodríguez Castañeda · Backend Developer · Colombia 🇨🇴</div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
+HTMLEOF
+echo "File created: $(wc -c < /mnt/user-data/outputs/index.html) bytes"
+Salida
+
