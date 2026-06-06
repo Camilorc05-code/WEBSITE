@@ -401,7 +401,7 @@ h1.hero-h .grad-text{
   width:100%;height:480px;object-fit:cover;object-position:center 15%;
   display:block;
   transition:transform .8s cubic-bezier(.4,0,.2,1);
-  filter: none;
+  filter:contrast(1.1) saturate(1.02);
 }
 .photo-card:hover img{transform:scale(1.05)}
 /* Gradient overlay on photo */
