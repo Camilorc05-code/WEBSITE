@@ -420,21 +420,22 @@ h1.hero-h .grad-text{
 }
 .photo-name-tag .pname{font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-.01em}
 .photo-name-tag .prole{font-size:.68rem;color:rgba(255,255,255,.55);font-family:'JetBrains Mono',monospace;margin-top:.2rem}
-.photo-name-tag .pname {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -.01em;
-  text-shadow: 0 2px 4px rgba(0,0,0,.6); /* sombra para contraste */
+.photo-fade{
+  position:absolute;inset:0;pointer-events:none;z-index:3;
+  background:linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(5,8,15,.85) 100%
+  );
+}
+[data-theme="light"] .photo-fade{
+  background:linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(10,20,38,.6) 100%
+  );
 }
 
-.photo-name-tag .prole {
-  font-size: .68rem;
-  color: rgba(255,255,255,.55);
-  font-family: 'JetBrains Mono', monospace;
-  margin-top: .2rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5); /* sombra ligera */
-}
 
 /* Floating stat card */
 .float-stat{
