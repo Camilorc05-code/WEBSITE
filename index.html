@@ -1,67 +1,114 @@
-cat > /mnt/user-data/outputs/index.html << HTMLEOF
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Jhojan Camilo Rodríguez — Backend Developer</title>
+<meta name="description" content="Jhojan Camilo Rodríguez — Backend Developer. Python, FastAPI, Docker. Available for remote work worldwide."/>
+<title>Camilo Rodríguez — Backend Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css"/>
+
 </head>
 <body>
-
-<div class="cursor-glow" id="glow"></div>
+<canvas id="particles-canvas"></canvas>
+<div id="scroll-prog"></div>
+<div id="noise-overlay"></div>
+<div id="cursor-blob"></div>
 
 <!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">camilo<span>.dev</span></div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#" class="nav-cta" id="navDownload">Download CV</a></li>
-  </ul>
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="logo-ring">cr</div>
+    camilo.dev
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button id="theme-toggle" title="Toggle theme">🌙</button>
+    <a href="assets/CV.pdf" class="nav-cv btn-shine" id="nav-dl">⬇ Download CV</a>
+    <button id="hamburger"><span></span><span></span><span></span></button>
+  </div>
 </nav>
+<div id="mob-nav">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+  <a href="assets/CV.pdf" id="mob-dl">⬇ Download CV</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-bg-glow1"></div>
-    <div class="hero-bg-glow2"></div>
-  </div>
+  <div class="grid-bg"></div>
   <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-tag">
-        <span class="hero-tag-dot"></span>
+    <div>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-pulse"></span>
         Available for Remote Work 🌎
       </div>
-      <h1>
-        <span class="name">Jhojan Camilo<br/>Rodríguez</span>
-        <span class="role">Backend Developer · Python · FastAPI · Docker</span>
+      <h1 class="hero-h">
+        Jhojan <span class="grad-text">Camilo</span><br/>Rodríguez
       </h1>
-      <p class="hero-sub">
-        I build <strong>scalable APIs</strong> and <strong>secure backend systems</strong> with Python and FastAPI. Systems Engineering student at UNAD, passionate about clean architecture and shipping real products. Based in Colombia 🇨🇴 — open to <strong>remote opportunities worldwide</strong>.
+      <div class="hero-typed-wrap">
+        <span class="typed-prefix">&gt;</span>
+        <span id="typed-text"></span>
+        <span class="cursor-blink"></span>
+      </div>
+      <p class="hero-desc">
+        I build <strong>scalable APIs</strong> and <strong>secure backend systems</strong>. Systems Engineering student at UNAD — passionate about clean architecture and shipping products that work in production. Ready for <strong>remote opportunities worldwide</strong>.
       </p>
       <div class="hero-btns">
-        <a href="#projects" class="btn btn-primary">View My Work ↓</a>
-        <a href="#" class="btn btn-secondary" id="heroDownload">⬇ Download CV</a>
-        <a href="https://github.com/Camilorc05-code" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+        <a href="#projects" class="btn btn-primary btn-shine">View My Work ↓</a>
+        <a href="#" class="btn btn-outline btn-shine" id="hero-dl">⬇ Download CV</a>
+        <a href="https://github.com/Camilorc05-code" target="_blank" class="btn btn-ghost btn-shine">GitHub ↗</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-num" data-target="8">0</span>
+          <span class="hstat-lbl">Semesters</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-num" data-target="3">0</span>
+          <span class="hstat-lbl">GitHub Repos</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-num">B2</span>
+          <span class="hstat-lbl">English Level</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-num">100%</span>
+          <span class="hstat-lbl">Remote Ready</span>
+        </div>
       </div>
     </div>
-    <div class="hero-photo">
-      <div class="photo-frame">
-        <div class="photo-deco2">🟢 Open to work</div>
-        <div class="photo-border"></div>
-        <div class="photo-inner">
-          <img src="data:image/jpeg;base64,PHOTO_PLACEHOLDER" alt="Jhojan Camilo Rodríguez" loading="eager"/>
+
+    <div class="photo-panel">
+      <div class="avail-badge">
+        <span class="avail-dot"></span>
+        Open to work — Remote
+      </div>
+      <div style="position:relative;margin-top:.75rem">
+        <div class="photo-glow-ring"></div>
+        <div class="photo-card">
+          <img src="assets/foto.jpeg" alt="Mi foto" />
+          <div class="photo-name-tag">
+            <div class="pname">Jhojan Camilo Rodríguez</div>
+            <div class="prole">Backend Developer · UNAD 8th Semester</div>
+          </div>
         </div>
-        <div class="photo-deco1">
-          <div class="num">8°</div>
-          <div class="lbl">Semester</div>
+        <div class="float-stat float-br">
+          <div class="fc-lbl">Experience</div>
+          <div class="fc-val">2+</div>
+          <div class="fc-sub">Years building</div>
         </div>
       </div>
     </div>
@@ -69,351 +116,359 @@ cat > /mnt/user-data/outputs/index.html << HTMLEOF
 </section>
 
 <hr class="fancy"/>
-
 <!-- ABOUT -->
-<section class="section" id="about">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">// 01 — About Me</div>
-      <h2>Who I <em>Am</em></h2>
-    </div>
+<section class="sec" id="about">
+  <div class="si">
+    <div class="rv"><div class="eyebrow">01 — About Me</div><h2 class="sec-h">Who I <em>Am</em></h2></div>
     <div class="about-grid">
-      <div class="reveal">
-        <p class="about-p">Hi! I'm <strong>Jhojan Camilo Rodríguez Castañeda</strong>, a Backend Developer from <strong>Paz de Ariporo, Casanare, Colombia</strong> 🇨🇴. I'm passionate about building solid, well-structured APIs and backend systems that actually work in production.</p>
-        <p class="about-p">I'm currently in my <strong>eighth semester of Systems Engineering at UNAD</strong>, continuously expanding my knowledge in backend architecture, databases, cloud tools, and now frontend fundamentals — with one clear goal: <strong>work remotely for international tech companies</strong>.</p>
-        <p class="about-p">I enjoy collaborating in teams, learning fast, and solving real problems with clean, maintainable code. I take pride in writing code that's not just functional but also easy to understand and scale.</p>
-        <div class="about-langs">
-          <div class="lang-badge">
-            <span class="flag">🇪🇸</span>
-            <div class="lang-badge-text">
-              <div class="name">Spanish</div>
-              <div class="level">Native</div>
-            </div>
-          </div>
-          <div class="lang-badge">
-            <span class="flag">🇺🇸</span>
-            <div class="lang-badge-text">
-              <div class="name">English</div>
-              <div class="level">B2 — Intermediate</div>
-            </div>
-          </div>
+      <div class="rvl">
+        <p class="ap">Hi! I'm <strong>Jhojan Camilo Rodríguez Castañeda</strong>, a Backend Developer from <strong>Paz de Ariporo, Casanare, Colombia</strong>. I'm passionate about building solid, well-structured APIs and backend systems that work reliably in production.</p>
+        <p class="ap">Currently in my <strong>8th semester of Systems Engineering at UNAD</strong>, continuously growing in backend architecture, databases, cloud tools, and frontend fundamentals — with one clear goal: <strong>work remotely for international tech companies</strong>.</p>
+        <p class="ap">I enjoy collaborating in teams, learning fast, and solving real problems with clean, maintainable code. I take pride in writing code that's not just functional but easy to understand and scale.</p>
+        <div class="lang-row">
+          <div class="lpill"><span style="font-size:1.3rem">🇪🇸</span><div><div class="lname">Spanish</div><div class="llvl">Native</div></div></div>
+          <div class="lpill"><span style="font-size:1.3rem">🇺🇸</span><div><div class="lname">English</div><div class="llvl">B2 — Intermediate</div></div></div>
         </div>
       </div>
-      <div class="info-cards reveal">
-        <div class="info-card">
-          <div class="info-card-icon">📍</div>
-          <div class="info-card-text">
-            <div class="label">Location</div>
-            <div class="value">Paz de Ariporo, Casanare, Colombia</div>
-          </div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">🎓</div>
-          <div class="info-card-text">
-            <div class="label">Education</div>
-            <div class="value">Systems Engineering — UNAD (8th Semester)</div>
-          </div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">💼</div>
-          <div class="info-card-text">
-            <div class="label">Focus</div>
-            <div class="value">Backend Development · Python · FastAPI</div>
-          </div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">🌐</div>
-          <div class="info-card-text">
-            <div class="label">Availability</div>
-            <div class="value">Remote · Full-time · Immediately</div>
-          </div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">✉️</div>
-          <div class="info-card-text">
-            <div class="label">Email</div>
-            <div class="value">jhojancamilorodriguez2017@gmail.com</div>
-          </div>
-        </div>
+      <div class="info-col rvr">
+        <div class="irow"><div class="iico">📍</div><div><div class="ilbl">Location</div><div class="ival">Paz de Ariporo, Casanare, Colombia</div></div></div>
+        <div class="irow"><div class="iico">🎓</div><div><div class="ilbl">Education</div><div class="ival">Systems Engineering — UNAD · 8th Semester</div></div></div>
+        <div class="irow"><div class="iico">💼</div><div><div class="ilbl">Focus</div><div class="ival">Backend Development · Python · FastAPI</div></div></div>
+        <div class="irow"><div class="iico">🌐</div><div><div class="ilbl">Availability</div><div class="ival">Remote · Full-time · Available now</div></div></div>
+        <div class="irow"><div class="iico">✉️</div><div><div class="ilbl">Email</div><div class="ival">jhojancamilorodriguez2017@gmail.com</div></div></div>
       </div>
     </div>
   </div>
 </section>
-
 <hr class="fancy"/>
 
 <!-- SKILLS -->
-<section class="section" id="skills">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">// 02 — Technical Skills</div>
-      <h2>My <em>Stack</em></h2>
+<section class="sec sec-alt" id="skills">
+  <div class="si">
+    <div class="rv"><div class="eyebrow">02 — Technical Skills</div><h2 class="sec-h">My <em>Stack</em></h2></div>
+    <div class="sk-grid">
+
+<!-- Backend -->
+<div class="sk-card rv" style="--sk-grad:linear-gradient(135deg,#3776ab,#ffd343)">
+  <div class="sk-head">
+    <div class="sk-logo" style="background:rgba(55,118,171,.12)">
+      <svg width="30" height="30" viewBox="0 0 128 128"><linearGradient id="pyb" x1="70.252" y1="1237.476" x2="170.659" y2="1098.827" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="pyy" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#pyb)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/><path fill="url(#pyy)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"/></svg>
     </div>
-    <div class="skills-grid">
+    <div><div class="sk-title">Backend Development</div><div class="sk-sub">Core expertise</div></div>
+  </div>
+  <div class="tech-tags">
+    <span class="ttag"><span class="ti">🐍</span>Python 3.11</span>
+    <span class="ttag"><span class="ti" style="color:#009485">⚡</span>FastAPI</span>
+    <span class="ttag"><span class="ti">🔑</span>REST APIs</span>
+    <span class="ttag"><span class="ti">🔐</span>JWT Auth</span>
+    <span class="ttag"><span class="ti">🔒</span>bcrypt / Passlib</span>
+    <span class="ttag"><span class="ti">🗃️</span>SQLAlchemy ORM</span>
+    <span class="ttag"><span class="ti">📦</span>Alembic</span>
+  </div>
+</div>
 
-      <div class="skill-card reveal">
-        <div class="skill-card-header">
-          <div class="skill-card-icon" style="background:rgba(0,229,176,.12)">🚀</div>
-          <div><div class="skill-card-title">Backend</div><div class="skill-card-sub">Core expertise</div></div>
-        </div>
-        <div class="tags">
-          <span class="tag">Python 3.11</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span><span class="tag">JWT Auth</span><span class="tag">Passlib/bcrypt</span><span class="tag">Alembic</span><span class="tag">SQLAlchemy ORM</span><span class="tag">python-jose</span>
-        </div>
-      </div>
+<!-- Databases -->
+<div class="sk-card rv" style="--sk-grad:linear-gradient(135deg,#336791,#00758f)">
+  <div class="sk-head">
+    <div class="sk-logo" style="background:rgba(51,103,145,.13)">
+      <svg width="30" height="30" viewBox="0 0 128 128"><path fill="#336791" d="M93.809 92.112c.785-6.533.55-7.492 5.416-6.433l1.235.108c3.742.17 8.637-.602 11.513-1.938 6.191-2.873 9.861-7.668 3.758-6.409-13.924 2.873-14.881-1.842-14.881-1.842 14.703-21.815 20.849-49.508 15.543-56.287-14.47-18.489-39.517-9.746-39.936-9.52l-.134.025c-2.751-.571-5.83-.912-9.289-.968-6.292-.104-11.061 1.652-14.7 4.402 0 0-44.683-18.409-42.604 23.151.442 8.841 12.672 66.898 27.26 49.362 5.332-6.412 10.484-11.834 10.484-11.834 2.558 1.699 5.622 2.567 8.834 2.255l.249-.212c-.078.796-.044 1.575.099 2.497-3.757 4.199-2.653 4.936-10.166 6.482-7.602 1.566-3.136 4.355-.221 5.084 3.535.884 11.712 2.136 17.238-5.598l-.22.882c1.474 1.18 2.507 7.672 2.334 13.566-.173 5.896-.29 9.938.871 13.104 1.16 3.167 2.316 10.256 12.192 8.14 8.252-1.769 14.548-4.309 15.171-27.974"/><path fill="#fff" d="M75.957 122.707c-8.77 1.883-9.882-1.094-10.613-3.342-.73-2.25-.588-6.244-.588-6.244l-1.315-14.181c0-4.861.112-9.402-1.535-11.86-1.649-2.459-4.717-2.516-4.717-2.516s3.617-.536 9.49-.148c3.608.235 8.773.91 8.773.91s-2.375-.547-3.938-1.875c-.896-.76-1.625-1.77-1.984-2.873-.362-1.104-.334-2.07-.25-2.709-3.787.133-7.633-1.453-7.633-1.453C55.354 73.964 55.01 66.696 55.01 66.696c-.052-.695-.082-1.514-.093-2.448l-.295.352c-.4.476-1.004.816-1.725.884-1.518.145-2.85-1.022-2.972-2.595-.123-1.57.846-3.076 2.173-3.432.042-.011.085-.02.127-.027-.011-.273-.016-.551-.015-.834.037-7.293 4.748-13.27 10.514-13.318 2.832-.023 5.373.963 7.284 2.834.083.082.164.167.244.254 2.178-2.554 5.417-4.17 8.996-4.17 6.503 0 11.775 5.24 11.775 11.703 0 .17-.005.338-.013.506.115-.004.23-.008.347-.009 1.488-.016 2.714 1.168 2.73 2.654.016 1.487-1.197 2.707-2.686 2.722-.122.001-.243-.006-.363-.021-.015.316-.035.629-.061.938.044.027.088.054.129.082 2.78 1.826 4.394 6.049 4.394 6.049l.031.234c.112 5.764-1.215 10.064-1.215 10.064-1.678 7.014-6.137 10.527-6.137 10.527"/></svg>
+    </div>
+    <div><div class="sk-title">Databases</div><div class="sk-sub">Data persistence</div></div>
+  </div>
+  <div class="tech-tags">
+    <span class="ttag"><span class="ti">🐘</span>PostgreSQL</span>
+    <span class="ttag"><span class="ti" style="color:#4db33d">🍃</span>MongoDB</span>
+    <span class="ttag"><span class="ti">🗺️</span>SQLAlchemy</span>
+    <span class="ttag"><span class="ti">📐</span>DB Migrations</span>
+    <span class="ttag"><span class="ti">⚙️</span>Query Design</span>
+  </div>
+</div>
 
-      <div class="skill-card reveal">
-        <div class="skill-card-header">
-          <div class="skill-card-icon" style="background:rgba(0,170,255,.12)">🗄️</div>
-          <div><div class="skill-card-title">Databases</div><div class="skill-card-sub">Data layer</div></div>
-        </div>
-        <div class="tags">
-          <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">SQLAlchemy</span><span class="tag">DB Migrations</span><span class="tag">Query Design</span>
-        </div>
-      </div>
+<!-- DevOps -->
+<div class="sk-card rv" style="--sk-grad:linear-gradient(135deg,#0db7ed,#384d54)">
+  <div class="sk-head">
+    <div class="sk-logo" style="background:rgba(13,183,237,.12)">
+      <svg width="30" height="30" viewBox="0 0 128 128"><path fill="#0db7ed" d="M124.8 52.1c0-7.4-5.1-13.5-12-15.1.5-1.9.7-3.9.7-5.9 0-14.9-12.1-27-27-27-7.1 0-13.6 2.7-18.4 7.2C65.6 5.7 60.4 3 54.6 3 43.2 3 33.9 11.7 33 22.8c-1-.1-2-.2-3-.2C19 22.6 10.1 31.5 10.1 42.5c0 .7.04 1.4.1 2.1C4.4 46.6 0 52.3 0 59c0 8 5.9 14.6 13.7 15.7 0 .4-.04.8-.04 1.2 0 14.3 11.6 25.9 25.9 25.9 5.9 0 11.3-2 15.6-5.2C57.4 99.9 60.8 101 64.4 101c5.9 0 11.2-2.5 14.8-6.5C82.2 97.2 86.3 98.7 90.7 98.7c14.3 0 25.9-11.6 25.9-25.9 0-1-.1-2-.2-3 4.9-2.5 8.4-7.7 8.4-13.7z"/><path fill="#384d54" d="M36.4 81.4c-5.4 0-9.7-4.3-9.7-9.7V56.1c0-5.4 4.3-9.7 9.7-9.7s9.7 4.3 9.7 9.7v15.6c0 5.4-4.4 9.7-9.7 9.7zm0-31.5c-3.4 0-6.2 2.8-6.2 6.2v15.6c0 3.4 2.8 6.2 6.2 6.2s6.2-2.8 6.2-6.2V56.1c0-3.4-2.8-6.2-6.2-6.2zm27.8 31.5c-5.4 0-9.7-4.3-9.7-9.7V56.1c0-5.4 4.3-9.7 9.7-9.7s9.7 4.3 9.7 9.7v15.6c.1 5.4-4.3 9.7-9.7 9.7zm0-31.5c-3.4 0-6.2 2.8-6.2 6.2v15.6c0 3.4 2.8 6.2 6.2 6.2s6.2-2.8 6.2-6.2V56.1c0-3.4-2.7-6.2-6.2-6.2zm27.9 31.5c-5.4 0-9.7-4.3-9.7-9.7V56.1c0-5.4 4.3-9.7 9.7-9.7s9.7 4.3 9.7 9.7v15.6c0 5.4-4.4 9.7-9.7 9.7zm0-31.5c-3.4 0-6.2 2.8-6.2 6.2v15.6c0 3.4 2.8 6.2 6.2 6.2s6.2-2.8 6.2-6.2V56.1c-.1-3.4-2.8-6.2-6.2-6.2z"/></svg>
+    </div>
+    <div><div class="sk-title">DevOps &amp; Tools</div><div class="sk-sub">Infrastructure</div></div>
+  </div>
+  <div class="tech-tags">
+    <span class="ttag"><span class="ti">🐳</span>Docker</span>
+    <span class="ttag"><span class="ti">📦</span>Docker Compose</span>
+    <span class="ttag"><span class="ti">🔀</span>Git</span>
+    <span class="ttag"><span class="ti">🐙</span>GitHub</span>
+    <span class="ttag"><span class="ti">📮</span>Postman</span>
+    <span class="ttag"><span class="ti">💻</span>VS Code</span>
+  </div>
+</div>
 
-      <div class="skill-card reveal">
-        <div class="skill-card-header">
-          <div class="skill-card-icon" style="background:rgba(124,92,252,.12)">⚙️</div>
-          <div><div class="skill-card-title">DevOps & Tools</div><div class="skill-card-sub">Infrastructure</div></div>
-        </div>
-        <div class="tags">
-          <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Postman</span><span class="tag">VS Code</span>
-        </div>
-      </div>
+<!-- Testing -->
+<div class="sk-card rv" style="--sk-grad:linear-gradient(135deg,#4ade80,#16a34a)">
+  <div class="sk-head">
+    <div class="sk-logo" style="background:rgba(74,222,128,.11)">
+      <svg width="30" height="30" viewBox="0 0 128 128"><path d="M64 8C33.1 8 8 33.1 8 64s25.1 56 56 56 56-25.1 56-56S94.9 8 64 8z" fill="#4ade80" opacity=".15"/><path d="M90 44H38c-3.3 0-6 2.7-6 6v28c0 3.3 2.7 6 6 6h52c3.3 0 6-2.7 6-6V50c0-3.3-2.7-6-6-6z" fill="none" stroke="#4ade80" stroke-width="5"/><path d="M48 64l10 10 22-22" stroke="#4ade80" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+    <div><div class="sk-title">Testing &amp; Docs</div><div class="sk-sub">Quality assurance</div></div>
+  </div>
+  <div class="tech-tags">
+    <span class="ttag"><span class="ti">🧪</span>Pytest</span>
+    <span class="ttag"><span class="ti">✅</span>Unit Testing</span>
+    <span class="ttag"><span class="ti">🔌</span>API Testing</span>
+    <span class="ttag"><span class="ti">📄</span>Swagger UI</span>
+    <span class="ttag"><span class="ti">📑</span>Redoc</span>
+  </div>
+</div>
 
-      <div class="skill-card reveal">
-        <div class="skill-card-header">
-          <div class="skill-card-icon" style="background:rgba(0,229,176,.12)">🧪</div>
-          <div><div class="skill-card-title">Testing</div><div class="skill-card-sub">Quality assurance</div></div>
-        </div>
-        <div class="tags">
-          <span class="tag">Pytest</span><span class="tag">Unit Testing</span><span class="tag">API Testing</span><span class="tag">Swagger/Redoc</span><span class="tag">Test Coverage</span>
-        </div>
-      </div>
+<!-- Frontend -->
+<div class="sk-card rv" style="--sk-grad:linear-gradient(135deg,#f7df1e,#61dafb)">
+  <div class="sk-head">
+    <div class="sk-logo" style="background:rgba(97,218,251,.11)">
+      <!-- React logo -->
+      <svg width="30" height="30" viewBox="0 0 128 128"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13-1.2-21.8-9.6-26.3-7.5-4.2-17.8-2.6-28.6 4.8-1.9 1.2-3.7 2.5-5.4 3.9-1.8-1.5-3.7-2.9-5.6-4.1C42.1 7.9 31.7 6.5 24.1 10.8c-8 4.5-11.1 13.2-9.1 25.9.4 2.3.9 4.7 1.6 7.2-2.4.7-4.7 1.4-6.9 2.3C2.5 52 0 60.5 0 64.1c0 3.8 2.5 12.2 10.2 18.8 2.2 1.9 4.5 3.5 6.9 4.8-.5 2.4-1 4.8-1.4 7.2-2 12.7.9 21.5 8.9 26 2.7 1.5 5.7 2.3 8.7 2.3 6.9 0 14.9-3.3 23.4-9.7 1.8 1.4 3.6 2.7 5.4 3.9 11 7.4 21.5 8.9 28.9 4.7 8.1-4.5 11.3-13.4 9.1-26.1-.4-2.2-.9-4.5-1.5-6.9 2.4-.7 4.7-1.5 6.9-2.3 7.7-2.8 12.2-7.6 12.2-13.4 0-5.7-4.5-10.5-12.1-13.4zm-1.6 27.2c-2 .7-4.2 1.4-6.5 2.1-1.3-4.1-3-8.5-5-13.1 2-4.4 3.6-8.8 4.9-12.8 2.3.7 4.5 1.4 6.5 2.2 6.8 2.5 10.2 6.3 10.2 9.9-.1 3.6-3.5 7.4-10.1 9.7zM80.3 87.9c-2.2 3.8-4.5 7.3-6.8 10.5-4.1.4-8.4.6-12.8.6-4.3 0-8.6-.2-12.7-.5-2.4-3.2-4.7-6.7-6.9-10.5-2.1-3.7-4-7.5-5.7-11.3 1.7-3.8 3.6-7.6 5.7-11.3 2.2-3.8 4.5-7.3 6.8-10.5 4.1-.4 8.4-.6 12.8-.6 4.3 0 8.6.2 12.7.5 2.4 3.2 4.7 6.7 6.9 10.5 2.1 3.7 4 7.5 5.7 11.3-1.6 3.9-3.5 7.7-5.7 11.3zm13.8-44.6c2.3.7 4.5 1.4 6.5 2.2 6.6 2.4 10 6.1 10 9.6 0 3.6-3.4 7.3-10 9.7-2 .7-4.2 1.4-6.5 2.1-1.3-4.1-3-8.5-5-13.1 2-4.4 3.6-8.8 5-13.5zM64 12.6c2.9 3.1 5.8 6.7 8.6 10.8-5.6-.3-11.3-.3-16.9 0 2.8-4.1 5.7-7.7 8.3-10.8zM39.3 42.7c-1.3 4-2.9 8.4-4.9 13.1-2-4.5-3.7-8.9-4.9-13 1.7-.5 3.4-1 5.2-1.4 1.5-.4 3-.7 4.6-1v2.3zm-14.3 9.2c2.3-.7 4.5-1.4 6.5-2.1 1.3 4 3 8.4 5 12.9-2 4.5-3.7 8.9-5 12.9-2.3-.7-4.5-1.4-6.5-2.1-6.6-2.4-10-6.1-10-9.6-.1-3.6 3.3-7.3 10-9.9zm6.3 48.1c-1.6-2.9-3.1-6.2-4.5-9.8 1.4.5 2.8.9 4.2 1.3 1.6.5 3.4.9 5.2 1.4-1.3 4-2.9 7.8-4.9 7.1zm4.9-4.3c-1.6.5-3.4.9-5.2 1.4.7-3.1 1.6-6.3 2.8-9.6 1.6 3 3.2 5.9 5 8.6-.8.2-1.7.4-2.6.6zm18.4 12.3c-2.9-3.1-5.8-6.7-8.6-10.8 2.8.2 5.7.3 8.6.3 2.9 0 5.8-.1 8.6-.3-2.8 4.1-5.7 7.7-8.6 10.8zm17.3-6.6c1.8-2.7 3.4-5.6 5-8.6 1.2 3.3 2.1 6.4 2.8 9.5-2.7-.5-5.1-1-7.8-.9zm17.6-10.2c-1.4-.5-2.8-1-4.2-1.4-1.6-.5-3.4-.9-5.2-1.4.9-2.7 1.7-5.5 2.4-8.3 1.3 3.6 2.8 6.8 4.3 9.7.9 0 1.8.1 2.7.1v1.3zM64 28.8c2.9 0 5.8.1 8.6.3-2.8 4.1-5.7 7.7-8.6 10.8-2.9-3.1-5.8-6.7-8.6-10.8 2.8-.2 5.7-.3 8.6-.3z" fill="#61DAFB"/></g></svg>
+    </div>
+    <div><div class="sk-title">Frontend Fundamentals</div><div class="sk-sub">Full-stack awareness</div></div>
+  </div>
+  <div class="tech-tags">
+    <span class="ttag"><span class="ti">🌐</span>HTML5</span>
+    <span class="ttag"><span class="ti">🎨</span>CSS3</span>
+    <span class="ttag" style="border-color:rgba(247,223,30,.25)">
+      <svg width="11" height="11" viewBox="0 0 128 128"><path fill="#f7df1e" d="M1.408 1.408h125.184v125.184H1.408z"/><path fill="#323330" d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"/></svg>
+      JavaScript
+    </span>
+    <span class="ttag"><span class="ti">⚛️</span>React</span>
+    <span class="ttag"><span class="ti">📱</span>Responsive</span>
+    <span class="ttag"><span class="ti">🔗</span>API Integration</span>
+    <span class="ttag" style="border-color:rgba(255,255,255,.15)">
+      <svg width="11" height="11" viewBox="0 0 128 128" fill="var(--txt2)"><path d="M64 0C28.66 0 0 28.66 0 64s28.66 64 64 64 64-28.66 64-64S99.34 0 64 0zm-1.77 107.3L28.13 64l34.1-34.1 34.1 34.1-34.1 43.3z"/></svg>
+      Vercel
+    </span>
+  </div>
+</div>
 
-      <div class="skill-card reveal">
-        <div class="skill-card-header">
-          <div class="skill-card-icon" style="background:rgba(0,170,255,.12)">🌐</div>
-          <div><div class="skill-card-title">Frontend Fundamentals</div><div class="skill-card-sub">Full-stack awareness</div></div>
-        </div>
-        <div class="tags">
-          <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Responsive Design</span><span class="tag">API Integration</span><span class="tag">Vercel</span>
-        </div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-card-header">
-          <div class="skill-card-icon" style="background:rgba(124,92,252,.12)">🔐</div>
-          <div><div class="skill-card-title">Security & Architecture</div><div class="skill-card-sub">Best practices</div></div>
-        </div>
-        <div class="tags">
-          <span class="tag">JWT Tokens</span><span class="tag">Password Hashing</span><span class="tag">Protected Routes</span><span class="tag">RESTful Design</span><span class="tag">Clean Code</span><span class="tag">Agile (Basic)</span>
-        </div>
-      </div>
+<!-- Security -->
+<div class="sk-card rv" style="--sk-grad:linear-gradient(135deg,#c084fc,#38bdf8)">
+  <div class="sk-head">
+    <div class="sk-logo" style="background:rgba(192,132,252,.11)">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4" stroke="#c084fc" stroke-width="2"/></svg>
+    </div>
+    <div><div class="sk-title">Security &amp; Architecture</div><div class="sk-sub">Best practices</div></div>
+  </div>
+  <div class="tech-tags">
+    <span class="ttag"><span class="ti">🔐</span>JWT Tokens</span>
+    <span class="ttag"><span class="ti">🔑</span>Password Hashing</span>
+    <span class="ttag"><span class="ti">🏗️</span>RESTful Design</span>
+    <span class="ttag"><span class="ti">✨</span>Clean Code</span>
+    <span class="ttag"><span class="ti">🔄</span>Agile</span>
+  </div>
+</div>
 
     </div>
   </div>
 </section>
-
 <hr class="fancy"/>
 
 <!-- PROJECTS -->
-<section class="section" id="projects">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">// 03 — Projects</div>
-      <h2>Featured <em>Work</em></h2>
-    </div>
-    <div class="projects-grid">
-
-      <!-- FEATURED -->
-      <div class="project-featured reveal">
-        <div>
-          <div class="project-badge">⭐ Featured Project · 2026</div>
-          <div class="project-title">TaskFlow Backend API</div>
-          <p class="project-desc">A professional-grade task management REST API built from scratch with FastAPI. Full authentication flow, team management, task CRUD — containerized with Docker and fully tested with Pytest.</p>
-          <ul class="feature-list">
-            <li>JWT Authentication — secure register, login, protected routes</li>
-            <li>Password hashing with bcrypt via Passlib</li>
-            <li>Teams & Tasks with ownership validation</li>
-            <li>Pagination and filtering on list endpoints</li>
-            <li>PostgreSQL + SQLAlchemy ORM + Alembic migrations</li>
-            <li>Dockerized environment with Docker Compose</li>
-            <li>Automated tests with Pytest (3 passed ✓)</li>
-            <li>Full API docs via Swagger / Redoc</li>
-          </ul>
-          <div class="project-stack">
-            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">Docker</span><span class="tag">JWT</span><span class="tag">Pytest</span><span class="tag">Alembic</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="project-link">GitHub ↗</a>
-          </div>
+<section class="sec" id="projects">
+  <div class="si">
+    <div class="rv"><div class="eyebrow">03 — Projects</div><h2 class="sec-h">Featured <em>Work</em></h2></div>
+    <div class="proj-feat rv">
+      <div>
+        <div class="pbadge">⭐ Featured · 2026 · Personal Project</div>
+        <div class="ptitle">TaskFlow Backend API</div>
+        <p class="pdesc">A professional-grade task management REST API built from scratch with FastAPI. Full auth flow, team management, paginated CRUD — containerized and tested in production.</p>
+        <ul class="flist">
+          <li>JWT Authentication — secure register, login, protected routes</li>
+          <li>Password hashing with bcrypt via Passlib</li>
+          <li>Teams &amp; Tasks with ownership validation</li>
+          <li>Pagination and filtering on list endpoints</li>
+          <li>PostgreSQL + SQLAlchemy ORM + Alembic migrations</li>
+          <li>Dockerized with Docker Compose</li>
+          <li>Automated tests with Pytest (3 passed ✓)</li>
+          <li>Full API docs via Swagger / Redoc</li>
+        </ul>
+        <div class="tech-tags" style="margin-bottom:1.3rem">
+          <span class="ttag"><span class="ti">🐍</span>Python</span>
+          <span class="ttag"><span class="ti">⚡</span>FastAPI</span>
+          <span class="ttag"><span class="ti">🐘</span>PostgreSQL</span>
+          <span class="ttag"><span class="ti">🗃️</span>SQLAlchemy</span>
+          <span class="ttag"><span class="ti">🐳</span>Docker</span>
+          <span class="ttag"><span class="ti">🔐</span>JWT</span>
+          <span class="ttag"><span class="ti">🧪</span>Pytest</span>
         </div>
-        <div class="code-window">
-          <div class="code-bar">
-            <div class="code-dot" style="background:#ff5f57"></div>
-            <div class="code-dot" style="background:#febc2e"></div>
-            <div class="code-dot" style="background:#28c840"></div>
-            <span style="font-size:.68rem;color:#3a5a6a;margin-left:.5rem;font-family:'JetBrains Mono',monospace">taskflow / main.py</span>
-          </div>
-          <div class="code-body">
-<span class="cc"># TaskFlow Backend API</span>
+        <div class="plinks">
+          <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="plink">🐙 GitHub ↗</a>
+        </div>
+      </div>
+      <div class="cwin">
+        <div class="ctop">
+          <div class="cdot" style="background:#ff5f57"></div>
+          <div class="cdot" style="background:#febc2e"></div>
+          <div class="cdot" style="background:#28c840"></div>
+          <span class="cfn">taskflow / main.py</span>
+        </div>
+        <div class="cbody">
+<span class="cc"># TaskFlow Backend API v1.0</span>
 <span class="ck">from</span> <span class="cw">fastapi</span> <span class="ck">import</span> <span class="cw">FastAPI, Depends</span>
 <span class="ck">from</span> <span class="cw">app.routes</span> <span class="ck">import</span> <span class="cw">auth, team, task</span>
-<span class="ck">from</span> <span class="cw">app.auth.jwt_handler</span> <span class="ck">import</span> <span class="cw">get_current_user</span>
+<span class="ck">from</span> <span class="cw">app.core.auth</span> <span class="ck">import</span> <span class="cw">get_current_user</span>
 
-<span class="cw">app</span> <span class="cp">=</span> <span class="cf">FastAPI</span><span class="cw">(</span>
-  <span class="cw">title</span><span class="cp">=</span><span class="cs">"TaskFlow API"</span><span class="cw">,</span>
-  <span class="cw">version</span><span class="cp">=</span><span class="cs">"1.0.0"</span>
-<span class="cw">)</span>
+<span class="cw">app</span> <span class="cp">=</span> <span class="cf">FastAPI</span><span class="cw">(title=</span><span class="cs">"TaskFlow"</span><span class="cw">,</span>
+    <span class="cw">version=</span><span class="cs">"1.0.0"</span><span class="cw">)</span>
 
 <span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(auth.router)</span>
 <span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(team.router)</span>
 <span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(task.router)</span>
 
-<span class="cp">@app.</span><span class="cf">post</span><span class="cw">(</span><span class="cs">"/register"</span><span class="cw">)</span>
-<span class="ck">async def</span> <span class="cf">register</span><span class="cw">(data: UserCreate, db = </span><span class="cf">Depends</span><span class="cw">(get_db)):</span>
-  <span class="ck">return</span> <span class="ck">await</span> <span class="cf">create_user</span><span class="cw">(data, db)</span>
+<span class="cp">@app.</span><span class="cf">post</span><span class="cw">(</span><span class="cs">"/auth/login"</span><span class="cw">)</span>
+<span class="ck">async def</span> <span class="cf">login</span><span class="cw">(data: UserLogin,</span>
+    <span class="cw">db=</span><span class="cf">Depends</span><span class="cw">(get_db)):</span>
+  <span class="cw">user</span> <span class="cp">=</span> <span class="ck">await</span> <span class="cf">authenticate</span><span class="cw">(data, db)</span>
+  <span class="ck">return</span> <span class="cf">create_token</span><span class="cw">(user.id)</span>
 
 <span class="cp">@app.</span><span class="cf">get</span><span class="cw">(</span><span class="cs">"/tasks/"</span><span class="cw">)</span>
 <span class="ck">async def</span> <span class="cf">list_tasks</span><span class="cw">(</span>
-  <span class="cw">page: int</span> <span class="cp">=</span> <span class="cn">1</span><span class="cw">,</span>
-  <span class="cw">user</span> <span class="cp">=</span> <span class="cf">Depends</span><span class="cw">(get_current_user)</span>
-<span class="cw">):</span>
-  <span class="ck">return</span> <span class="ck">await</span> <span class="cf">get_tasks</span><span class="cw">(user.id, page)</span>
+    <span class="cw">page: int=</span><span class="cn2">1</span><span class="cw">,size: int=</span><span class="cn2">10</span><span class="cw">,</span>
+    <span class="cw">user=</span><span class="cf">Depends</span><span class="cw">(get_current_user)):</span>
+  <span class="ck">return</span> <span class="ck">await</span> <span class="cf">get_tasks</span><span class="cw">(user.id,page)</span>
 
-<span class="cc"># $ pytest → 3 passed ✓</span>
-          </div>
+<span class="cc"># $ pytest → 3 passed ✓ in 0.42s</span>
         </div>
       </div>
+    </div>
 
-      <!-- MINI PROJECTS -->
-      <div class="project-mini-grid">
-        <div class="project-card reveal">
-          <div class="project-num">02 — Learning</div>
-          <div class="project-title" style="font-size:1.1rem">Aprendiendo Python</div>
-          <p class="project-desc" style="font-size:.82rem">Python fundamentals, algorithms, and OOP exercises — the foundation behind all backend work.</p>
-          <div class="project-stack">
-            <span class="tag">Python</span><span class="tag">OOP</span><span class="tag">Algorithms</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Camilorc05-code/APRENDIENDO-PYTHON" target="_blank" class="project-link">GitHub ↗</a>
-          </div>
-        </div>
-        <div class="project-card reveal" style="border-style:dashed;opacity:.5">
-          <div class="project-num">03 — Coming Soon</div>
-          <div class="project-title" style="font-size:1.1rem;color:var(--text2)">Next Project</div>
-          <p class="project-desc" style="font-size:.82rem">Something new is being built. Follow on GitHub for updates.</p>
-          <div class="project-stack">
-            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span>
-          </div>
-        </div>
+    <div class="mini-g">
+      <div class="pmini rv">
+        <div class="pnum">02 — Learning Project · 2025</div>
+        <div class="pmt">Aprendiendo Python</div>
+        <p class="pmd">Python fundamentals, OOP, algorithms and data structures — the foundation behind all backend work.</p>
+        <div class="tech-tags"><span class="ttag"><span class="ti">🐍</span>Python</span><span class="ttag"><span class="ti">🏗️</span>OOP</span><span class="ttag"><span class="ti">🧮</span>Algorithms</span></div>
+        <div class="plinks" style="margin-top:.9rem"><a href="https://github.com/Camilorc05-code/APRENDIENDO-PYTHON" target="_blank" class="plink">🐙 GitHub ↗</a></div>
       </div>
-
+      <div class="pmini rv" style="border-style:dashed;opacity:.5">
+        <div class="pnum">03 — In Progress · 2026</div>
+        <div class="pmt" style="color:var(--txt2)">Next Project</div>
+        <p class="pmd">Building something new with Python, React and Vercel deployment. Stay tuned on GitHub.</p>
+        <div class="tech-tags"><span class="ttag"><span class="ti">🐍</span>Python</span><span class="ttag"><span class="ti">⚛️</span>React</span><span class="ttag"><span class="ti">▲</span>Vercel</span></div>
+      </div>
     </div>
   </div>
 </section>
-
 <hr class="fancy"/>
 
 <!-- EDUCATION -->
-<section class="section" id="education">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">// 04 — Education</div>
-      <h2>Academic <em>Background</em></h2>
-    </div>
-    <div class="edu-card reveal">
-      <div class="edu-icon">🎓</div>
+<section class="sec sec-alt" id="education">
+  <div class="si">
+    <div class="rv"><div class="eyebrow">04 — Education &amp; Skills</div><h2 class="sec-h">Academic <em>Background</em></h2></div>
+    <div class="edu-card rv">
+      <div class="edu-ico">🎓</div>
       <div>
-        <div class="edu-year">2020 — Present</div>
-        <div class="edu-degree">Systems Engineering</div>
-        <div class="edu-school">Universidad Nacional Abierta y a Distancia (UNAD) · Colombia</div>
-        <div class="edu-semester">8th Semester · In Progress</div>
+        <div class="edu-yr">2020 — Present</div>
+        <div class="edu-deg">Systems Engineering</div>
+        <div class="edu-sch">Universidad Nacional Abierta y a Distancia (UNAD) · Colombia</div>
+        <div class="edu-pill">8th Semester · In Progress</div>
       </div>
     </div>
-
     <div style="margin-top:3rem">
-      <div class="section-eyebrow" style="margin-bottom:1.5rem">Additional Skills</div>
-      <div class="additional-grid">
-        <div class="add-card reveal"><div class="add-icon">📐</div><div class="add-name">RESTful API Design</div><div class="add-sub">Best practices</div></div>
-        <div class="add-card reveal"><div class="add-icon">🗂️</div><div class="add-name">Database Design</div><div class="add-sub">Schema modeling</div></div>
-        <div class="add-card reveal"><div class="add-icon">📄</div><div class="add-name">API Documentation</div><div class="add-sub">Swagger / Redoc</div></div>
-        <div class="add-card reveal"><div class="add-icon">🔍</div><div class="add-name">Testing & Debugging</div><div class="add-sub">Quality first</div></div>
-        <div class="add-card reveal"><div class="add-icon">✨</div><div class="add-name">Clean Code</div><div class="add-sub">Maintainability</div></div>
-        <div class="add-card reveal"><div class="add-icon">🔀</div><div class="add-name">Version Control</div><div class="add-sub">Git & GitHub</div></div>
-        <div class="add-card reveal"><div class="add-icon">⚡</div><div class="add-name">Agile Methods</div><div class="add-sub">Basic knowledge</div></div>
-        <div class="add-card reveal"><div class="add-icon">🚀</div><div class="add-name">Deployment</div><div class="add-sub">Docker · Vercel</div></div>
+      <div class="eyebrow" style="font-size:.62rem;margin-bottom:0">Additional Technical Skills</div>
+      <div class="add-g">
+        <div class="acard rv"><div class="aico">📐</div><div class="atit">RESTful API Design</div><div class="asub">Best practices</div></div>
+        <div class="acard rv"><div class="aico">🗂️</div><div class="atit">Database Design</div><div class="asub">Schema modeling</div></div>
+        <div class="acard rv"><div class="aico">📄</div><div class="atit">API Docs</div><div class="asub">Swagger / Redoc</div></div>
+        <div class="acard rv"><div class="aico">🔍</div><div class="atit">Testing &amp; Debug</div><div class="asub">Quality first</div></div>
+        <div class="acard rv"><div class="aico">✨</div><div class="atit">Clean Code</div><div class="asub">Maintainability</div></div>
+        <div class="acard rv"><div class="aico">🔀</div><div class="atit">Version Control</div><div class="asub">Git &amp; GitHub</div></div>
+        <div class="acard rv"><div class="aico">⚡</div><div class="atit">Agile Methods</div><div class="asub">Basic knowledge</div></div>
+        <div class="acard rv"><div class="aico">🚀</div><div class="atit">Deployment</div><div class="asub">Docker · Vercel</div></div>
       </div>
     </div>
-
     <div style="margin-top:3rem">
-      <div class="section-eyebrow" style="margin-bottom:0">Soft Skills</div>
-      <div class="soft-grid">
-        <div class="soft-card reveal"><div class="soft-icon">🤝</div><div class="soft-name">Teamwork</div></div>
-        <div class="soft-card reveal"><div class="soft-icon">🧩</div><div class="soft-name">Problem Solving</div></div>
-        <div class="soft-card reveal"><div class="soft-icon">💬</div><div class="soft-name">Communication</div></div>
-        <div class="soft-card reveal"><div class="soft-icon">🔄</div><div class="soft-name">Adaptability</div></div>
-        <div class="soft-card reveal"><div class="soft-icon">✅</div><div class="soft-name">Responsibility</div></div>
-        <div class="soft-card reveal"><div class="soft-icon">📈</div><div class="soft-name">Continuous Learning</div></div>
-        <div class="soft-card reveal"><div class="soft-icon">💡</div><div class="soft-name">Self-Motivation</div></div>
-        <div class="soft-card reveal"><div class="soft-icon">⚡</div><div class="soft-name">Fast Learning</div></div>
+      <div class="eyebrow" style="font-size:.62rem;margin-bottom:0">Soft Skills</div>
+      <div class="soft-g">
+        <div class="scard rv"><div class="sico">🤝</div><div class="snm">Teamwork</div></div>
+        <div class="scard rv"><div class="sico">🧩</div><div class="snm">Problem Solving</div></div>
+        <div class="scard rv"><div class="sico">💬</div><div class="snm">Communication</div></div>
+        <div class="scard rv"><div class="sico">🔄</div><div class="snm">Adaptability</div></div>
+        <div class="scard rv"><div class="sico">✅</div><div class="snm">Responsibility</div></div>
+        <div class="scard rv"><div class="sico">📈</div><div class="snm">Continuous Learning</div></div>
+        <div class="scard rv"><div class="sico">💡</div><div class="snm">Self-Motivation</div></div>
+        <div class="scard rv"><div class="sico">⚡</div><div class="snm">Fast Learning</div></div>
       </div>
     </div>
   </div>
 </section>
-
 <hr class="fancy"/>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">// 05 — Contact</div>
-      <h2>Let's <em>Connect</em></h2>
-    </div>
-    <div class="contact-grid">
-      <div class="reveal">
-        <p class="contact-text">I'm actively looking for <strong style="color:var(--accent)">remote opportunities</strong> as a Backend Developer. If you're building something interesting with Python, FastAPI, or need someone who ships clean, tested code — let's talk. I reply fast.</p>
-        <div class="download-box">
+<section class="sec" id="contact">
+  <div class="si">
+    <div class="rv"><div class="eyebrow">05 — Contact</div><h2 class="sec-h">Let's <em>Connect</em></h2></div>
+    <div class="contact-g">
+      <div class="rvl">
+        <p class="cdesc">I'm actively looking for <strong>remote opportunities</strong> as a Backend Developer. If you're building something interesting with Python or FastAPI — or need someone who ships clean, tested code — reach out. I reply fast.</p>
+        <div class="clinks">
+          <a href="mailto:jhojancamilorodriguez2017@gmail.com" class="crow"><div class="cico">✉️</div><div><div class="clbl">Email</div><div class="cval">jhojancamilorodriguez2017@gmail.com</div></div></a>
+          <a href="https://www.linkedin.com/in/jhojan-camilo-rodr%C3%ADguez-casta%C3%B1eda-082a363a0" target="_blank" class="crow"><div class="cico">💼</div><div><div class="clbl">LinkedIn</div><div class="cval">Jhojan Camilo Rodríguez Castañeda</div></div></a>
+          <a href="https://github.com/Camilorc05-code" target="_blank" class="crow"><div class="cico">🐙</div><div><div class="clbl">GitHub</div><div class="cval">github.com/Camilorc05-code</div></div></a>
+          <a href="https://wa.me/573145125532" target="_blank" class="crow"><div class="cico">📱</div><div><div class="clbl">WhatsApp</div><div class="cval">+57 314 512 5532</div></div></a>
+        </div>
+        <div class="dl-box">
           <h3>📄 Download My CV</h3>
-          <p>Full resume with projects, skills and education</p>
-          <a href="#" class="btn btn-primary" id="cvDownload" style="display:inline-flex;margin:0 auto">⬇ Download CV (PDF)</a>
+          <p>Full resume — projects, skills &amp; education</p>
+          <a href="assets/CV.pdf" class="btn btn-primary btn-shine" id="box-dl" style="display:inline-flex;margin:0 auto">⬇ Download CV (PDF)</a>
         </div>
       </div>
-      <div class="contact-links reveal">
-        <a href="mailto:jhojancamilorodriguez2017@gmail.com" class="contact-link">
-          <div class="cl-icon">✉️</div>
-          <div><div class="cl-label">Email</div><div class="cl-value">jhojancamilorodriguez2017@gmail.com</div></div>
-        </a>
-        <a href="https://www.linkedin.com/in/jhojan-camilo-rodr%C3%ADguez-casta%C3%B1eda-082a363a0" target="_blank" class="contact-link">
-          <div class="cl-icon">💼</div>
-          <div><div class="cl-label">LinkedIn</div><div class="cl-value">Jhojan Camilo Rodríguez Castañeda</div></div>
-        </a>
-        <a href="https://github.com/Camilorc05-code" target="_blank" class="contact-link">
-          <div class="cl-icon">🐙</div>
-          <div><div class="cl-label">GitHub</div><div class="cl-value">github.com/Camilorc05-code</div></div>
-        </a>
-        <a href="https://wa.me/573145125532" target="_blank" class="contact-link">
-          <div class="cl-icon">📱</div>
-          <div><div class="cl-label">WhatsApp</div><div class="cl-value">+57 314 512 5532</div></div>
-        </a>
-        <a href="https://www.instagram.com/camilorc_05" target="_blank" class="contact-link">
-          <div class="cl-icon">📸</div>
-          <div><div class="cl-label">Instagram</div><div class="cl-value">@camilorc_05</div></div>
-        </a>
+
+      <!-- FORM — sends to Formspree -->
+      <div class="fw rvr">
+        <div class="ftit">Send Me a Message</div>
+        <div class="fsub">I'll get back to you within 24 hours.</div>
+        <form id="contact-form" action="https://formspree.io/f/mnjyjddp" method="POST" novalidate>
+          <div class="fgrid">
+            <div class="fg" id="fg-name">
+              <label class="flbl" for="f-name">Full Name *</label>
+              <input class="fi" id="f-name" name="name" type="text" placeholder="John Smith" autocomplete="name"/>
+              <div class="ferr">Please enter your name.</div>
+            </div>
+            <div class="fg" id="fg-email">
+              <label class="flbl" for="f-email">Email *</label>
+              <input class="fi" id="f-email" name="email" type="email" placeholder="john@company.com" autocomplete="email"/>
+              <div class="ferr">Please enter a valid email.</div>
+            </div>
+            <div class="fg full" id="fg-subject">
+              <label class="flbl" for="f-subject">Subject *</label>
+              <input class="fi" id="f-subject" name="subject" type="text" placeholder="Job opportunity / Project proposal..."/>
+              <div class="ferr">Please enter a subject.</div>
+            </div>
+            <div class="fg full" id="fg-msg">
+              <label class="flbl" for="f-msg">Message * <span class="char-c" id="charc">0 / 500</span></label>
+              <textarea class="fta" id="f-msg" name="message" placeholder="Tell me about the role, your company, or the project..." maxlength="500"></textarea>
+              <div class="ferr">Please write a message (min. 20 characters).</div>
+            </div>
+          </div>
+          <button type="submit" class="bsend" id="bsend">
+            <span class="btxt">🚀 Send Message</span>
+            <div class="spin"></div>
+          </button>
+          <div class="toast tok" id="tok"><span class="toast-ico">✅</span><span>Sent! I'll reply within 24h. Thank you!</span></div>
+          <div class="toast terr" id="terr"><span class="toast-ico">❌</span><span>Something went wrong. Please email me directly.</span></div>
+        </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">camilo<span>.dev</span></div>
-  <div class="footer-text">© 2026 Jhojan Camilo Rodríguez Castañeda · Backend Developer · Colombia 🇨🇴</div>
+  <div class="fi3">
+    <div class="flogo">camilo<span>.dev</span></div>
+    <div class="flinks">
+      <a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </div>
+    <div class="fcopy">© 2026 Jhojan Camilo Rodríguez · Colombia 🇨🇴</div>
+  </div>
 </footer>
 
-<script src="js/script.js"></script>
+<button id="btt">↑</button>
 
 </body>
 </html>
