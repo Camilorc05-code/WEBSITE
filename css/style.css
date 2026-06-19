@@ -801,61 +801,19 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   .float-br{display:none}
   .avail-badge{font-size:.58rem;padding:.3rem .8rem}
 }
-.skills-tabs{
-    display:flex;
-    gap:.8rem;
-    margin-bottom:2rem;
-    flex-wrap:wrap;
+.sk-pane {
+    display: none;
 }
 
-.sk-tab{
-    padding:.8rem 1.3rem;
-    border-radius:12px;
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    color:var(--txt2);
-    font-size:.85rem;
-    font-weight:600;
-    transition:all .3s ease;
-    backdrop-filter:blur(12px);
+.sk-pane.act {
+    display: block;
+}
+.sk-tab {
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.sk-tab:hover{
-    border-color:var(--acc);
-    color:var(--acc);
-    transform:translateY(-2px);
-}
-
-.sk-tab.act{
-    background:linear-gradient(
-        135deg,
-        var(--acc),
-        var(--blu)
-    );
-    color:#030a14;
-    border-color:transparent;
-    box-shadow:0 8px 25px var(--aglow);
-}
-.sk-pane{
-    display:none;
-    animation:fadeSkill .4s ease;
-}
-
-.sk-pane.act{
-    display:block;
-}
-
-@keyframes fadeSkill{
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-.skills-tabs{
-    justify-content:center;
-    margin-bottom:2.5rem;
+.sk-tab.act {
+    border-color: #6c63ff;
+    background: rgba(108,99,255,.1);
 }
