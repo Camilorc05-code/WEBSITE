@@ -266,6 +266,32 @@ function switchSk(index) {
     document.getElementById(`sk-${index}`)
         .classList.add('act');
 }
+/* ── Counter ── */
+function animN(el){
+  var t=parseInt(el.dataset.count);if(isNaN(t))return;
+  var s=0,d=1200,step=Math.max(16,d/t);
+  var tm=setInterval(function(){s++;el.textContent=s;if(s>=t)clearInterval(tm);},step);
+}
+
+/* ── Reveal ── */
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(!entry.isIntersecting)return;
+    var el=entry.target;
+    var sibs=el.parentElement.querySelectorAll('.rv,.rl,.rr');
+    var idx=0;sibs.forEach(function(s,i){if(s===el)idx=i;});
+    setTimeout(function(){
+      el.classList.add('in');
+      el.querySelectorAll('[data-count]').forEach(animN);
+    },idx*80);
+    obs.unobserve(el);
+  });
+},{threshold:0.08,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.rv,.rl,.rr').forEach(function(el){obs.observe(el);});
+
+/* ── Back to top ── */
+document.getElementById('btt').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
 /* ── Skill tabs ── */
 window.switchSk=function(i){
   document.querySelectorAll('.sk-tab').forEach(function(t){t.classList.remove('act');});
