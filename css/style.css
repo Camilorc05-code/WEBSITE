@@ -803,3 +803,103 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 .sk-bar-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--a),var(--blu));transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease) .2s;--w:0}
 .sk-pane.act .sk-bar-fill{transform:scaleX(1)}
 
+.sk-bar-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+.sk-bar-pct{
+    color:var(--pri);
+    font-weight:700;
+    font-size:.9rem;
+}
+
+.d{
+    display:none;
+}
+#skills{
+    padding-bottom:180px;
+}
+.sh{
+    font-size:4rem;
+    line-height:.95;
+    font-weight:900;
+    letter-spacing:-2px;
+}
+.sh em{
+    color:#00f5c0;
+    font-style:normal;
+}
+.sh em{
+    text-shadow:
+        0 0 15px rgba(0,245,192,.4),
+        0 0 30px rgba(0,245,192,.15);
+}
+.sk-pane{
+    opacity:0;
+    transform:translateY(15px);
+    pointer-events:none;
+
+    transition:
+      opacity .45s ease,
+      transform .45s ease;
+}
+
+.sk-pane.act{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+}
+.skt{
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+.skt:hover{
+    transform:translateY(-4px);
+
+    border-color:rgba(0,245,192,.5);
+
+    background:rgba(0,245,192,.08);
+
+    box-shadow:
+        0 8px 20px rgba(0,245,192,.15);
+}
+.skt span{
+    transition:
+      transform .3s ease;
+}
+
+.skt:hover span{
+    transform:scale(1.15);
+}
+.sk-tab{
+    transition:
+      transform .25s ease,
+      background .25s ease,
+      border-color .25s ease;
+}
+.sk-tab:hover{
+    transform:translateX(8px);
+}
+.sk-tab.act{
+    transform:translateX(10px);
+
+    box-shadow:
+      0 0 0 1px rgba(0,245,192,.3),
+      0 0 25px rgba(0,245,192,.12);
+}
+.sk-bar-fill{
+    background:linear-gradient(
+        90deg,
+        #00f5c0,
+        #38bdf8
+    );
+
+    box-shadow:
+      0 0 12px rgba(0,245,192,.4);
+}
