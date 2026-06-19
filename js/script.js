@@ -266,3 +266,18 @@ function switchSk(index) {
     document.getElementById(`sk-${index}`)
         .classList.add('act');
 }
+/* ── Skill tabs ── */
+window.switchSk=function(i){
+  document.querySelectorAll('.sk-tab').forEach(function(t){t.classList.remove('act');});
+  document.querySelectorAll('.sk-pane').forEach(function(p){p.classList.remove('act');});
+  document.querySelector('[data-sk="'+i+'"]').classList.add('act');
+  var pane=document.getElementById('sk-'+i);
+  pane.classList.add('act');
+  /* re-trigger bars */
+  pane.querySelectorAll('.sk-bar-fill').forEach(function(b){
+    b.style.transform='scaleX(0)';
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){var wv=b.style.getPropertyValue('--w')||b.getAttribute('style').match(/--w:([0-9.]+)/)?.[1]||'1';b.style.transform='scaleX('+wv+')';});
+    });
+  });
+};
