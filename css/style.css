@@ -803,6 +803,54 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 .sk-bar-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--a),var(--blu));transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease) .2s;--w:0}
 .sk-pane.act .sk-bar-fill{transform:scaleX(1)}
 
+/* =======================================================
+   SKILLS SECTION - FINAL POLISH
+======================================================= */
+
+#skills{
+    padding-top:120px;
+    padding-bottom:260px;
+}
+
+.d{
+    display:none;
+}
+
+/* ================= TITLE ================= */
+
+.ey{
+    color:#22f5ff;
+    font-size:.78rem;
+    letter-spacing:4px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.sh{
+    font-size:4.6rem;
+    line-height:.88;
+    font-weight:900;
+    letter-spacing:-3px;
+
+    color:#dbeafe;
+
+    margin:0 0 70px;
+
+    text-shadow:
+        0 2px 8px rgba(255,255,255,.05);
+}
+
+.sh em{
+    font-style:normal;
+    color:#22f5ff;
+
+    text-shadow:
+        0 0 12px rgba(34,245,255,.25);
+}
+
+/* ================= PROGRESS BARS ================= */
+
 .sk-bar-top{
     display:flex;
     justify-content:space-between;
@@ -811,89 +859,23 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 }
 
 .sk-bar-pct{
-    color:var(--pri);
+    color:#22f5ff;
     font-weight:700;
     font-size:.9rem;
 }
 
-.d{
-    display:none;
-}
-#skills{
-    padding-bottom:180px;
-}
-.sh{
-    font-size:4rem;
-    line-height:.95;
-    font-weight:900;
-    letter-spacing:-2px;
-}
-.sh em{
-    color:#00f5c0;
-    font-style:normal;
-}
-.sh em{
-    text-shadow:
-        0 0 15px rgba(0,245,192,.4),
-        0 0 30px rgba(0,245,192,.15);
-}
-.sk-pane{
-    opacity:0;
-    transform:translateY(15px);
-    pointer-events:none;
-
-    transition:
-      opacity .45s ease,
-      transform .45s ease;
+.sk-bar-track{
+    height:5px;
+    border-radius:999px;
+    overflow:hidden;
+    background:rgba(255,255,255,.06);
 }
 
-.sk-pane.act{
-    opacity:1;
-    transform:translateY(0);
-    pointer-events:auto;
-}
-.skt{
-    transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease,
-        box-shadow .25s ease;
-}
-.skt:hover{
-    transform:translateY(-4px);
-
-    border-color:rgba(0,245,192,.5);
-
-    background:rgba(0,245,192,.08);
-
-    box-shadow:
-        0 8px 20px rgba(0,245,192,.15);
-}
-.skt span{
-    transition:
-      transform .3s ease;
-}
-
-.skt:hover span{
-    transform:scale(1.15);
-}
-.sk-tab{
-    transition:
-      transform .25s ease,
-      background .25s ease,
-      border-color .25s ease;
-}
-.sk-tab:hover{
-    transform:translateX(8px);
-}
-.sk-tab.act{
-    transform:translateX(10px);
-
-    box-shadow:
-      0 0 0 1px rgba(0,245,192,.3),
-      0 0 25px rgba(0,245,192,.12);
-}
 .sk-bar-fill{
+    height:100%;
+    width:calc(var(--w) * 100%);
+    border-radius:999px;
+
     background:linear-gradient(
         90deg,
         #00f5c0,
@@ -901,5 +883,138 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
     );
 
     box-shadow:
-      0 0 12px rgba(0,245,192,.4);
+        0 0 12px rgba(0,245,192,.4);
+
+    transition:
+        width .9s cubic-bezier(.22,1,.36,1);
+}
+
+/* ================= PANELS ================= */
+
+.sk-panel{
+    position:relative;
+}
+
+.sk-pane{
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+        translateY(20px)
+        scale(.98);
+
+    transition:
+        opacity .45s ease,
+        transform .45s ease,
+        visibility .45s;
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+}
+
+.sk-pane.act{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    position:relative;
+    pointer-events:auto;
+}
+
+/* ================= LEFT MENU ================= */
+
+.sk-tab{
+    transition:
+        all .35s cubic-bezier(.22,1,.36,1);
+}
+
+.sk-tab:hover{
+    transform:translateX(6px);
+}
+
+.sk-tab.act{
+    transform:translateX(10px);
+
+    border-color:#00f5ff;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(34,245,255,.12),
+            rgba(34,245,255,.04)
+        );
+
+    box-shadow:
+        0 0 25px rgba(34,245,255,.08);
+}
+
+/* ================= TECH BADGES ================= */
+
+.skt{
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:
+        all .35s cubic-bezier(.22,1,.36,1);
+}
+
+.skt:hover{
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    border-color:#22f5ff;
+
+    background:rgba(34,245,255,.08);
+
+    box-shadow:
+        0 10px 25px rgba(34,245,255,.15);
+}
+
+.skt span{
+    transition:transform .35s ease;
+}
+
+.skt:hover span{
+    transform:scale(1.15);
+}
+
+/* ================= CONTENT AREA ================= */
+
+.sk-pane-head{
+    margin-bottom:24px;
+}
+
+.sk-techs{
+    margin-bottom:30px;
+}
+
+.sk-desc{
+    margin-bottom:34px;
+    line-height:1.9;
+    color:rgba(255,255,255,.72);
+    max-width:700px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:1000px){
+
+    #skills{
+        padding-top:100px;
+        padding-bottom:140px;
+    }
+
+    .sh{
+        font-size:3.4rem;
+        margin-bottom:50px;
+    }
+
+    .sk-tab.act{
+        transform:none;
+    }
 }
