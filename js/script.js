@@ -249,3 +249,20 @@ if(form)form.addEventListener('submit',function(e){
   draw();
 })();
 
+function switchSk(index) {
+    // Tabs
+    document.querySelectorAll('.sk-tab').forEach(tab => {
+        tab.classList.remove('act');
+    });
+
+    document.querySelector(`.sk-tab[data-sk="${index}"]`)
+        .classList.add('act');
+
+    // Panels
+    document.querySelectorAll('.sk-pane').forEach(pane => {
+        pane.classList.remove('act');
+    });
+
+    document.getElementById(`sk-${index}`)
+        .classList.add('act');
+}

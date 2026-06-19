@@ -801,3 +801,19 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   .float-br{display:none}
   .avail-badge{font-size:.58rem;padding:.3rem .8rem}
 }
+.sk-pane {
+    display: none;
+}
+
+.sk-pane.act {
+    display: block;
+}
+.sk-tab {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sk-tab.act {
+    border-color: #6c63ff;
+    background: rgba(108,99,255,.1);
+}
