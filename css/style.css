@@ -1044,3 +1044,10 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   .mini-g{grid-template-columns:1fr 1fr;}
   .add-g,.soft-g{grid-template-columns:repeat(4,1fr);}
 }
+#projects,
+#education,
+#skills,
+#contact{
+    width:100%;
+    max-width:none;
+}
