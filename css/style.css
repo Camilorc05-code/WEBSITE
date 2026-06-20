@@ -1000,22 +1000,5 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
     max-width:700px;
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width:768px){   /* antes estaba en 1000px */
-
-  #skills{
-    padding-top:100px;
-    padding-bottom:140px;
-  }
-
-  .sh{
-    font-size:2.4rem;   /* más pequeño en móvil */
-    margin-bottom:40px;
-  }
-
-  .sk-tab.act{
-    transform:none;
-  }
-}
 
 
