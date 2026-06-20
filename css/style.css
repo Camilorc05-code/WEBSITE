@@ -1073,3 +1073,32 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 #projects.sec {
   padding-top: 4rem; /* antes 6.5rem */
 }
+/* Hero responsive fix */
+@media(max-width:768px){
+  .hero-inner {
+    grid-template-columns: 1fr;   /* una sola columna */
+    gap: 2rem;
+  }
+
+  .photo-panel {
+    max-width: 100%;              /* ocupa todo el ancho */
+    margin: 0 auto;
+  }
+
+  .photo-card img {
+    height: auto;                 /* elimina altura fija */
+    max-height: 380px;            /* límite opcional */
+    object-fit: cover;            /* mantiene estilo */
+    object-position: center;      /* centra mejor la foto */
+  }
+
+  h1.hero-h {
+    font-size: 2.2rem;            /* reduce título */
+    line-height: 1.1;
+  }
+
+  .hero-desc {
+    font-size: .9rem;
+    line-height: 1.6;
+  }
+}
