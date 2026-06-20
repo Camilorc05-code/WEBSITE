@@ -720,7 +720,7 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 /* =====================================================
    RESPONSIVE
    ===================================================== */
-@media(max-width:1100px){
+@media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:3rem}
   .photo-panel{max-width:360px}
   .about-grid,.contact-g{grid-template-columns:1fr;gap:2.5rem}
@@ -731,6 +731,7 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   #hamburger{display:flex}
   .nav-cv{display:none}
 }
+
 @media(max-width:768px){
   .sec{padding:5rem 5%}
   .sk-grid{grid-template-columns:1fr 1fr}
