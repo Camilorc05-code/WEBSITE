@@ -1018,3 +1018,10 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
         transform:none;
     }
 }
+@media (min-width:1001px){
+  #skills, .sec, .si {
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
