@@ -720,6 +720,8 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 /* =====================================================
    RESPONSIVE
    ===================================================== */
+
+/* Tablets grandes y medianas */
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:3rem}
   .photo-panel{max-width:360px}
@@ -732,6 +734,7 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   .nav-cv{display:none}
 }
 
+/* Móviles */
 @media(max-width:768px){
   .sec{padding:5rem 5%}
   .sk-grid{grid-template-columns:1fr 1fr}
@@ -746,12 +749,15 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   .hero-stats{gap:1.5rem}
   #noise-overlay{display:none}
 }
+
+/* Pantallas muy pequeñas */
 @media(max-width:480px){
   .sk-grid,.add-g,.soft-g{grid-template-columns:1fr 1fr}
   h1.hero-h{font-size:2.5rem}
   .float-br{display:none}
   .avail-badge{font-size:.58rem;padding:.3rem .8rem}
 }
+
 /* ═══════════════════════════════════════════════
    SKILLS — HORIZONTAL TABS + DETAIL PANEL
 ═══════════════════════════════════════════════ */
@@ -1001,5 +1007,22 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
     max-width:700px;
 }
 
+/* ================= RESPONSIVE ================= */
 
+@media (max-width:1000px){
+
+    #skills{
+        padding-top:100px;
+        padding-bottom:140px;
+    }
+
+    .sh{
+        font-size:3.4rem;
+        margin-bottom:50px;
+    }
+
+    .sk-tab.act{
+        transform:none;
+    }
+}
 
