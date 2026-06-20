@@ -769,11 +769,11 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 .sk-tab-txt .tt{font-weight:600;font-size:.85rem;display:block}
 .sk-tab-txt .ts{font-size:.65rem;color:var(--txt3);font-family:"JetBrains Mono",monospace}
 .sk-tab.act .ts{color:var(--a);opacity:.7}
-
+ 
 /* Active indicator bar on left */
 .sk-tab.act{position:relative}
 .sk-tab.act::before{content:"";position:absolute;left:-1px;top:20%;bottom:20%;width:2px;background:var(--a);border-radius:2px}
-
+ 
 .sk-panel{flex:1;min-height:320px;position:relative}
 .sk-pane{position:absolute;inset:0;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
 .sk-pane.act{opacity:1;transform:translateY(0);pointer-events:auto;position:relative}
@@ -792,7 +792,7 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 }
 .skt:hover{background:var(--adim);border-color:rgba(0,255,204,.3);color:var(--a);transform:translateY(-3px);box-shadow:0 4px 16px var(--adim)}
 .sk-desc{color:var(--txt2);font-size:.88rem;line-height:1.85;max-width:520px}
-
+ 
 /* Proficiency bars */
 .sk-bars{margin-top:1.5rem;display:flex;flex-direction:column;gap:.85rem}
 .sk-bar{display:flex;flex-direction:column;gap:.35rem}
