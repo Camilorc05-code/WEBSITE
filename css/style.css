@@ -1052,29 +1052,24 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
     max-width:none;
 }
 
+/* Ajuste de espacio entre Skills y Projects */
+#skills {
+  padding-bottom: 120px; /* antes 260px */
+}
+
 @media(max-width:900px){
-  .sec {
-    padding: 4rem 5% 3rem; /* menos espacio abajo */
-  }
-  #projects {
-    padding-bottom: 3rem; /* evita hueco grande */
-  }
-  #education {
-    padding-bottom: 3rem;
-  }
-  #contact {
-    padding-bottom: 3rem;
+  #skills {
+    padding-bottom: 80px; /* menos espacio en tablet */
   }
 }
 
 @media(max-width:768px){
-  .sec {
-    padding: 3.5rem 5% 2.5rem;
+  #skills {
+    padding-bottom: 60px; /* menos espacio en móvil */
   }
-  .proj-feat {
-    margin-bottom: 1.2rem; /* reduce separación */
-  }
-  .mini-g {
-    gap: 1rem; /* menos espacio entre tarjetas */
-  }
+}
+
+/* Projects: reducir espacio superior */
+#projects.sec {
+  padding-top: 4rem; /* antes 6.5rem */
 }
