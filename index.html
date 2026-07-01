@@ -403,16 +403,16 @@
 
 
 <!-- PROJECTS -->
-<section class="S" id="projects">
+<section class="sec" id="projects">
   <div class="si">
-    <div class="rv"><div class="ey">03 — Projects</div><h2 class="sh">Featured <em>Work</em></h2></div>
-    <div class="pf rv">
+    <div class="rv"><div class="eyebrow">03 — Projects</div><h2 class="sec-h">Featured <em>Work</em></h2></div>
+    <div class="proj-feat rv">
       <div>
-        <div class="pbadge">⭐ Featured · 2026 · Backend API</div>
-        <div class="ptit">TaskFlow Backend API</div>
-        <p class="pdesc">A professional-grade task management REST API built with FastAPI — full auth, team management, paginated CRUD, Dockerized and tested. Paired with a React frontend (see project 03).</p>
-        <ul class="fl">
-          <li>JWT Authentication — register, login, protected routes</li>
+        <div class="pbadge">⭐ Featured · 2026 · Personal Project</div>
+        <div class="ptitle">TaskFlow Backend API</div>
+        <p class="pdesc">A professional-grade task management REST API built from scratch with FastAPI. Full auth flow, team management, paginated CRUD — containerized and tested in production.</p>
+        <ul class="flist">
+          <li>JWT Authentication — secure register, login, protected routes</li>
           <li>Password hashing with bcrypt via Passlib</li>
           <li>Teams &amp; Tasks with ownership validation</li>
           <li>Pagination and filtering on list endpoints</li>
@@ -421,262 +421,265 @@
           <li>Automated tests with Pytest (3 passed ✓)</li>
           <li>Full API docs via Swagger / Redoc</li>
         </ul>
-        <div class="sk-tags" style="margin-bottom:1.3rem"><span class="skt">🐍 Python</span><span class="skt">⚡ FastAPI</span><span class="skt">🐘 PostgreSQL</span><span class="skt">🗃️ SQLAlchemy</span><span class="skt">🐳 Docker</span><span class="skt">🔐 JWT</span><span class="skt">🧪 Pytest</span></div>
-        <div class="plnks"><a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="plnk">🐙 GitHub ↗</a></div>
+        <div class="tech-tags" style="margin-bottom:1.3rem">
+          <span class="ttag"><span class="ti">🐍</span>Python</span>
+          <span class="ttag"><span class="ti">⚡</span>FastAPI</span>
+          <span class="ttag"><span class="ti">🐘</span>PostgreSQL</span>
+          <span class="ttag"><span class="ti">🗃️</span>SQLAlchemy</span>
+          <span class="ttag"><span class="ti">🐳</span>Docker</span>
+          <span class="ttag"><span class="ti">🔐</span>JWT</span>
+          <span class="ttag"><span class="ti">🧪</span>Pytest</span>
+        </div>
+        <div class="plinks">
+          <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="plink">🐙 GitHub ↗</a>
+        </div>
       </div>
       <div class="cwin">
-        <div class="ctop"><div class="cdot" style="background:#ff5f57"></div><div class="cdot" style="background:#febc2e"></div><div class="cdot" style="background:#28c840"></div><span class="cfn">taskflow / main.py</span></div>
+        <div class="ctop">
+          <div class="cdot" style="background:#ff5f57"></div>
+          <div class="cdot" style="background:#febc2e"></div>
+          <div class="cdot" style="background:#28c840"></div>
+          <span class="cfn">taskflow / main.py</span>
+        </div>
         <div class="cbody">
 <span class="cc"># TaskFlow Backend API v1.0</span>
 <span class="ck">from</span> <span class="cw">fastapi</span> <span class="ck">import</span> <span class="cw">FastAPI, Depends</span>
 <span class="ck">from</span> <span class="cw">app.routes</span> <span class="ck">import</span> <span class="cw">auth, team, task</span>
 <span class="ck">from</span> <span class="cw">app.core.auth</span> <span class="ck">import</span> <span class="cw">get_current_user</span>
 
-<span class="cw">app</span> <span class="cp">=</span> <span class="cf">FastAPI</span><span class="cw">(title=</span><span class="cs">"TaskFlow"</span><span class="cw">)</span>
+<span class="cw">app</span> <span class="cp">=</span> <span class="cf">FastAPI</span><span class="cw">(title=</span><span class="cs">"TaskFlow"</span><span class="cw">,</span>
+    <span class="cw">version=</span><span class="cs">"1.0.0"</span><span class="cw">)</span>
+
 <span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(auth.router)</span>
 <span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(team.router)</span>
 <span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(task.router)</span>
 
 <span class="cp">@app.</span><span class="cf">post</span><span class="cw">(</span><span class="cs">"/auth/login"</span><span class="cw">)</span>
-<span class="ck">async def</span> <span class="cf">login</span><span class="cw">(data: LoginSchema,</span>
+<span class="ck">async def</span> <span class="cf">login</span><span class="cw">(data: UserLogin,</span>
     <span class="cw">db=</span><span class="cf">Depends</span><span class="cw">(get_db)):</span>
   <span class="cw">user</span> <span class="cp">=</span> <span class="ck">await</span> <span class="cf">authenticate</span><span class="cw">(data, db)</span>
-  <span class="ck">return</span> <span class="cf">create_jwt</span><span class="cw">(user.id)</span>
+  <span class="ck">return</span> <span class="cf">create_token</span><span class="cw">(user.id)</span>
 
 <span class="cp">@app.</span><span class="cf">get</span><span class="cw">(</span><span class="cs">"/tasks/"</span><span class="cw">)</span>
 <span class="ck">async def</span> <span class="cf">list_tasks</span><span class="cw">(</span>
-    <span class="cw">page:</span><span class="cn">int</span><span class="cw">=</span><span class="cn">1</span><span class="cw">, u=</span><span class="cf">Depends</span><span class="cw">(get_current_user)):</span>
-  <span class="ck">return</span> <span class="ck">await</span> <span class="cf">get_tasks</span><span class="cw">(u.id, page)</span>
+    <span class="cw">page: int=</span><span class="cn2">1</span><span class="cw">,size: int=</span><span class="cn2">10</span><span class="cw">,</span>
+    <span class="cw">user=</span><span class="cf">Depends</span><span class="cw">(get_current_user)):</span>
+  <span class="ck">return</span> <span class="ck">await</span> <span class="cf">get_tasks</span><span class="cw">(user.id,page)</span>
 
-<span class="cc"># pytest → 3 passed ✓ in 0.42s</span>
+<span class="cc"># $ pytest → 3 passed ✓ in 0.42s</span>
         </div>
       </div>
     </div>
-    <div class="mg">
-      <div class="pm rv">
-        <div class="pnum">02 — Learning · 2025</div>
+
+    <div class="proj-feat rv">
+  <div>
+    <div class="pbadge">⭐ Featured · 2026 · Personal Project</div>
+    <div class="ptitle">TaskFlow Frontend</div>
+    <p class="pdesc">React frontend for the TaskFlow API — task management UI with authentication, protected routes, and full integration with the FastAPI backend.</p>
+    <ul class="flist">
+      <li>Authentication with protected routes</li>
+      <li>Integration with FastAPI backend</li>
+      <li>Responsive design for desktop & mobile</li>
+      <li>Deployment on Vercel</li>
+    </ul>
+    <div class="tech-tags" style="margin-bottom:1.3rem">
+      <span class="ttag"><span class="ti">⚛️</span>React</span>
+      <span class="ttag"><span class="ti">⚡</span>JavaScript</span>
+      <span class="ttag"><span class="ti">🔗</span>API Integration</span>
+      <span class="ttag"><span class="ti">🔐</span>Auth</span>
+      <span class="ttag"><span class="ti">📱</span>Responsive</span>
+      <span class="ttag"><span class="ti">▲</span>Vercel</span>
+    </div>
+    <div class="plinks">
+      <a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="plink">🐙 GitHub ↗</a>
+    </div>
+  </div>
+  <div class="cwin">
+    <div class="ctop">
+      <div class="cdot" style="background:#ff5f57"></div>
+      <div class="cdot" style="background:#febc2e"></div>
+      <div class="cdot" style="background:#28c840"></div>
+      <span class="cfn">taskflow-frontend / App.jsx</span>
+    </div>
+    <div class="cbody">
+<span class="cc">// TaskFlow Frontend v1.0</span>
+<span class="ck">import</span> <span class="cw">React</span> <span class="ck">from</span> <span class="cs">'react'</span>;
+<span class="ck">import</span> <span class="cw">{ BrowserRouter, Route }</span> <span class="ck">from</span> <span class="cs">'react-router-dom'</span>;
+
+<span class="ck">function</span> <span class="cf">App</span>() {
+  <span class="ck">return</span> (
+    <span class="cw">&lt;BrowserRouter&gt;</span>
+      <span class="cw">&lt;Route path="/login" component={Login} /&gt;</span>
+      <span class="cw">&lt;Route path="/tasks" component={TaskList} /&gt;</span>
+    <span class="cw">&lt;/BrowserRouter&gt;</span>
+  );
+}
+
+<span class="ck">export default</span> <span class="cf">App</span>;
+    </div>
+  </div>
+</div>
+
+
+    <div class="mini-g">
+      <div class="pmini rv">
+        <div class="pnum">02 — Learning Project · 2025</div>
         <div class="pmt">Aprendiendo Python</div>
-        <p class="pmd">Python fundamentals, OOP, algorithms — the foundation behind all backend work.</p>
-        <div class="sk-tags"><span class="skt">🐍 Python</span><span class="skt">🏗️ OOP</span><span class="skt">🧮 Algorithms</span></div>
-        <div class="plnks" style="margin-top:.85rem"><a href="https://github.com/Camilorc05-code/APRENDIENDO-PYTHON" target="_blank" class="plnk">🐙 GitHub ↗</a></div>
+        <p class="pmd">Python fundamentals, OOP, algorithms and data structures — the foundation behind all backend work.</p>
+        <div class="tech-tags"><span class="ttag"><span class="ti">🐍</span>Python</span><span class="ttag"><span class="ti">🏗️</span>OOP</span><span class="ttag"><span class="ti">🧮</span>Algorithms</span></div>
+        <div class="plinks" style="margin-top:.9rem"><a href="https://github.com/Camilorc05-code/APRENDIENDO-PYTHON" target="_blank" class="plink">🐙 GitHub ↗</a></div>
       </div>
-      <div class="pm rv">
-        <div class="pnum">03 — Personal Project · 2026</div>
-        <div class="pmt">TaskFlow Frontend</div>
-        <p class="pmd">React frontend for the TaskFlow API — task management UI with authentication, protected routes, and full integration with the FastAPI backend.</p>
-        <div class="sk-tags"><span class="skt">⚛️ React</span><span class="skt">⚡ JavaScript</span><span class="skt">🔗 API Integration</span><span class="skt">🔐 Auth</span><span class="skt">▲ Vercel</span></div>
-        <div class="plnks" style="margin-top:.85rem"><a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="plnk">🐙 GitHub ↗</a></div>
+      <div class="pmini rv" style="border-style:dashed;opacity:.5">
+        <div class="pnum">03 — In Progress · 2026</div>
+        <div class="pmt" style="color:var(--txt2)">Next Project</div>
+        <p class="pmd">Building something new with Python, React and Vercel deployment. Stay tuned on GitHub.</p>
+        <div class="tech-tags"><span class="ttag"><span class="ti">🐍</span>Python</span><span class="ttag"><span class="ti">⚛️</span>React</span><span class="ttag"><span class="ti">▲</span>Vercel</span></div>
+      </div>
+    </div>
+    <div class="tf-showcase rv">
+  <div class="tf-head">
+    <div class="tf-head-left">
+      <div class="tf-live-chip"><span class="tf-live-dot"></span>Live on Vercel</div>
+      <div class="tf-title">TaskFlow — Full Stack App</div>
+      <div class="tf-sub">FastAPI + PostgreSQL + React · Jira-style project management</div>
+    </div>
+    <div class="tf-head-btns">
+      <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="tf-btn-secondary">🐙 Backend</a>
+      <a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="tf-btn-secondary">🐙 Frontend</a>
+      <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" class="tf-btn-primary">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Open Live App ↗
+      </a>
+    </div>
+  </div>
+ 
+  <div class="tf-browser">
+    <div class="tf-browser-bar">
+      <div class="tf-dots">
+        <span style="background:#ff5f57"></span>
+        <span style="background:#febc2e"></span>
+        <span style="background:#28c840"></span>
+      </div>
+      <div class="tf-url-bar">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="color:#4ade80">taskflow-frontend-taupe.vercel.app</span>
+        <span style="margin-left:auto;font-size:.58rem;color:rgba(74,222,128,.5)">↗ Click to open</span>
+      </div>
+      <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" style="display:flex;align-items:center;color:#4ade80;opacity:.6;transition:opacity .2s" title="Open in new tab">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+ 
+    <div class="tf-kanban">
+      <div class="tf-sidebar">
+        <div class="tf-sidebar-logo">⚡ TaskFlow</div>
+        <div class="tf-nav tf-act">📋 Dashboard</div>
+        <div class="tf-nav">✅ My Tasks</div>
+        <div class="tf-nav">👥 Teams</div>
+        <div class="tf-nav">📊 Analytics</div>
+        <div class="tf-nav">🔔 Notifications</div>
+        <div class="tf-nav">⚙️ Settings</div>
+        <div class="tf-sidebar-footer">
+          <div class="tf-avatar">CR</div>
+          <span>Camilo R.</span>
+        </div>
+      </div>
+ 
+      <div class="tf-main">
+        <div class="tf-topbar">
+          <div class="tf-board-title">
+            🚀 TaskFlow Project
+            <span class="tf-sprint">Sprint 3 · 10 tasks</span>
+          </div>
+          <div class="tf-topbar-btns">
+            <div class="tf-sm-btn">Filter</div>
+            <div class="tf-sm-btn">Group by</div>
+            <div class="tf-sm-btn tf-primary-btn">+ Add Task</div>
+            <div class="tf-avatar" style="width:26px;height:26px;font-size:.62rem">CR</div>
+          </div>
+        </div>
+ 
+        <div class="tf-board">
+          <div class="tf-col">
+            <div class="tf-col-header"><span>🔵 To Do</span><span class="tf-col-count">3</span></div>
+            <div class="tf-card tf-card-todo">
+              <div class="tf-card-title">Setup CI/CD pipeline</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-blue">DevOps</span><span class="tf-tag">P2</span></div>
+            </div>
+            <div class="tf-card tf-card-todo">
+              <div class="tf-card-title">Write integration tests</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-purple">Testing</span><span class="tf-tag">P1</span></div>
+            </div>
+            <div class="tf-card tf-card-todo">
+              <div class="tf-card-title">API rate limiting</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-red">Security</span></div>
+            </div>
+          </div>
+ 
+          <div class="tf-col">
+            <div class="tf-col-header"><span>🟡 In Progress</span><span class="tf-col-count">4</span></div>
+            <div class="tf-card tf-card-prog">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
+                <span class="tf-active-indicator"></span>JWT Authentication
+              </div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-red">Security</span><span class="tf-tag tf-tag-yellow">P1</span></div>
+              <div class="tf-card-progress"><div class="tf-card-prog-fill" style="width:75%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div>
+            </div>
+            <div class="tf-card tf-card-prog">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
+                <span class="tf-active-indicator" style="background:#60a5fa;box-shadow:none"></span>React dashboard UI
+              </div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-blue">Frontend</span></div>
+              <div class="tf-card-progress"><div class="tf-card-prog-fill" style="width:50%;background:linear-gradient(90deg,#60a5fa,#3b82f6)"></div></div>
+            </div>
+            <div class="tf-card tf-card-prog">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
+                <span class="tf-active-indicator" style="background:#a78bfa;box-shadow:none"></span>Pagination endpoints
+              </div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-purple">Backend</span></div>
+              <div class="tf-card-progress"><div class="tf-card-prog-fill" style="width:30%;background:linear-gradient(90deg,#a78bfa,#8b5cf6)"></div></div>
+            </div>
+          </div>
+ 
+          <div class="tf-col">
+            <div class="tf-col-header"><span>🟢 Done</span><span class="tf-col-count">5</span></div>
+            <div class="tf-card tf-card-done">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem"><span class="tf-done-check">✓</span>REST API v1.0</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-green">FastAPI</span></div>
+            </div>
+            <div class="tf-card tf-card-done">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem"><span class="tf-done-check">✓</span>PostgreSQL schema</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-green">Database</span></div>
+            </div>
+            <div class="tf-card tf-card-done">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem"><span class="tf-done-check">✓</span>Docker Compose setup</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-green">DevOps</span></div>
+            </div>
+            <div class="tf-card tf-card-done">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem"><span class="tf-done-check">✓</span>User auth flow</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-green">Security</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- TASKFLOW LIVE SHOWCASE -->
-  <div class="tf-showcase rv" style="margin-top:2.5rem">
-
-    <!-- Header bar -->
-    <div class="tf-head">
-      <div class="tf-head-left">
-        <div class="tf-live-chip">
-          <span class="tf-live-dot"></span>
-          Live on Vercel
-        </div>
-        <div class="tf-title">TaskFlow — Full Stack App</div>
-        <div class="tf-sub">FastAPI + PostgreSQL + React · Jira-style project management</div>
-      </div>
-      <div class="tf-head-btns">
-        <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="tf-btn-secondary">
-          🐙 Backend
-        </a>
-        <a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="tf-btn-secondary">
-          🐙 Frontend
-        </a>
-        <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" class="tf-btn-primary">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Open Live App ↗
-        </a>
-      </div>
-    </div>
-
-    <!-- Browser chrome + animated kanban -->
-    <div class="tf-browser">
-      <div class="tf-browser-bar">
-        <div class="tf-dots">
-          <span style="background:#ff5f57"></span>
-          <span style="background:#febc2e"></span>
-          <span style="background:#28c840"></span>
-        </div>
-        <div class="tf-url-bar">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span style="color:#4ade80">taskflow-frontend-taupe.vercel.app</span>
-          <span style="margin-left:auto;font-size:.58rem;color:rgba(74,222,128,.5)">↗ Click to open</span>
-        </div>
-        <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" style="display:flex;align-items:center;color:#4ade80;opacity:.6;transition:opacity .2s" title="Open in new tab">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </a>
-      </div>
-
-      <!-- Animated App UI -->
-      <div class="tf-kanban">
-        <!-- Sidebar -->
-        <div class="tf-sidebar">
-          <div class="tf-sidebar-logo">⚡ TaskFlow</div>
-          <div class="tf-nav tf-act">📋 Dashboard</div>
-          <div class="tf-nav">✅ My Tasks</div>
-          <div class="tf-nav">👥 Teams</div>
-          <div class="tf-nav">📊 Analytics</div>
-          <div class="tf-nav">🔔 Notifications</div>
-          <div class="tf-nav">⚙️ Settings</div>
-          <div class="tf-sidebar-footer">
-            <div class="tf-avatar">CR</div>
-            <span>Camilo R.</span>
-          </div>
-        </div>
-
-        <!-- Main -->
-        <div class="tf-main">
-          <div class="tf-topbar">
-            <div class="tf-board-title">
-              🚀 TaskFlow Project
-              <span class="tf-sprint">Sprint 3 · 10 tasks</span>
-            </div>
-            <div class="tf-topbar-btns">
-              <div class="tf-sm-btn">Filter</div>
-              <div class="tf-sm-btn">Group by</div>
-              <div class="tf-sm-btn tf-primary-btn">+ Add Task</div>
-              <div class="tf-avatar" style="width:26px;height:26px;font-size:.62rem">CR</div>
-            </div>
-          </div>
-
-          <div class="tf-board">
-            <!-- TO DO -->
-            <div class="tf-col">
-              <div class="tf-col-header">
-                <span>🔵 To Do</span>
-                <span class="tf-col-count">3</span>
-              </div>
-              <div class="tf-card tf-card-todo">
-                <div class="tf-card-title">Setup CI/CD pipeline</div>
-                <div class="tf-card-meta">
-                  <span class="tf-tag tf-tag-blue">DevOps</span>
-                  <span class="tf-tag">P2</span>
-                </div>
-              </div>
-              <div class="tf-card tf-card-todo">
-                <div class="tf-card-title">Write integration tests</div>
-                <div class="tf-card-meta">
-                  <span class="tf-tag tf-tag-purple">Testing</span>
-                  <span class="tf-tag">P1</span>
-                </div>
-              </div>
-              <div class="tf-card tf-card-todo">
-                <div class="tf-card-title">API rate limiting</div>
-                <div class="tf-card-meta">
-                  <span class="tf-tag tf-tag-red">Security</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- IN PROGRESS -->
-            <div class="tf-col">
-              <div class="tf-col-header">
-                <span>🟡 In Progress</span>
-                <span class="tf-col-count">4</span>
-              </div>
-              <div class="tf-card tf-card-prog">
-                <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
-                  <span class="tf-active-indicator"></span>
-                  JWT Authentication
-                </div>
-                <div class="tf-card-meta">
-                  <span class="tf-tag tf-tag-red">Security</span>
-                  <span class="tf-tag tf-tag-yellow">P1</span>
-                </div>
-                <div class="tf-card-progress">
-                  <div class="tf-card-prog-fill" style="width:75%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div>
-                </div>
-              </div>
-              <div class="tf-card tf-card-prog">
-                <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
-                  <span class="tf-active-indicator" style="background:#60a5fa;box-shadow:none"></span>
-                  React dashboard UI
-                </div>
-                <div class="tf-card-meta">
-                  <span class="tf-tag tf-tag-blue">Frontend</span>
-                </div>
-                <div class="tf-card-progress">
-                  <div class="tf-card-prog-fill" style="width:50%;background:linear-gradient(90deg,#60a5fa,#3b82f6)"></div>
-                </div>
-              </div>
-              <div class="tf-card tf-card-prog">
-                <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
-                  <span class="tf-active-indicator" style="background:#a78bfa;box-shadow:none"></span>
-                  Pagination endpoints
-                </div>
-                <div class="tf-card-meta">
-                  <span class="tf-tag tf-tag-purple">Backend</span>
-                </div>
-                <div class="tf-card-progress">
-                  <div class="tf-card-prog-fill" style="width:30%;background:linear-gradient(90deg,#a78bfa,#8b5cf6)"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- DONE -->
-            <div class="tf-col">
-              <div class="tf-col-header">
-                <span>🟢 Done</span>
-                <span class="tf-col-count">5</span>
-              </div>
-              <div class="tf-card tf-card-done">
-                <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem">
-                  <span class="tf-done-check">✓</span>
-                  REST API v1.0
-                </div>
-                <div class="tf-card-meta"><span class="tf-tag tf-tag-green">FastAPI</span></div>
-              </div>
-              <div class="tf-card tf-card-done">
-                <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem">
-                  <span class="tf-done-check">✓</span>
-                  PostgreSQL schema
-                </div>
-                <div class="tf-card-meta"><span class="tf-tag tf-tag-green">Database</span></div>
-              </div>
-              <div class="tf-card tf-card-done">
-                <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem">
-                  <span class="tf-done-check">✓</span>
-                  Docker Compose setup
-                </div>
-                <div class="tf-card-meta"><span class="tf-tag tf-tag-green">DevOps</span></div>
-              </div>
-              <div class="tf-card tf-card-done">
-                <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem">
-                  <span class="tf-done-check">✓</span>
-                  User auth flow
-                </div>
-                <div class="tf-card-meta"><span class="tf-tag tf-tag-green">Security</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stack bar -->
-    <div class="tf-stack-bar">
-      <span class="tf-stack-label">Stack:</span>
-      <span class="tf-pill">🐍 Python</span>
-      <span class="tf-pill">⚡ FastAPI</span>
-      <span class="tf-pill">🐘 PostgreSQL</span>
-      <span class="tf-pill">🗃️ SQLAlchemy</span>
-      <span class="tf-pill">🐳 Docker</span>
-      <span class="tf-pill">🔐 JWT</span>
-      <span class="tf-pill">⚛️ React</span>
-      <span class="tf-pill">▲ Vercel</span>
-    </div>
+ 
+  <div class="tf-stack-bar">
+    <span class="tf-stack-label">Stack:</span>
+    <span class="tf-pill">🐍 Python</span>
+    <span class="tf-pill">⚡ FastAPI</span>
+    <span class="tf-pill">🐘 PostgreSQL</span>
+    <span class="tf-pill">🗃️ SQLAlchemy</span>
+    <span class="tf-pill">🐳 Docker</span>
+    <span class="tf-pill">🔐 JWT</span>
+    <span class="tf-pill">⚛️ React</span>
+    <span class="tf-pill">▲ Vercel</span>
   </div>
-
+</div>
+  </div>
 </section>
-<hr class="d"/>
+<hr class="fancy"/>
 
 <!-- EDUCATION -->
 <section class="sec sec-alt" id="education">
