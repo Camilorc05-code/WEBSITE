@@ -768,6 +768,39 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 .sk-bar-track{height:5px;border-radius:5px;background:var(--b1);overflow:hidden}
 .sk-bar-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--a),var(--blu));transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease) .2s;--w:0}
 .sk-pane.act .sk-bar-fill{transform:scaleX(1)}
+ 
+/* Active indicator bar on left */
+.sk-tab.act{position:relative}
+.sk-tab.act::before{content:"";position:absolute;left:-1px;top:20%;bottom:20%;width:2px;background:var(--a);border-radius:2px}
+ 
+.sk-panel{flex:1;min-height:320px;position:relative}
+.sk-pane{position:absolute;inset:0;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.sk-pane.act{opacity:1;transform:translateY(0);pointer-events:auto;position:relative}
+.sk-pane-head{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.8rem;padding-bottom:1.2rem;border-bottom:1px solid var(--b1)}
+.sk-logo-big{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sk-p-name{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:var(--txt)}
+.sk-p-sub{font-size:.72rem;color:var(--txt3);font-family:"JetBrains Mono",monospace;margin-top:.2rem}
+.sk-techs{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.5rem}
+.skt{
+  display:flex;align-items:center;gap:.4rem;
+  padding:.32rem .78rem;border-radius:8px;
+  background:var(--glass);backdrop-filter:blur(10px);
+  border:1px solid var(--b1);color:var(--txt2);
+  font-family:"JetBrains Mono",monospace;font-size:.69rem;
+  transition:all .25s var(--ease);cursor:default;white-space:nowrap;
+}
+.skt:hover{background:var(--adim);border-color:rgba(0,255,204,.3);color:var(--a);transform:translateY(-3px);box-shadow:0 4px 16px var(--adim)}
+.sk-desc{color:var(--txt2);font-size:.88rem;line-height:1.85;max-width:520px}
+ 
+/* Proficiency bars */
+.sk-bars{margin-top:1.5rem;display:flex;flex-direction:column;gap:.85rem}
+.sk-bar{display:flex;flex-direction:column;gap:.35rem}
+.sk-bar-top{display:flex;justify-content:space-between;align-items:center}
+.sk-bar-name{font-size:.78rem;font-weight:600;color:var(--txt)}
+.sk-bar-pct{font-size:.68rem;color:var(--a);font-family:"JetBrains Mono",monospace}
+.sk-bar-track{height:5px;border-radius:5px;background:var(--b1);overflow:hidden}
+.sk-bar-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--a),var(--blu));transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease) .2s;--w:0}
+.sk-pane.act .sk-bar-fill{transform:scaleX(1)}
 
 /* =======================================================
    SKILLS SECTION - FINAL POLISH
