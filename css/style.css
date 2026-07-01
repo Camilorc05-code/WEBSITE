@@ -1138,3 +1138,18 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 [data-theme="light"] .sk-desc{
     color: #000 !important;
 }
+.ey{
+    color:#22f5ff;
+}
+
+[data-theme="light"] .ey{
+    color:#0284c7;
+}
+
+.sh{
+    color:#dbeafe;
+}
+
+[data-theme="light"] .sh{
+    color:#0f1e2d;
+}
