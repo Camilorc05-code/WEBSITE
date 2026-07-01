@@ -77,6 +77,10 @@ body{background:var(--bg);color:var(--txt);transition:background .5s,color .5s}
 
 [data-theme="light"] .avail-badge {
   color: var(--grn);
+  
+[data-theme="light"] .sk-desc{
+    color: #000 !important;
+}
 }
 
 /* =====================================================
