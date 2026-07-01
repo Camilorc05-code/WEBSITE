@@ -1135,3 +1135,6 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
     line-height: 1.6;
   }
 }
+[data-theme="light"] .sk-desc{
+    color: #000 !important;
+}
