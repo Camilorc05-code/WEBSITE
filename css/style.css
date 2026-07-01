@@ -1228,3 +1228,6 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   .tf-head{padding:1rem}
   .tf-stack-bar{padding:.8rem 1rem}
 }
+[data-theme="light"] .tf-btn-primary{
+    color:var(--surf);
+}
