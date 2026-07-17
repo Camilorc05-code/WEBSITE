@@ -535,7 +535,7 @@ h2.sec-h em{
   border:1px solid var(--glass-border);border-radius:18px;padding:1.8rem;
   transition:all .35s;position:relative;overflow:hidden;
 }
-.pmini::before{content:'';position:absolute;inset:0;border-radius:18px;padding:1.5px;background:linear-gradient(135deg,var(--acc),var(--blu));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s}
+.pmini::before{content:'';position:absolute;inset:0;border-radius:18px;padding:1.5px;background:linear-gradient(135deg,var(--acc),var(--blu));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s;pointer-events:none}
 .pmini:hover::before{opacity:1}
 .pmini:hover{transform:translateY(-6px);box-shadow:0 20px 50px var(--shadow)}
 .pnum{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--txt3);letter-spacing:.1em;margin-bottom:.7rem}
