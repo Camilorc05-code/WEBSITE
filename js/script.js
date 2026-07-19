@@ -310,51 +310,66 @@ window.switchSk=function(i){
 
 
 /* ═══════════════════════════════════════════════════════
-   PROJECT CARDS — REVEAL ANIMATIONS
+   PROJECT SHOWCASE — ANIMATIONS
    ═══════════════════════════════════════════════════════ */
 (function(){
 
-  /* ── Staggered tag reveal on scroll ── */
-  var cards=document.querySelectorAll('.pj');
+  /* ── Staggered badge reveal on scroll ── */
+  var cards=document.querySelectorAll('.hero-proj');
   if(cards.length){
-    var tagObs=new IntersectionObserver(function(entries){
+    var bObs=new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(!entry.isIntersecting)return;
         var card=entry.target;
-        var tags=card.querySelectorAll('.pj-tag');
-        tags.forEach(function(tag,i){
-          setTimeout(function(){
-            tag.style.transition='opacity .5s ease,transform .5s ease';
-            tag.style.opacity='1';
-            tag.style.transform='translateY(0)';
-          },i*80);
+        var badges=card.querySelectorAll('.hero-badge');
+        badges.forEach(function(b,i){
+          b.style.opacity='0';b.style.transform='translateY(10px)';
+          b.style.transition='opacity .4s ease,transform .4s ease';
+          setTimeout(function(){b.style.opacity='1';b.style.transform='translateY(0)'},120+i*60);
         });
-        card.classList.add('revealed');
-        tagObs.unobserve(card);
+        var feats=card.querySelectorAll('.hero-features li');
+        feats.forEach(function(f,i){
+          f.style.opacity='0';f.style.transform='translateX(-10px)';
+          f.style.transition='opacity .4s ease,transform .4s ease';
+          setTimeout(function(){f.style.opacity='1';f.style.transform='translateX(0)'},300+i*80);
+        });
+        bObs.unobserve(card);
       });
     },{threshold:0.15});
-    cards.forEach(function(c){tagObs.observe(c);});
+    cards.forEach(function(c){bObs.observe(c);});
   }
 
   /* ── Animated stat counters ── */
-  var statObs=new IntersectionObserver(function(entries){
+  var mObs=new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(!entry.isIntersecting)return;
-      var statVals=entry.target.querySelectorAll('.pj-stat-v');
-      statVals.forEach(function(sv){
+      var vals=entry.target.querySelectorAll('.hero-metric-val');
+      vals.forEach(function(sv){
         var target=parseInt(sv.dataset.count);
-        if(isNaN(target))return;
+        if(isNaN(target)||target===0)return;
         var current=0;
-        var step=Math.max(16,1200/target);
+        var step=Math.max(20,1000/target);
         var timer=setInterval(function(){
           current++;
           sv.textContent=current;
           if(current>=target)clearInterval(timer);
         },step);
       });
-      statObs.unobserve(entry.target);
+      mObs.unobserve(entry.target);
     });
   },{threshold:0.3});
-  document.querySelectorAll('.pj-stats').forEach(function(s){statObs.observe(s);});
+  document.querySelectorAll('.hero-metrics').forEach(function(m){mObs.observe(m);});
+
+  /* ── Gentle badge hover float (CSS handles most, this adds magnetic pull) ── */
+  document.querySelectorAll('.hero-badge').forEach(function(badge){
+    badge.addEventListener('mouseenter',function(){
+      this.style.transition='all .2s cubic-bezier(.4,0,.2,1)';
+      this.style.transform='translateY(-4px) scale(1.04)';
+    });
+    badge.addEventListener('mouseleave',function(){
+      this.style.transition='all .3s cubic-bezier(.4,0,.2,1)';
+      this.style.transform='';
+    });
+  });
 
 })();
