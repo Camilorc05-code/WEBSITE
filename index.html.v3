@@ -408,367 +408,164 @@
     <div class="rv"><div class="eyebrow">03 — Projects</div><h2 class="sec-h">Featured <em>Work</em></h2></div>
 
     <!-- ═══════════════ PROJECT 1: Misión Panamericana ═══════════════ -->
-    <div class="pj rv">
-      <div class="pj-inner" data-num="01">
-
-        <!-- ── Browser Mockup ── -->
-        <div class="pj-browser">
-          <div class="pj-browser-bar">
-            <div class="pj-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
-            <div class="pj-url">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span class="pj-url-text">misionpanamericana.vercel.app</span>
-            </div>
-            <a href="https://misionpanamericana.vercel.app/" target="_blank" class="pj-external" title="Open live site">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
+    <div class="proj-im rv">
+      <div class="proj-im-inner" data-num="01">
+        <div class="proj-im-content">
+          <div class="proj-im-label">
+            <div class="proj-im-live"><span class="proj-im-live-dot"></span>Live on Vercel</div>
+            <div class="proj-im-badge">Client Project · 2026</div>
           </div>
-
-          <!-- ── Tab Switcher ── -->
-          <div class="pj-tabs" data-project="mp">
-            <button class="pj-tab act" data-view="mp-home">🏠 Home</button>
-            <button class="pj-tab" data-view="mp-admin">📊 Admin Panel</button>
-            <button class="pj-tab" data-view="mp-events">🎉 Events</button>
-          </div>
-
-          <!-- ── View: Home ── -->
-          <div class="pj-view act" id="mp-home">
-            <div class="mp-home">
-              <div class="mp-hero">
-                <div class="mp-hero-content">
-                  <div class="mp-church-logo">✝️</div>
-                  <div class="mp-hero-title">Misión Panamericana</div>
-                  <div class="mp-hero-sub">Centro de Fe y Esperanza</div>
-                  <div class="mp-hero-verse">"Todo lo puedo en Cristo que me fortalece" — Filipenses 4:13</div>
-                </div>
-              </div>
-              <div class="mp-services-row">
-                <div class="mp-svc-card">
-                  <div class="mp-svc-icon">🟡</div>
-                  <div class="mp-svc-name">Oración</div>
-                  <div class="mp-svc-time">Jue 7:00 PM</div>
-                </div>
-                <div class="mp-svc-card">
-                  <div class="mp-svc-icon">🟢</div>
-                  <div class="mp-svc-name">Jóvenes</div>
-                  <div class="mp-svc-time">Sáb 5:00 PM</div>
-                </div>
-                <div class="mp-svc-card">
-                  <div class="mp-svc-icon">🔵</div>
-                  <div class="mp-svc-name">Ayuno</div>
-                  <div class="mp-svc-time">Dom 6:00 AM</div>
-                </div>
-                <div class="mp-svc-card">
-                  <div class="mp-svc-icon">🔴</div>
-                  <div class="mp-svc-name">General</div>
-                  <div class="mp-svc-time">Dom 10:00 AM</div>
-                </div>
-              </div>
-              <div class="mp-cta">
-                <div class="mp-cta-btn">🙏 Agendar Cita Pastoral</div>
-                <div class="mp-cta-btn mp-cta-outline">💝 Donar</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── View: Admin Panel ── -->
-          <div class="pj-view" id="mp-admin">
-            <div class="mp-admin">
-              <div class="mp-admin-side">
-                <div class="mp-admin-logo">✝️ MP</div>
-                <div class="mp-admin-nav mp-aact">📊 Dashboard</div>
-                <div class="mp-admin-nav">👤 Personas</div>
-                <div class="mp-admin-nav">📅 Citas</div>
-                <div class="mp-admin-nav">🎉 Eventos</div>
-                <div class="mp-admin-nav">⚙️ Usuarios</div>
-              </div>
-              <div class="mp-admin-main">
-                <div class="mp-admin-topbar">
-                  <span>Dashboard</span>
-                  <div class="mp-admin-avatar">CR</div>
-                </div>
-                <div class="mp-admin-stats">
-                  <div class="mp-astat">
-                    <div class="mp-astat-val" data-count="45">0</div>
-                    <div class="mp-astat-lbl">Members</div>
-                  </div>
-                  <div class="mp-astat">
-                    <div class="mp-astat-val" data-count="12">0</div>
-                    <div class="mp-astat-lbl">Pending</div>
-                  </div>
-                  <div class="mp-astat">
-                    <div class="mp-astat-val" data-count="9">0</div>
-                    <div class="mp-astat-lbl">Events</div>
-                  </div>
-                </div>
-                <div class="mp-admin-table">
-                  <div class="mp-row mp-row-h"><span>Name</span><span>Role</span><span>Status</span></div>
-                  <div class="mp-row"><span>María López</span><span>Miembro</span><span class="mp-st-active">Active</span></div>
-                  <div class="mp-row"><span>Pedro García</span><span>Líder</span><span class="mp-st-active">Active</span></div>
-                  <div class="mp-row"><span>Ana Martínez</span><span>Diacono</span><span class="mp-st-pending">Pending</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── View: Events ── -->
-          <div class="pj-view" id="mp-events">
-            <div class="mp-events">
-              <div class="mp-evt-header">Upcoming Events</div>
-              <div class="mp-evt-grid">
-                <div class="mp-evt-card">
-                  <div class="mp-evt-badge mp-evt-special">Special</div>
-                  <div class="mp-evt-name">Cumbre Ministerial</div>
-                  <div class="mp-evt-date">📅 Aug 15, 2026</div>
-                </div>
-                <div class="mp-evt-card">
-                  <div class="mp-evt-badge mp-evt-prayer">Night Prayer</div>
-                  <div class="mp-evt-name">Vigilia de Oración</div>
-                  <div class="mp-evt-date">📅 Every Friday</div>
-                </div>
-                <div class="mp-evt-card">
-                  <div class="mp-evt-badge mp-evt-celebrate">Celebration</div>
-                  <div class="mp-evt-name">Fiesta de Primicias</div>
-                  <div class="mp-evt-date">📅 Sep 20, 2026</div>
-                </div>
-                <div class="mp-evt-card">
-                  <div class="mp-evt-badge mp-evt-youth">Youth</div>
-                  <div class="mp-evt-name">Encuentro de Jóvenes</div>
-                  <div class="mp-evt-date">📅 Every Saturday</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── Project Info ── -->
-        <div class="pj-info">
-          <div class="pj-label">
-            <div class="pj-live"><span class="pj-live-dot"></span>Live on Vercel</div>
-            <div class="pj-badge">Client Project · 2026</div>
-          </div>
-          <div class="pj-title">Misión Panamericana — <em>Church Platform</em></div>
-          <p class="pj-desc">Full-stack web platform for a real church in Paz de Ariporo, Colombia. Public website + admin panel with JWT auth — serving an active congregation.</p>
-          <ul class="pj-flist">
+          <div class="proj-im-title">Misión Panamericana — <em>Church Platform</em></div>
+          <p class="proj-im-desc">Full-stack web platform built for a real church in Paz de Ariporo, Colombia. Public website with 8 pages + internal admin panel with JWT auth — serving an active congregation.</p>
+          <ul class="proj-im-flist">
             <li>8-page public site with events, services &amp; donations</li>
             <li>Admin panel with role-based access (Admin/Pastor/Leader)</li>
             <li>Pastoral appointment calendar with double-booking prevention</li>
             <li>Email notifications via Brevo SMTP</li>
+            <li>Image uploads to Supabase Storage</li>
+            <li>Rate limiting &amp; anti-spam on public forms</li>
             <li>Multi-step visitor registration wizard</li>
             <li>Framer Motion animations &amp; responsive design</li>
           </ul>
-          <div class="pj-tags">
-            <span class="pj-tag"><span class="ti">⚛️</span>React</span>
-            <span class="pj-tag"><span class="ti">⚡</span>Vite</span>
-            <span class="pj-tag"><span class="ti">🎨</span>Tailwind</span>
-            <span class="pj-tag"><span class="ti">🎬</span>Framer Motion</span>
-            <span class="pj-tag"><span class="ti">🟩</span>Express</span>
-            <span class="pj-tag"><span class="ti">💎</span>Prisma</span>
-            <span class="pj-tag"><span class="ti">🐘</span>PostgreSQL</span>
-            <span class="pj-tag"><span class="ti">☁️</span>Supabase</span>
-            <span class="pj-tag"><span class="ti">🔐</span>JWT</span>
-            <span class="pj-tag"><span class="ti">▲</span>Vercel</span>
+          <div class="proj-im-tags">
+            <span class="proj-im-tag"><span class="ti">⚛️</span>React</span>
+            <span class="proj-im-tag"><span class="ti">⚡</span>Vite</span>
+            <span class="proj-im-tag"><span class="ti">🎨</span>Tailwind</span>
+            <span class="proj-im-tag"><span class="ti">🎬</span>Framer Motion</span>
+            <span class="proj-im-tag"><span class="ti">🟩</span>Express</span>
+            <span class="proj-im-tag"><span class="ti">💎</span>Prisma</span>
+            <span class="proj-im-tag"><span class="ti">🐘</span>PostgreSQL</span>
+            <span class="proj-im-tag"><span class="ti">☁️</span>Supabase</span>
+            <span class="proj-im-tag"><span class="ti">🔐</span>JWT</span>
+            <span class="proj-im-tag"><span class="ti">▲</span>Vercel</span>
           </div>
-          <div class="pj-btns">
-            <a href="https://misionpanamericana.vercel.app/" target="_blank" class="pj-btn pj-btn-pri">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div class="proj-im-btns">
+            <a href="https://misionpanamericana.vercel.app/" target="_blank" class="proj-im-btn proj-im-btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               Live Site ↗
             </a>
-            <a href="https://github.com/Camilorc05-code/BACKEND-IGLESIA" target="_blank" class="pj-btn pj-btn-sec">🐙 Backend</a>
-            <a href="https://github.com/Camilorc05-code/FRONTEND-IGLESIA" target="_blank" class="pj-btn pj-btn-sec">🐙 Frontend</a>
+            <a href="https://github.com/Camilorc05-code/BACKEND-IGLESIA" target="_blank" class="proj-im-btn proj-im-btn-secondary">🐙 Backend</a>
+            <a href="https://github.com/Camilorc05-code/FRONTEND-IGLESIA" target="_blank" class="proj-im-btn proj-im-btn-secondary">🐙 Frontend</a>
           </div>
-          <div class="pj-stats">
-            <div class="pj-stat"><span class="pj-stat-v" data-count="8">0</span><span class="pj-stat-l">Pages</span></div>
-            <div class="pj-stat"><span class="pj-stat-v" data-count="7">0</span><span class="pj-stat-l">DB Models</span></div>
-            <div class="pj-stat"><span class="pj-stat-v" data-count="10">0</span><span class="pj-stat-l">Tech Stack</span></div>
-            <div class="pj-stat"><span class="pj-stat-v" data-count="45">0</span><span class="pj-stat-l">Members</span></div>
+          <div class="proj-im-stats">
+            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="8">0</span><span class="proj-im-stat-label">Pages</span></div>
+            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="7">0</span><span class="proj-im-stat-label">DB Models</span></div>
+            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="10">0</span><span class="proj-im-stat-label">Tech Stack</span></div>
+            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="45">0</span><span class="proj-im-stat-label">Members Served</span></div>
+          </div>
+        </div>
+        <div class="proj-im-code">
+          <div class="ctop">
+            <div class="cdot" style="background:#ff5f57"></div>
+            <div class="cdot" style="background:#febc2e"></div>
+            <div class="cdot" style="background:#28c840"></div>
+            <span class="cfn">backend-iglesia / routes / citas.js</span>
+          </div>
+          <div class="cbody">
+<span class="cc">// Appointment API — rate limited &amp; conflict-free</span>
+<span class="ck">const</span> <span class="cw">router</span> <span class="cp">=</span> <span class="cf">Router</span><span class="cw">();</span>
+
+<span class="cc">// POST / — create pastoral appointment</span>
+<span class="cw">router.</span><span class="cf">post</span><span class="cw">(</span><span class="cs">'/'</span><span class="cw">,</span>
+  <span class="cf">rateLimit</span><span class="cw">({ windowMs:</span><span class="cn2">15</span><span class="cs">*60*1000</span><span class="cw">,</span> <span class="cw">max:</span><span class="cn2">5</span><span class="cw">}),</span>
+  <span class="cf">body</span><span class="cw">(</span><span class="cs">'pastorId'</span><span class="cw">).</span><span class="cf">isInt</span><span class="cw">(),</span>
+  <span class="cf">body</span><span class="cw">(</span><span class="cs">'fecha'</span><span class="cw">).</span><span class="cf">isDate</span><span class="cw">(),</span>
+  <span class="ck">async</span> <span class="cw">(req, res) </span><span class="cp">=></span> <span class="cw">{</span>
+    <span class="ck">const</span> <span class="cw">conflict </span><span class="cp">=</span> <span class="ck">await</span> <span class="cw">prisma.cita.</span><span class="cf">findMany</span><span class="cw">({</span>
+      <span class="cw">where: { pastorId, fecha, hora,</span>
+        <span class="cw">estado: { in: [</span><span class="cs">'PENDIENTE'</span><span class="cw">,</span>
+          <span class="cs">'CONFIRMADA'</span><span class="cw">] }}})</span>
+    <span class="ck">if</span> <span class="cw">(conflict.length)</span>
+      <span class="ck">return</span> <span class="cw">res.</span><span class="cf">status</span><span class="cw">(</span><span class="cn2">409</span><span class="cw">).</span><span class="cf">json</span><span class="cw">({</span>
+        <span class="cw">error:</span> <span class="cs">'Slot occupied'</span><span class="cw">})</span>
+    <span class="ck">await</span> <span class="cw">prisma.cita.</span><span class="cf">create</span><span class="cw">({ data })</span>
+    <span class="ck">await</span> <span class="cf">sendEmail</span><span class="cw">(pastor, cita)</span>
+<span class="cc">    // ✓ Notification sent to pastor</span>
+<span class="cw">})</span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ═══════════════ PROJECT 2: TaskFlow ═══════════════ -->
-    <div class="pj rv">
-      <div class="pj-inner" data-num="02">
-
-        <!-- ── Browser Mockup ── -->
-        <div class="pj-browser">
-          <div class="pj-browser-bar">
-            <div class="pj-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
-            <div class="pj-url">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span class="pj-url-text">taskflow-frontend-taupe.vercel.app</span>
-            </div>
-            <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" class="pj-external" title="Open live app">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
+    <div class="proj-im rv">
+      <div class="proj-im-inner" data-num="02">
+        <div class="proj-im-content">
+          <div class="proj-im-label">
+            <div class="proj-im-live"><span class="proj-im-live-dot"></span>Live on Vercel</div>
+            <div class="proj-im-badge">Personal Project · 2026</div>
           </div>
-
-          <!-- ── Tab Switcher ── -->
-          <div class="pj-tabs" data-project="tf">
-            <button class="pj-tab act" data-view="tf-board">📋 Kanban Board</button>
-            <button class="pj-tab" data-view="tf-login">🔐 Login</button>
-            <button class="pj-tab" data-view="tf-api">⚡ API Docs</button>
-          </div>
-
-          <!-- ── View: Kanban Board ── -->
-          <div class="pj-view act" id="tf-board">
-            <div class="tf-board-wrap">
-              <div class="tf-sidebar-mock">
-                <div class="tf-sl-logo">⚡ TaskFlow</div>
-                <div class="tf-sl-nav tf-sl-active">📋 Dashboard</div>
-                <div class="tf-sl-nav">✅ My Tasks</div>
-                <div class="tf-sl-nav">👥 Teams</div>
-                <div class="tf-sl-nav">📊 Analytics</div>
-              </div>
-              <div class="tf-board-mock">
-                <div class="tf-board-top">
-                  <span>🚀 Sprint 3</span>
-                  <div class="tf-board-top-btns">
-                    <span class="tf-sm-pill">Filter</span>
-                    <span class="tf-sm-pill tf-sm-pri">+ Add Task</span>
-                  </div>
-                </div>
-                <div class="tf-cols">
-                  <div class="tf-col-mock">
-                    <div class="tf-col-h"><span>🔵 To Do</span><span class="tf-col-c">3</span></div>
-                    <div class="tf-card-mock tf-card-t"><div class="tf-cm-title">Setup CI/CD pipeline</div><div class="tf-cm-tags"><span class="tf-cm-tag tf-cm-blue">DevOps</span></div></div>
-                    <div class="tf-card-mock tf-card-t"><div class="tf-cm-title">Write integration tests</div><div class="tf-cm-tags"><span class="tf-cm-tag tf-cm-purple">Testing</span></div></div>
-                  </div>
-                  <div class="tf-col-mock">
-                    <div class="tf-col-h"><span>🟡 In Progress</span><span class="tf-col-c">3</span></div>
-                    <div class="tf-card-mock tf-card-p">
-                      <div class="tf-cm-title"><span class="tf-pulse"></span>JWT Authentication</div>
-                      <div class="tf-cm-progress"><div class="tf-cm-bar" style="width:75%"></div></div>
-                    </div>
-                    <div class="tf-card-mock tf-card-p">
-                      <div class="tf-cm-title"><span class="tf-pulse" style="background:#60a5fa"></span>React dashboard</div>
-                      <div class="tf-cm-progress"><div class="tf-cm-bar tf-cm-bar-blue" style="width:50%"></div></div>
-                    </div>
-                    <div class="tf-card-mock tf-card-p">
-                      <div class="tf-cm-title"><span class="tf-pulse" style="background:#a78bfa"></span>Pagination</div>
-                      <div class="tf-cm-progress"><div class="tf-cm-bar tf-cm-bar-purple" style="width:30%"></div></div>
-                    </div>
-                  </div>
-                  <div class="tf-col-mock">
-                    <div class="tf-col-h"><span>🟢 Done</span><span class="tf-col-c">4</span></div>
-                    <div class="tf-card-mock tf-card-d"><div class="tf-cm-title"><span class="tf-check">✓</span>REST API v1.0</div></div>
-                    <div class="tf-card-mock tf-card-d"><div class="tf-cm-title"><span class="tf-check">✓</span>PostgreSQL schema</div></div>
-                    <div class="tf-card-mock tf-card-d"><div class="tf-cm-title"><span class="tf-check">✓</span>Docker Compose</div></div>
-                    <div class="tf-card-mock tf-card-d"><div class="tf-cm-title"><span class="tf-check">✓</span>User auth flow</div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── View: Login ── -->
-          <div class="pj-view" id="tf-login">
-            <div class="tf-login-wrap">
-              <div class="tf-login-card">
-                <div class="tf-login-logo">⚡</div>
-                <div class="tf-login-title">Welcome back</div>
-                <div class="tf-login-sub">Sign in to TaskFlow</div>
-                <div class="tf-login-field">
-                  <div class="tf-login-label">Email</div>
-                  <div class="tf-login-input">camilo@example.com</div>
-                </div>
-                <div class="tf-login-field">
-                  <div class="tf-login-label">Password</div>
-                  <div class="tf-login-input tf-login-pw">••••••••</div>
-                </div>
-                <div class="tf-login-btn">Sign In</div>
-                <div class="tf-login-footer">Don't have an account? <span>Sign up</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── View: API Docs ── -->
-          <div class="pj-view" id="tf-api">
-            <div class="tf-api-wrap">
-              <div class="tf-api-sidebar">
-                <div class="tf-api-logo">⚡ Swagger</div>
-                <div class="tf-api-section">
-                  <div class="tf-api-sec-title">🔐 auth</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-post">POST</span>/auth/login</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-post">POST</span>/auth/register</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-get">GET</span>/auth/me</div>
-                </div>
-                <div class="tf-api-section">
-                  <div class="tf-api-sec-title">📋 tasks</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-get">GET</span>/tasks/</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-post">POST</span>/tasks/</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-put">PUT</span>/tasks/:id</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-del">DEL</span>/tasks/:id</div>
-                </div>
-                <div class="tf-api-section">
-                  <div class="tf-api-sec-title">👥 teams</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-get">GET</span>/teams/</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-post">POST</span>/teams/</div>
-                </div>
-              </div>
-              <div class="tf-api-main">
-                <div class="tf-api-title">TaskFlow API v1.0</div>
-                <div class="tf-api-desc">FastAPI + PostgreSQL — RESTful API for task management</div>
-                <div class="tf-api-response">
-                  <div class="tf-api-res-h">Response — GET /tasks/</div>
-                  <div class="tf-api-code">
-{<br>
-&nbsp;&nbsp;"tasks": [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;{ "id": 1, "title": "Setup CI/CD",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "todo", "team_id": 1 },<br>
-&nbsp;&nbsp;&nbsp;&nbsp;{ "id": 2, "title": "JWT Auth",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "in_progress", "team_id": 1 }<br>
-&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;"total": 10, "page": 1<br>
-}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── Project Info ── -->
-        <div class="pj-info">
-          <div class="pj-label">
-            <div class="pj-live"><span class="pj-live-dot"></span>Live on Vercel</div>
-            <div class="pj-badge">Personal Project · 2026</div>
-          </div>
-          <div class="pj-title">TaskFlow — <em>Full Stack App</em></div>
-          <p class="pj-desc">Professional task management platform — Jira-style kanban board with real-time team collaboration. Python REST API + React frontend, fully containerized.</p>
-          <ul class="pj-flist">
+          <div class="proj-im-title">TaskFlow — <em>Full Stack App</em></div>
+          <p class="proj-im-desc">Professional-grade task management platform — Jira-style kanban board with real-time team collaboration. Built from scratch: Python REST API + React frontend, fully containerized and tested.</p>
+          <ul class="proj-im-flist">
             <li>JWT Authentication — secure register, login, protected routes</li>
             <li>Teams &amp; Tasks with ownership validation</li>
             <li>Pagination and filtering on list endpoints</li>
             <li>PostgreSQL + SQLAlchemy ORM + Alembic migrations</li>
             <li>Dockerized with Docker Compose</li>
             <li>Automated tests with Pytest (3 passed ✓)</li>
+            <li>React frontend with protected routes &amp; responsive design</li>
+            <li>Full API docs via Swagger / Redoc</li>
           </ul>
-          <div class="pj-tags">
-            <span class="pj-tag"><span class="ti">🐍</span>Python</span>
-            <span class="pj-tag"><span class="ti">⚡</span>FastAPI</span>
-            <span class="pj-tag"><span class="ti">🐘</span>PostgreSQL</span>
-            <span class="pj-tag"><span class="ti">🗃️</span>SQLAlchemy</span>
-            <span class="pj-tag"><span class="ti">🐳</span>Docker</span>
-            <span class="pj-tag"><span class="ti">🔐</span>JWT</span>
-            <span class="pj-tag"><span class="ti">🧪</span>Pytest</span>
-            <span class="pj-tag"><span class="ti">⚛️</span>React</span>
-            <span class="pj-tag"><span class="ti">▲</span>Vercel</span>
+          <div class="proj-im-tags">
+            <span class="proj-im-tag"><span class="ti">🐍</span>Python</span>
+            <span class="proj-im-tag"><span class="ti">⚡</span>FastAPI</span>
+            <span class="proj-im-tag"><span class="ti">🐘</span>PostgreSQL</span>
+            <span class="proj-im-tag"><span class="ti">🗃️</span>SQLAlchemy</span>
+            <span class="proj-im-tag"><span class="ti">🐳</span>Docker</span>
+            <span class="proj-im-tag"><span class="ti">🔐</span>JWT</span>
+            <span class="proj-im-tag"><span class="ti">🧪</span>Pytest</span>
+            <span class="proj-im-tag"><span class="ti">⚛️</span>React</span>
+            <span class="proj-im-tag"><span class="ti">▲</span>Vercel</span>
           </div>
-          <div class="pj-btns">
-            <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" class="pj-btn pj-btn-pri">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div class="proj-im-btns">
+            <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" class="proj-im-btn proj-im-btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               Live App ↗
             </a>
-            <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="pj-btn pj-btn-sec">🐙 Backend</a>
-            <a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="pj-btn pj-btn-sec">🐙 Frontend</a>
+            <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="proj-im-btn proj-im-btn-secondary">🐙 Backend</a>
+            <a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="proj-im-btn proj-im-btn-secondary">🐙 Frontend</a>
           </div>
-          <div class="pj-stats">
-            <div class="pj-stat"><span class="pj-stat-v" data-count="9">0</span><span class="pj-stat-l">Tech Stack</span></div>
-            <div class="pj-stat"><span class="pj-stat-v" data-count="3">0</span><span class="pj-stat-l">Tests Passed</span></div>
-            <div class="pj-stat"><span class="pj-stat-v" data-count="4">0</span><span class="pj-stat-l">API Modules</span></div>
-            <div class="pj-stat"><span class="pj-stat-v" data-count="1">0</span><span class="pj-stat-l">Dockerized</span></div>
+          <div class="proj-im-stats">
+            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="9">0</span><span class="proj-im-stat-label">Tech Stack</span></div>
+            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="3">0</span><span class="proj-im-stat-label">Tests Passed</span></div>
+            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="4">0</span><span class="proj-im-stat-label">API Modules</span></div>
+            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="1">0</span><span class="proj-im-stat-label">Dockerized</span></div>
+          </div>
+        </div>
+        <div class="proj-im-code">
+          <div class="ctop">
+            <div class="cdot" style="background:#ff5f57"></div>
+            <div class="cdot" style="background:#febc2e"></div>
+            <div class="cdot" style="background:#28c840"></div>
+            <span class="cfn">taskflow / main.py</span>
+          </div>
+          <div class="cbody">
+<span class="cc"># TaskFlow Backend API v1.0</span>
+<span class="ck">from</span> <span class="cw">fastapi</span> <span class="ck">import</span> <span class="cw">FastAPI, Depends</span>
+<span class="ck">from</span> <span class="cw">app.routes</span> <span class="ck">import</span> <span class="cw">auth, team, task</span>
+<span class="ck">from</span> <span class="cw">app.core.auth</span> <span class="ck">import</span> <span class="cw">get_current_user</span>
+
+<span class="cw">app</span> <span class="cp">=</span> <span class="cf">FastAPI</span><span class="cw">(title=</span><span class="cs">"TaskFlow"</span><span class="cw">,</span>
+    <span class="cw">version=</span><span class="cs">"1.0.0"</span><span class="cw">)</span>
+
+<span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(auth.router)</span>
+<span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(team.router)</span>
+<span class="cw">app.</span><span class="cf">include_router</span><span class="cw">(task.router)</span>
+
+<span class="cp">@app.</span><span class="cf">post</span><span class="cw">(</span><span class="cs">"/auth/login"</span><span class="cw">)</span>
+<span class="ck">async def</span> <span class="cf">login</span><span class="cw">(data: UserLogin,</span>
+    <span class="cw">db=</span><span class="cf">Depends</span><span class="cw">(get_db)):</span>
+  <span class="cw">user</span> <span class="cp">=</span> <span class="ck">await</span> <span class="cf">authenticate</span><span class="cw">(data, db)</span>
+  <span class="ck">return</span> <span class="cf">create_token</span><span class="cw">(user.id)</span>
+
+<span class="cp">@app.</span><span class="cf">get</span><span class="cw">(</span><span class="cs">"/tasks/"</span><span class="cw">)</span>
+<span class="ck">async def</span> <span class="cf">list_tasks</span><span class="cw">(</span>
+    <span class="cw">page: int=</span><span class="cn2">1</span><span class="cw">,size: int=</span><span class="cn2">10</span><span class="cw">,</span>
+    <span class="cw">user=</span><span class="cf">Depends</span><span class="cw">(get_current_user)):</span>
+  <span class="ck">return</span> <span class="ck">await</span> <span class="cf">get_tasks</span><span class="cw">(user.id,page)</span>
+
+<span class="cc"># $ pytest → 3 passed ✓ in 0.42s</span>
           </div>
         </div>
       </div>
@@ -784,7 +581,7 @@
         <div class="plinks" style="margin-top:.9rem"><a href="https://github.com/Camilorc05-code/APRENDIENDO-PYTHON" target="_blank" class="plink">🐙 GitHub ↗</a></div>
       </div>
       <div class="pmini rv" style="border-style:dashed;opacity:.65">
-        <div class="pnum">04 — Coming Soon · 2026</div>
+        <div class="pnum">05 — Coming Soon · 2026</div>
         <div class="pmt" style="color:var(--txt2)">Upcoming Projects</div>
         <p class="pmd">New full-stack apps and real-world client work in the pipeline. Stay tuned on GitHub.</p>
         <div class="tech-tags"><span class="ttag"><span class="ti">🐍</span>Python</span><span class="ttag"><span class="ti">⚛️</span>React</span><span class="ttag"><span class="ti">▲</span>Vercel</span></div>
@@ -792,7 +589,6 @@
     </div>
   </div>
 </section>
-
 
 <hr class="fancy"/>
 

@@ -309,34 +309,18 @@ window.switchSk=function(i){
 };
 
 /* ═══════════════════════════════════════════════════════
-   PROJECT CARDS — INTERACTIVE MOCKUPS + REVEAL
+   PROJECT CARDS — REVEAL + ANIMATIONS
    ═══════════════════════════════════════════════════════ */
 (function(){
-
-  /* ── Tab switching for browser mockups ── */
-  document.querySelectorAll('.pj-tab').forEach(function(tab){
-    tab.addEventListener('click',function(){
-      var container=tab.closest('.pj');
-      if(!container)return;
-      var tabs=container.querySelectorAll('.pj-tab');
-      var views=container.querySelectorAll('.pj-view');
-      var idx=Array.prototype.indexOf.call(tabs,tab);
-      tabs.forEach(function(t){t.classList.remove('act')});
-      views.forEach(function(v){v.classList.remove('act')});
-      tab.classList.add('act');
-      if(views[idx])views[idx].classList.add('act');
-    });
-  });
-
-  /* ── Staggered tag reveal on scroll ── */
-  var cards=document.querySelectorAll('.pj');
+  var cards=document.querySelectorAll('.proj-im');
   if(!cards.length)return;
 
+  /* ── Staggered tag reveal on scroll ── */
   var tagObs=new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(!entry.isIntersecting)return;
       var card=entry.target;
-      var tags=card.querySelectorAll('.pj-tag');
+      var tags=card.querySelectorAll('.proj-im-tag');
       tags.forEach(function(tag,i){
         setTimeout(function(){
           tag.style.transition='opacity .5s ease,transform .5s ease';
@@ -350,11 +334,31 @@ window.switchSk=function(i){
   },{threshold:0.15});
   cards.forEach(function(c){tagObs.observe(c);});
 
+  /* ── Code typing animation on scroll ── */
+  var codeObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting)return;
+      var codeBody=entry.target;
+      var lines=codeBody.querySelectorAll('span');
+      lines.forEach(function(line,i){
+        line.style.opacity='0';
+        line.style.transform='translateX(-10px)';
+        line.style.transition='opacity .35s ease,transform .35s ease';
+        setTimeout(function(){
+          line.style.opacity='1';
+          line.style.transform='translateX(0)';
+        },i*65);
+      });
+      codeObs.unobserve(codeBody);
+    });
+  },{threshold:0.2});
+  document.querySelectorAll('.proj-im .cbody').forEach(function(cb){codeObs.observe(cb);});
+
   /* ── Animated stat counters ── */
   var statObs=new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(!entry.isIntersecting)return;
-      var statVals=entry.target.querySelectorAll('.pj-stat-v');
+      var statVals=entry.target.querySelectorAll('.proj-im-stat-val');
       statVals.forEach(function(sv){
         var target=parseInt(sv.dataset.count);
         if(isNaN(target))return;
@@ -369,6 +373,6 @@ window.switchSk=function(i){
       statObs.unobserve(entry.target);
     });
   },{threshold:0.3});
-  document.querySelectorAll('.pj-stats').forEach(function(s){statObs.observe(s);});
+  document.querySelectorAll('.proj-im-stats').forEach(function(s){statObs.observe(s);});
 
 })();
