@@ -358,24 +358,28 @@ window.switchSk=function(i){
   document.querySelectorAll('.pj-stats').forEach(function(s){statObs.observe(s);});
 
   /* ═══════════════════════════════════════════════════
-     CHURCH PORTAL — NAVIGATION + COUNTDOWN
+     APP PREVIEW — TAB SWITCHING
      ═══════════════════════════════════════════════════ */
   (function(){
-    /* ── Navigation switching ── */
-    document.querySelectorAll('[data-mp-view]').forEach(function(link){
-      link.addEventListener('click',function(){
-        var portal=link.closest('.mp-portal');
-        if(!portal)return;
-        var targetId=link.dataset.mpView;
-        portal.querySelectorAll('.mp-nav-link').forEach(function(l){l.classList.remove('mp-nact')});
-        link.classList.add('mp-nact');
-        portal.querySelectorAll('.mp-view').forEach(function(v){v.classList.remove('mp-act')});
-        var target=portal.querySelector('#'+targetId);
-        if(target)target.classList.add('mp-act');
+    document.querySelectorAll('.app-tab').forEach(function(tab){
+      tab.addEventListener('click',function(){
+        var prev=tab.closest('.app-prev');
+        if(!prev)return;
+        var tabs=prev.querySelectorAll('.app-tab');
+        var views=prev.querySelectorAll('.app-view');
+        var idx=Array.prototype.indexOf.call(tabs,tab);
+        tabs.forEach(function(t){t.classList.remove('app-tact')});
+        views.forEach(function(v){v.classList.remove('app-vact')});
+        tab.classList.add('app-tact');
+        if(views[idx])views[idx].classList.add('app-vact');
       });
     });
+  })();
 
-    /* ── Live countdown ── */
+  /* ═══════════════════════════════════════════════════
+     CHURCH COUNTDOWN — LIVE TIMER
+     ═══════════════════════════════════════════════════ */
+  (function(){
     var hEl=document.getElementById('mp-cd-h');
     var mEl=document.getElementById('mp-cd-m');
     var sEl=document.getElementById('mp-cd-s');
