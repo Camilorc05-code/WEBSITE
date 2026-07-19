@@ -407,72 +407,64 @@
   <div class="si">
     <div class="rv"><div class="eyebrow">03 — Projects</div><h2 class="sec-h">Featured <em>Work</em></h2></div>
 
-    <!-- ═══════════════ PROJECT 1: Misión Panamericana ═══════════════ -->
-    <div class="proj-im rv">
-      <div class="proj-im-glow"></div>
-      <div class="proj-im-inner">
-        <div class="proj-im-content">
-          <div class="proj-im-label">
-            <div class="proj-im-live"><span class="proj-im-live-dot"></span>Live on Vercel</div>
-            <div class="proj-im-badge">Client Project · 2026</div>
-          </div>
-          <div class="proj-im-title">Misión Panamericana — <em>Church Platform</em></div>
-          <p class="proj-im-desc">Full-stack web platform built for a real church in Paz de Ariporo, Colombia. Public website with 8 pages + internal admin panel with JWT auth — serving an active congregation.</p>
-          <ul class="proj-im-flist">
-            <li>8-page public site with events, services &amp; donations</li>
-            <li>Admin panel with role-based access (Admin/Pastor/Leader)</li>
-            <li>Pastoral appointment calendar with double-booking prevention</li>
-            <li>Email notifications via Brevo SMTP</li>
-            <li>Image uploads to Supabase Storage</li>
-            <li>Rate limiting &amp; anti-spam on public forms</li>
-            <li>Multi-step visitor registration wizard</li>
-            <li>Framer Motion animations &amp; responsive design</li>
-          </ul>
-          <div class="proj-im-tags">
-            <span class="proj-im-tag"><span class="ti">⚛️</span>React</span>
-            <span class="proj-im-tag"><span class="ti">⚡</span>Vite</span>
-            <span class="proj-im-tag"><span class="ti">🎨</span>Tailwind</span>
-            <span class="proj-im-tag"><span class="ti">🎬</span>Framer Motion</span>
-            <span class="proj-im-tag"><span class="ti">🟩</span>Express</span>
-            <span class="proj-im-tag"><span class="ti">💎</span>Prisma</span>
-            <span class="proj-im-tag"><span class="ti">🐘</span>PostgreSQL</span>
-            <span class="proj-im-tag"><span class="ti">☁️</span>Supabase</span>
-            <span class="proj-im-tag"><span class="ti">🔐</span>JWT</span>
-            <span class="proj-im-tag"><span class="ti">▲</span>Vercel</span>
-          </div>
-          <div class="proj-im-btns">
-            <a href="https://misionpanamericana.vercel.app/" target="_blank" class="proj-im-btn proj-im-btn-primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Live Site ↗
-            </a>
-            <a href="https://github.com/Camilorc05-code/BACKEND-IGLESIA" target="_blank" class="proj-im-btn proj-im-btn-secondary">🐙 Backend</a>
-            <a href="https://github.com/Camilorc05-code/FRONTEND-IGLESIA" target="_blank" class="proj-im-btn proj-im-btn-secondary">🐙 Frontend</a>
-          </div>
-          <div class="proj-im-stats">
-            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="8">0</span><span class="proj-im-stat-label">Pages</span></div>
-            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="7">0</span><span class="proj-im-stat-label">DB Models</span></div>
-            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="10">0</span><span class="proj-im-stat-label">Tech Stack</span></div>
-            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="45">0</span><span class="proj-im-stat-label">Members Served</span></div>
-          </div>
+    <!-- ═══════════════ FEATURED: Misión Panamericana ═══════════════ -->
+    <div class="proj-feat rv">
+      <div>
+        <div class="pbadge">⭐ Featured · 2026 · Client Project</div>
+        <div class="ptitle">Misión Panamericana — Church Platform</div>
+        <p class="pdesc">Full-stack web platform built for a real church in Paz de Ariporo, Colombia. Public website with 8 pages + internal admin panel with JWT auth — serving an active congregation with live services, events, pastoral appointments and visitor management.</p>
+        <ul class="flist">
+          <li>8-page public site: Home, Services, Events, Donations, Visitor Registration, Social Hub</li>
+          <li>Admin panel with role-based access (Admin, Pastor, Leader)</li>
+          <li>JWT authentication with 7-day tokens + bcrypt password hashing</li>
+          <li>Pastoral appointment system with calendar, time slots &amp; double-booking prevention</li>
+          <li>Email notifications via Brevo SMTP (appointment alerts + visitor alerts)</li>
+          <li>Image uploads to Supabase Storage with 5MB limit</li>
+          <li>Rate limiting on public forms (anti-spam protection)</li>
+          <li>Multi-step visitor registration wizard with progress bar</li>
+          <li>Responsive design with Framer Motion animations</li>
+          <li>Prisma ORM + PostgreSQL with 7 data models</li>
+        </ul>
+        <div class="tech-tags" style="margin-bottom:1.3rem">
+          <span class="ttag"><span class="ti">⚛️</span>React</span>
+          <span class="ttag"><span class="ti">⚡</span>Vite</span>
+          <span class="ttag"><span class="ti">🎨</span>Tailwind CSS</span>
+          <span class="ttag"><span class="ti">🎬</span>Framer Motion</span>
+          <span class="ttag"><span class="ti">🟩</span>Node.js</span>
+          <span class="ttag"><span class="ti">🚂</span>Express</span>
+          <span class="ttag"><span class="ti">💎</span>Prisma</span>
+          <span class="ttag"><span class="ti">🐘</span>PostgreSQL</span>
+          <span class="ttag"><span class="ti">☁️</span>Supabase</span>
+          <span class="ttag"><span class="ti">🔐</span>JWT</span>
+          <span class="ttag"><span class="ti">▲</span>Vercel</span>
         </div>
-        <div class="proj-im-code">
-          <div class="ctop">
-            <div class="cdot" style="background:#ff5f57"></div>
-            <div class="cdot" style="background:#febc2e"></div>
-            <div class="cdot" style="background:#28c840"></div>
-            <span class="cfn">backend-iglesia / routes / citas.js</span>
-          </div>
-          <div class="cbody">
-<span class="cc">// Appointment API — rate limited &amp; conflict-free</span>
+        <div class="plinks">
+          <a href="https://github.com/Camilorc05-code/BACKEND-IGLESIA" target="_blank" class="plink">🐙 Backend GitHub ↗</a>
+          <a href="https://github.com/Camilorc05-code/FRONTEND-IGLESIA" target="_blank" class="plink">🐙 Frontend GitHub ↗</a>
+          <a href="https://misionpanamericana.vercel.app/" target="_blank" class="plink">🌐 Live Site ↗</a>
+        </div>
+      </div>
+      <div class="cwin">
+        <div class="ctop">
+          <div class="cdot" style="background:#ff5f57"></div>
+          <div class="cdot" style="background:#febc2e"></div>
+          <div class="cdot" style="background:#28c840"></div>
+          <span class="cfn">backend-iglesia / src / routes / citas.js</span>
+        </div>
+        <div class="cbody">
+<span class="cc">// Misión Panamericana — Appointment API</span>
 <span class="ck">const</span> <span class="cw">router</span> <span class="cp">=</span> <span class="cf">Router</span><span class="cw">();</span>
+<span class="ck">const</span> <span class="cw">{ body } </span> <span class="cp">=</span> <span class="cf">require</span><span class="cw">(</span><span class="cs">'express-validator'</span><span class="cw">);</span>
 
-<span class="cc">// POST / — create pastoral appointment</span>
+<span class="cc">// Public — create appointment</span>
 <span class="cw">router.</span><span class="cf">post</span><span class="cw">(</span><span class="cs">'/'</span><span class="cw">,</span>
-  <span class="cf">rateLimit</span><span class="cw">({ windowMs:</span><span class="cn2">15</span><span class="cs">*60*1000</span><span class="cw">,</span> <span class="cw">max:</span><span class="cn2">5</span><span class="cw">}),</span>
+  <span class="cf">rateLimit</span><span class="cw">({ windowMs:</span><span class="cn2">15</span><span class="cs">*60*1000</span><span class="cw">,</span>
+    <span class="cw">max:</span><span class="cn2">5</span><span class="cw">}),</span>
   <span class="cf">body</span><span class="cw">(</span><span class="cs">'pastorId'</span><span class="cw">).</span><span class="cf">isInt</span><span class="cw">(),</span>
   <span class="cf">body</span><span class="cw">(</span><span class="cs">'fecha'</span><span class="cw">).</span><span class="cf">isDate</span><span class="cw">(),</span>
+  <span class="cf">body</span><span class="cw">(</span><span class="cs">'hora'</span><span class="cw">).</span><span class="cf">matches</span><span class="cw">(</span><span class="cs">/^([0-8]:00|1[0-5]:00)$/</span><span class="cw">),</span>
   <span class="ck">async</span> <span class="cw">(req, res) </span><span class="cp">=></span> <span class="cw">{</span>
-    <span class="ck">const</span> <span class="cw">conflict </span><span class="cp">=</span> <span class="ck">await</span> <span class="cw">prisma.cita.</span><span class="cf">findMany</span><span class="cw">({</span>
+    <span class="ck">const</span> <span class="cw">conflict </span> <span class="cp">=</span> <span class="ck">await</span> <span class="cw">prisma.cita.</span><span class="cf">findMany</span><span class="cw">({</span>
       <span class="cw">where: { pastorId, fecha, hora,</span>
         <span class="cw">estado: { in: [</span><span class="cs">'PENDIENTE'</span><span class="cw">,</span>
           <span class="cs">'CONFIRMADA'</span><span class="cw">] }}})</span>
@@ -481,68 +473,52 @@
         <span class="cw">error:</span> <span class="cs">'Slot occupied'</span><span class="cw">})</span>
     <span class="ck">await</span> <span class="cw">prisma.cita.</span><span class="cf">create</span><span class="cw">({ data })</span>
     <span class="ck">await</span> <span class="cf">sendEmail</span><span class="cw">(pastor, cita)</span>
-<span class="cc">    // ✓ Notification sent to pastor</span>
+<span class="cc">    // Email notification sent ✓</span>
 <span class="cw">})</span>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- ═══════════════ PROJECT 2: TaskFlow ═══════════════ -->
-    <div class="proj-im rv">
-      <div class="proj-im-glow"></div>
-      <div class="proj-im-inner">
-        <div class="proj-im-content">
-          <div class="proj-im-label">
-            <div class="proj-im-live"><span class="proj-im-live-dot"></span>Live on Vercel</div>
-            <div class="proj-im-badge">Personal Project · 2026</div>
-          </div>
-          <div class="proj-im-title">TaskFlow — <em>Full Stack App</em></div>
-          <p class="proj-im-desc">Professional-grade task management platform — Jira-style kanban board with real-time team collaboration. Built from scratch: Python REST API + React frontend, fully containerized and tested.</p>
-          <ul class="proj-im-flist">
-            <li>JWT Authentication — secure register, login, protected routes</li>
-            <li>Teams &amp; Tasks with ownership validation</li>
-            <li>Pagination and filtering on list endpoints</li>
-            <li>PostgreSQL + SQLAlchemy ORM + Alembic migrations</li>
-            <li>Dockerized with Docker Compose</li>
-            <li>Automated tests with Pytest (3 passed ✓)</li>
-            <li>React frontend with protected routes &amp; responsive design</li>
-            <li>Full API docs via Swagger / Redoc</li>
-          </ul>
-          <div class="proj-im-tags">
-            <span class="proj-im-tag"><span class="ti">🐍</span>Python</span>
-            <span class="proj-im-tag"><span class="ti">⚡</span>FastAPI</span>
-            <span class="proj-im-tag"><span class="ti">🐘</span>PostgreSQL</span>
-            <span class="proj-im-tag"><span class="ti">🗃️</span>SQLAlchemy</span>
-            <span class="proj-im-tag"><span class="ti">🐳</span>Docker</span>
-            <span class="proj-im-tag"><span class="ti">🔐</span>JWT</span>
-            <span class="proj-im-tag"><span class="ti">🧪</span>Pytest</span>
-            <span class="proj-im-tag"><span class="ti">⚛️</span>React</span>
-            <span class="proj-im-tag"><span class="ti">▲</span>Vercel</span>
-          </div>
-          <div class="proj-im-btns">
-            <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" class="proj-im-btn proj-im-btn-primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Live App ↗
-            </a>
-            <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="proj-im-btn proj-im-btn-secondary">🐙 Backend</a>
-            <a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="proj-im-btn proj-im-btn-secondary">🐙 Frontend</a>
-          </div>
-          <div class="proj-im-stats">
-            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="9">0</span><span class="proj-im-stat-label">Tech Stack</span></div>
-            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="3">0</span><span class="proj-im-stat-label">Tests Passed</span></div>
-            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="4">0</span><span class="proj-im-stat-label">API Modules</span></div>
-            <div class="proj-im-stat"><span class="proj-im-stat-val" data-count="1">0</span><span class="proj-im-stat-label">Dockerized</span></div>
-          </div>
+    <!-- ═══════════════ FEATURED: TaskFlow Full-Stack ═══════════════ -->
+    <div class="proj-feat rv">
+      <div>
+        <div class="pbadge">⭐ Featured · 2026 · Personal Project</div>
+        <div class="ptitle">TaskFlow — Full Stack App</div>
+        <p class="pdesc">Professional-grade task management platform — Jira-style kanban board with real-time team collaboration. Built from scratch: Python REST API + React frontend, fully containerized and tested.</p>
+        <ul class="flist">
+          <li>JWT Authentication — secure register, login, protected routes</li>
+          <li>Teams &amp; Tasks with ownership validation</li>
+          <li>Pagination and filtering on list endpoints</li>
+          <li>PostgreSQL + SQLAlchemy ORM + Alembic migrations</li>
+          <li>Dockerized with Docker Compose</li>
+          <li>Automated tests with Pytest (3 passed ✓)</li>
+          <li>React frontend with protected routes &amp; responsive design</li>
+          <li>Full API docs via Swagger / Redoc</li>
+        </ul>
+        <div class="tech-tags" style="margin-bottom:1.3rem">
+          <span class="ttag"><span class="ti">🐍</span>Python</span>
+          <span class="ttag"><span class="ti">⚡</span>FastAPI</span>
+          <span class="ttag"><span class="ti">🐘</span>PostgreSQL</span>
+          <span class="ttag"><span class="ti">🗃️</span>SQLAlchemy</span>
+          <span class="ttag"><span class="ti">🐳</span>Docker</span>
+          <span class="ttag"><span class="ti">🔐</span>JWT</span>
+          <span class="ttag"><span class="ti">🧪</span>Pytest</span>
+          <span class="ttag"><span class="ti">⚛️</span>React</span>
+          <span class="ttag"><span class="ti">▲</span>Vercel</span>
         </div>
-        <div class="proj-im-code">
-          <div class="ctop">
-            <div class="cdot" style="background:#ff5f57"></div>
-            <div class="cdot" style="background:#febc2e"></div>
-            <div class="cdot" style="background:#28c840"></div>
-            <span class="cfn">taskflow / main.py</span>
-          </div>
-          <div class="cbody">
+        <div class="plinks">
+          <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="plink">🐙 Backend GitHub ↗</a>
+          <a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="plink">🐙 Frontend GitHub ↗</a>
+        </div>
+      </div>
+      <div class="cwin">
+        <div class="ctop">
+          <div class="cdot" style="background:#ff5f57"></div>
+          <div class="cdot" style="background:#febc2e"></div>
+          <div class="cdot" style="background:#28c840"></div>
+          <span class="cfn">taskflow / main.py</span>
+        </div>
+        <div class="cbody">
 <span class="cc"># TaskFlow Backend API v1.0</span>
 <span class="ck">from</span> <span class="cw">fastapi</span> <span class="ck">import</span> <span class="cw">FastAPI, Depends</span>
 <span class="ck">from</span> <span class="cw">app.routes</span> <span class="ck">import</span> <span class="cw">auth, team, task</span>
@@ -568,12 +544,11 @@
   <span class="ck">return</span> <span class="ck">await</span> <span class="cf">get_tasks</span><span class="cw">(user.id,page)</span>
 
 <span class="cc"># $ pytest → 3 passed ✓ in 0.42s</span>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- ═══════════════ MINI PROJECTS ═══════════════ -->
+    <!-- ═══════════════ MINI GRID ═══════════════ -->
     <div class="mini-g">
       <div class="pmini rv">
         <div class="pnum">03 — Learning Project · 2025</div>
@@ -589,9 +564,291 @@
         <div class="tech-tags"><span class="ttag"><span class="ti">🐍</span>Python</span><span class="ttag"><span class="ti">⚛️</span>React</span><span class="ttag"><span class="ti">▲</span>Vercel</span></div>
       </div>
     </div>
+
+    <!-- ═══════════════ CHURCH SHOWCASE ═══════════════ -->
+    <div class="mp-showcase rv">
+  <div class="tf-head">
+    <div class="tf-head-left">
+      <div class="tf-live-chip"><span class="tf-live-dot"></span>Live on Vercel</div>
+      <div class="tf-title">Misión Panamericana — Full Stack Platform</div>
+      <div class="tf-sub">React + Express + Prisma + PostgreSQL · Church management &amp; public website</div>
+    </div>
+    <div class="tf-head-btns">
+      <a href="https://github.com/Camilorc05-code/BACKEND-IGLESIA" target="_blank" class="tf-btn-secondary">🐙 Backend</a>
+      <a href="https://github.com/Camilorc05-code/FRONTEND-IGLESIA" target="_blank" class="tf-btn-secondary">🐙 Frontend</a>
+      <a href="https://misionpanamericana.vercel.app/" target="_blank" class="tf-btn-primary">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Open Live App ↗
+      </a>
+    </div>
+  </div>
+
+  <div class="tf-browser">
+    <div class="tf-browser-bar">
+      <div class="tf-dots">
+        <span style="background:#ff5f57"></span>
+        <span style="background:#febc2e"></span>
+        <span style="background:#28c840"></span>
+      </div>
+      <div class="tf-url-bar">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="color:#4ade80">misionpanamericana.vercel.app</span>
+        <span style="margin-left:auto;font-size:.58rem;color:rgba(74,222,128,.5)">↗ Click to open</span>
+      </div>
+      <a href="https://misionpanamericana.vercel.app/" target="_blank" style="display:flex;align-items:center;color:#4ade80;opacity:.6;transition:opacity .2s" title="Open in new tab">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
+    <div class="mp-mockup">
+      <div class="mp-sidebar">
+        <div class="mp-sidebar-logo">✝️ Misión Panamericana</div>
+        <div class="mp-nav mp-act">🏠 Inicio</div>
+        <div class="mp-nav">📅 Horarios</div>
+        <div class="mp-nav">🎉 Eventos</div>
+        <div class="mp-nav">🙏 Citas Pastorales</div>
+        <div class="mp-nav">💝 Donaciones</div>
+        <div class="mp-nav">📝 Registro</div>
+        <div class="mp-nav">📱 Redes</div>
+        <div class="mp-sidebar-footer">
+          <div class="mp-avatar">MP</div>
+          <span>Admin Panel</span>
+        </div>
+      </div>
+
+      <div class="mp-main">
+        <div class="mp-topbar">
+          <div class="mp-board-title">
+            ✝️ Misión Panamericana
+            <span class="mp-sprint">Centro de Fe y Esperanza</span>
+          </div>
+          <div class="mp-topbar-btns">
+            <div class="mp-sm-btn">Dashboard</div>
+            <div class="mp-sm-btn">Personas</div>
+            <div class="mp-sm-btn">Citas</div>
+            <div class="mp-avatar" style="width:26px;height:26px;font-size:.62rem">MP</div>
+          </div>
+        </div>
+
+        <div class="mp-board">
+          <div class="mp-col">
+            <div class="mp-col-header"><span>📊 Dashboard</span></div>
+            <div class="mp-card mp-card-stat">
+              <div class="mp-card-title">Registered Members</div>
+              <div class="mp-card-value">45+</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-blue">Active</span></div>
+            </div>
+            <div class="mp-card mp-card-stat">
+              <div class="mp-card-title">Weekly Services</div>
+              <div class="mp-card-value">4</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-gold">Thu · Sat · Sun</span></div>
+            </div>
+            <div class="mp-card mp-card-stat">
+              <div class="mp-card-title">Event Categories</div>
+              <div class="mp-card-value">9</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-purple">Ministries</span></div>
+            </div>
+          </div>
+
+          <div class="mp-col">
+            <div class="mp-col-header"><span>📅 Services</span></div>
+            <div class="mp-card mp-card-svc">
+              <div class="mp-card-title">🟡 Oración — Jueves</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-gold">7:00 PM</span></div>
+            </div>
+            <div class="mp-card mp-card-svc">
+              <div class="mp-card-title">🟢 Jóvenes — Sábado</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-green">5:00 PM</span></div>
+            </div>
+            <div class="mp-card mp-card-svc">
+              <div class="mp-card-title">🔵 Ayuno — Domingo</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-blue">6:00 AM</span></div>
+            </div>
+            <div class="mp-card mp-card-svc">
+              <div class="mp-card-title">🔴 General — Domingo</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-red">10:00 AM</span></div>
+            </div>
+          </div>
+
+          <div class="mp-col">
+            <div class="mp-col-header"><span>🎉 Events</span></div>
+            <div class="mp-card mp-card-evt">
+              <div class="mp-card-title">Cumbre Ministerial</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-purple">Special</span></div>
+            </div>
+            <div class="mp-card mp-card-evt">
+              <div class="mp-card-title">Vigilia de Oración</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-blue">Night Prayer</span></div>
+            </div>
+            <div class="mp-card mp-card-evt">
+              <div class="mp-card-title">Fiesta de Primicias</div>
+              <div class="mp-card-meta"><span class="mp-tag mp-tag-gold">Celebration</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-stack-bar">
+    <span class="tf-stack-label">Stack:</span>
+    <span class="tf-pill">⚛️ React</span>
+    <span class="tf-pill">⚡ Vite</span>
+    <span class="tf-pill">🎨 Tailwind CSS</span>
+    <span class="tf-pill">🎬 Framer Motion</span>
+    <span class="tf-pill">🟩 Express</span>
+    <span class="tf-pill">💎 Prisma</span>
+    <span class="tf-pill">🐘 PostgreSQL</span>
+    <span class="tf-pill">☁️ Supabase</span>
+    <span class="tf-pill">🔐 JWT</span>
+    <span class="tf-pill">▲ Vercel</span>
+  </div>
+</div>
+
+    <!-- ═══════════════ TASKFLOW SHOWCASE ═══════════════ -->
+    <div class="tf-showcase rv">
+  <div class="tf-head">
+    <div class="tf-head-left">
+      <div class="tf-live-chip"><span class="tf-live-dot"></span>Live on Vercel</div>
+      <div class="tf-title">TaskFlow — Full Stack App</div>
+      <div class="tf-sub">FastAPI + PostgreSQL + React · Jira-style project management</div>
+    </div>
+    <div class="tf-head-btns">
+      <a href="https://github.com/Camilorc05-code/TASKFLOW_BACKEND" target="_blank" class="tf-btn-secondary">🐙 Backend</a>
+      <a href="https://github.com/Camilorc05-code/TASKFLOW_FRONTEND" target="_blank" class="tf-btn-secondary">🐙 Frontend</a>
+      <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" class="tf-btn-primary">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Open Live App ↗
+      </a>
+    </div>
+  </div>
+
+  <div class="tf-browser">
+    <div class="tf-browser-bar">
+      <div class="tf-dots">
+        <span style="background:#ff5f57"></span>
+        <span style="background:#febc2e"></span>
+        <span style="background:#28c840"></span>
+      </div>
+      <div class="tf-url-bar">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="color:#4ade80">taskflow-frontend-taupe.vercel.app</span>
+        <span style="margin-left:auto;font-size:.58rem;color:rgba(74,222,128,.5)">↗ Click to open</span>
+      </div>
+      <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" style="display:flex;align-items:center;color:#4ade80;opacity:.6;transition:opacity .2s" title="Open in new tab">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
+    <div class="tf-kanban">
+      <div class="tf-sidebar">
+        <div class="tf-sidebar-logo">⚡ TaskFlow</div>
+        <div class="tf-nav tf-act">📋 Dashboard</div>
+        <div class="tf-nav">✅ My Tasks</div>
+        <div class="tf-nav">👥 Teams</div>
+        <div class="tf-nav">📊 Analytics</div>
+        <div class="tf-nav">🔔 Notifications</div>
+        <div class="tf-nav">⚙️ Settings</div>
+        <div class="tf-sidebar-footer">
+          <div class="tf-avatar">CR</div>
+          <span>Camilo R.</span>
+        </div>
+      </div>
+
+      <div class="tf-main">
+        <div class="tf-topbar">
+          <div class="tf-board-title">
+            🚀 TaskFlow Project
+            <span class="tf-sprint">Sprint 3 · 10 tasks</span>
+          </div>
+          <div class="tf-topbar-btns">
+            <div class="tf-sm-btn">Filter</div>
+            <div class="tf-sm-btn">Group by</div>
+            <div class="tf-sm-btn tf-primary-btn">+ Add Task</div>
+            <div class="tf-avatar" style="width:26px;height:26px;font-size:.62rem">CR</div>
+          </div>
+        </div>
+
+        <div class="tf-board">
+          <div class="tf-col">
+            <div class="tf-col-header"><span>🔵 To Do</span><span class="tf-col-count">3</span></div>
+            <div class="tf-card tf-card-todo">
+              <div class="tf-card-title">Setup CI/CD pipeline</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-blue">DevOps</span><span class="tf-tag">P2</span></div>
+            </div>
+            <div class="tf-card tf-card-todo">
+              <div class="tf-card-title">Write integration tests</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-purple">Testing</span><span class="tf-tag">P1</span></div>
+            </div>
+            <div class="tf-card tf-card-todo">
+              <div class="tf-card-title">API rate limiting</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-red">Security</span></div>
+            </div>
+          </div>
+
+          <div class="tf-col">
+            <div class="tf-col-header"><span>🟡 In Progress</span><span class="tf-col-count">4</span></div>
+            <div class="tf-card tf-card-prog">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
+                <span class="tf-active-indicator"></span>JWT Authentication
+              </div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-red">Security</span><span class="tf-tag tf-tag-yellow">P1</span></div>
+              <div class="tf-card-progress"><div class="tf-card-prog-fill" style="width:75%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div>
+            </div>
+            <div class="tf-card tf-card-prog">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
+                <span class="tf-active-indicator" style="background:#60a5fa;box-shadow:none"></span>React dashboard UI
+              </div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-blue">Frontend</span></div>
+              <div class="tf-card-progress"><div class="tf-card-prog-fill" style="width:50%;background:linear-gradient(90deg,#60a5fa,#3b82f6)"></div></div>
+            </div>
+            <div class="tf-card tf-card-prog">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.4rem">
+                <span class="tf-active-indicator" style="background:#a78bfa;box-shadow:none"></span>Pagination endpoints
+              </div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-purple">Backend</span></div>
+              <div class="tf-card-progress"><div class="tf-card-prog-fill" style="width:30%;background:linear-gradient(90deg,#a78bfa,#8b5cf6)"></div></div>
+            </div>
+          </div>
+
+          <div class="tf-col">
+            <div class="tf-col-header"><span>🟢 Done</span><span class="tf-col-count">5</span></div>
+            <div class="tf-card tf-card-done">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem"><span class="tf-done-check">✓</span>REST API v1.0</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-green">FastAPI</span></div>
+            </div>
+            <div class="tf-card tf-card-done">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem"><span class="tf-done-check">✓</span>PostgreSQL schema</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-green">Database</span></div>
+            </div>
+            <div class="tf-card tf-card-done">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem"><span class="tf-done-check">✓</span>Docker Compose setup</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-green">DevOps</span></div>
+            </div>
+            <div class="tf-card tf-card-done">
+              <div class="tf-card-title" style="display:flex;align-items:center;gap:.35rem"><span class="tf-done-check">✓</span>User auth flow</div>
+              <div class="tf-card-meta"><span class="tf-tag tf-tag-green">Security</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-stack-bar">
+    <span class="tf-stack-label">Stack:</span>
+    <span class="tf-pill">🐍 Python</span>
+    <span class="tf-pill">⚡ FastAPI</span>
+    <span class="tf-pill">🐘 PostgreSQL</span>
+    <span class="tf-pill">🗃️ SQLAlchemy</span>
+    <span class="tf-pill">🐳 Docker</span>
+    <span class="tf-pill">🔐 JWT</span>
+    <span class="tf-pill">⚛️ React</span>
+    <span class="tf-pill">▲ Vercel</span>
+  </div>
+</div>
   </div>
 </section>
-
 <hr class="fancy"/>
 
 <!-- EDUCATION -->

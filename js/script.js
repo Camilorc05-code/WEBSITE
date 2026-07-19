@@ -307,3 +307,99 @@ window.switchSk=function(i){
     });
   });
 };
+
+/* ═══════════════════════════════════════════════════════
+   IMMERSIVE PROJECT CARDS — 3D TILT + GLOW + REVEAL
+   ═══════════════════════════════════════════════════════ */
+(function(){
+  var cards=document.querySelectorAll('.proj-im');
+  if(!cards.length)return;
+
+  cards.forEach(function(card){
+    var inner=card.querySelector('.proj-im-inner');
+    var glow=card.querySelector('.proj-im-glow');
+
+    /* ── 3D Tilt on mouse move ── */
+    card.addEventListener('mousemove',function(e){
+      var rect=card.getBoundingClientRect();
+      var x=e.clientX-rect.left;
+      var y=e.clientY-rect.top;
+      var cx=rect.width/2;
+      var cy=rect.height/2;
+      var rotY=((x-cx)/cx)*6;
+      var rotX=-((y-cy)/cy)*6;
+      card.style.transform='perspective(800px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) scale3d(1.01,1.01,1.01)';
+
+      /* ── Glow position ── */
+      if(glow){
+        glow.style.left=x+'px';
+        glow.style.top=y+'px';
+      }
+    });
+
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    });
+  });
+
+  /* ── Staggered tag reveal on scroll ── */
+  var tagObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting)return;
+      var card=entry.target;
+      var tags=card.querySelectorAll('.proj-im-tag');
+      tags.forEach(function(tag,i){
+        setTimeout(function(){
+          tag.style.transition='opacity .4s ease,transform .4s ease';
+          tag.style.opacity='1';
+          tag.style.transform='translateY(0)';
+        },i*80);
+      });
+      card.classList.add('revealed');
+      tagObs.unobserve(card);
+    });
+  },{threshold:0.15});
+  cards.forEach(function(c){tagObs.observe(c);});
+
+  /* ── Code typing animation on scroll ── */
+  var codeObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting)return;
+      var codeBody=entry.target;
+      var lines=codeBody.querySelectorAll('span');
+      lines.forEach(function(line,i){
+        line.style.opacity='0';
+        line.style.transform='translateX(-8px)';
+        line.style.transition='opacity .3s ease,transform .3s ease';
+        setTimeout(function(){
+          line.style.opacity='1';
+          line.style.transform='translateX(0)';
+        },i*60);
+      });
+      codeObs.unobserve(codeBody);
+    });
+  },{threshold:0.2});
+  document.querySelectorAll('.proj-im .cbody').forEach(function(cb){codeObs.observe(cb);});
+
+  /* ── Animated stat counters ── */
+  var statObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting)return;
+      var statVals=entry.target.querySelectorAll('.proj-im-stat-val');
+      statVals.forEach(function(sv){
+        var target=parseInt(sv.dataset.count);
+        if(isNaN(target))return;
+        var current=0;
+        var step=Math.max(16,1200/target);
+        var timer=setInterval(function(){
+          current++;
+          sv.textContent=current;
+          if(current>=target)clearInterval(timer);
+        },step);
+      });
+      statObs.unobserve(entry.target);
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('.proj-im-stats').forEach(function(s){statObs.observe(s);});
+
+})();
