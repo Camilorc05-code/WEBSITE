@@ -308,47 +308,66 @@ window.switchSk=function(i){
   });
 };
 
+
 /* ═══════════════════════════════════════════════════════
-   PROJECT CARDS — INTERACTIVE MOCKUPS + REVEAL
+   LIVING PROJECT SHOWCASE — INTERACTIVE MINI-APPS
    ═══════════════════════════════════════════════════════ */
 (function(){
 
-  /* ── Tab switching for browser mockups ── */
-  document.querySelectorAll('.pj-tab').forEach(function(tab){
-    tab.addEventListener('click',function(){
-      var container=tab.closest('.pj');
-      if(!container)return;
-      var tabs=container.querySelectorAll('.pj-tab');
-      var views=container.querySelectorAll('.pj-view');
-      var idx=Array.prototype.indexOf.call(tabs,tab);
-      tabs.forEach(function(t){t.classList.remove('act')});
-      views.forEach(function(v){v.classList.remove('act')});
-      tab.classList.add('act');
-      if(views[idx])views[idx].classList.add('act');
+  /* ── 3D Parallax Tilt + Ambient Glow ── */
+  document.querySelectorAll('.pj').forEach(function(card){
+    var inner=card.querySelector('.pj-inner');
+    var glow=card.querySelector('.pj-glow');
+    if(!inner)return;
+
+    card.addEventListener('mousemove',function(e){
+      var rect=card.getBoundingClientRect();
+      var x=e.clientX-rect.left;
+      var y=e.clientY-rect.top;
+      var cx=rect.width/2;
+      var cy=rect.height/2;
+      var rotateY=((x-cx)/cx)*6;
+      var rotateX=((cy-y)/cy)*6;
+      inner.style.transform='rotateX('+rotateX+'deg) rotateY('+rotateY+'deg) scale(1.01)';
+      inner.style.transition='transform .08s linear';
+      if(glow){
+        glow.style.left=x+'px';
+        glow.style.top=y+'px';
+        glow.style.opacity='1';
+      }
+      /* conic gradient angle */
+      var angle=Math.atan2(y-cy,x-cx)*(180/Math.PI)+180;
+      card.style.setProperty('--pj-angle',angle+'deg');
+    });
+
+    card.addEventListener('mouseleave',function(){
+      inner.style.transform='rotateX(0deg) rotateY(0deg) scale(1)';
+      inner.style.transition='transform .5s cubic-bezier(.23,1,.32,1)';
+      if(glow)glow.style.opacity='0';
     });
   });
 
   /* ── Staggered tag reveal on scroll ── */
   var cards=document.querySelectorAll('.pj');
-  if(!cards.length)return;
-
-  var tagObs=new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(!entry.isIntersecting)return;
-      var card=entry.target;
-      var tags=card.querySelectorAll('.pj-tag');
-      tags.forEach(function(tag,i){
-        setTimeout(function(){
-          tag.style.transition='opacity .5s ease,transform .5s ease';
-          tag.style.opacity='1';
-          tag.style.transform='translateY(0)';
-        },i*90);
+  if(cards.length){
+    var tagObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting)return;
+        var card=entry.target;
+        var tags=card.querySelectorAll('.pj-tag');
+        tags.forEach(function(tag,i){
+          setTimeout(function(){
+            tag.style.transition='opacity .5s ease,transform .5s ease';
+            tag.style.opacity='1';
+            tag.style.transform='translateY(0)';
+          },i*90);
+        });
+        card.classList.add('revealed');
+        tagObs.unobserve(card);
       });
-      card.classList.add('revealed');
-      tagObs.unobserve(card);
-    });
-  },{threshold:0.15});
-  cards.forEach(function(c){tagObs.observe(c);});
+    },{threshold:0.15});
+    cards.forEach(function(c){tagObs.observe(c);});
+  }
 
   /* ── Animated stat counters ── */
   var statObs=new IntersectionObserver(function(entries){
@@ -370,5 +389,240 @@ window.switchSk=function(i){
     });
   },{threshold:0.3});
   document.querySelectorAll('.pj-stats').forEach(function(s){statObs.observe(s);});
+
+  /* ═══════════════════════════════════════════════════
+     CHURCH COUNTDOWN — LIVE TIMER
+     ═══════════════════════════════════════════════════ */
+  (function(){
+    var hEl=document.getElementById('mp-cd-h');
+    var mEl=document.getElementById('mp-cd-m');
+    var sEl=document.getElementById('mp-cd-s');
+    var label=document.getElementById('mp-next-label');
+    var svcs=document.getElementById('mp-services');
+    if(!hEl||!svcs)return;
+
+    /* Services: [dayOfWeek(0=Sun), hour24] */
+    var services=[
+      {day:4,hour:19,name:'Oración',icon:'🟡'},
+      {day:6,hour:17,name:'Jóvenes',icon:'🟢'},
+      {day:0,hour:6,name:'Ayuno',icon:'🔵'},
+      {day:0,hour:10,name:'General',icon:'🔴'},
+      {day:0,hour:18,name:'Vespertina',icon:'🟣'}
+    ];
+
+    function getNextService(){
+      var now=new Date();
+      var closest=null;
+      var minDiff=Infinity;
+      for(var i=0;i<services.length;i++){
+        var s=services[i];
+        var target=new Date(now);
+        /* days until this service */
+        var daysAhead=(s.day-now.getDay()+7)%7;
+        if(daysAhead===0){
+          /* today — check if already passed */
+          if(now.getHours()>=s.hour+1)daysAhead=7;
+        }
+        target.setDate(target.getDate()+daysAhead);
+        target.setHours(s.hour,0,0,0);
+        var diff=target-now;
+        if(diff<0)diff+=7*86400000;
+        if(diff<minDiff){minDiff=diff;closest={service:s,diff:diff,target:target};}
+      }
+      return closest;
+    }
+
+    function updateCountdown(){
+      var info=getNextService();
+      if(!info)return;
+      var diff=info.diff-((Date.now()%1000)); /* sub-second jitter */
+      if(diff<0)diff=0;
+      var totalSec=Math.floor(diff/1000);
+      var hrs=Math.floor(totalSec/3600);
+      var mins=Math.floor((totalSec%3600)/60);
+      var secs=totalSec%60;
+      hEl.textContent=String(hrs).padStart(2,'0');
+      mEl.textContent=String(mins).padStart(2,'0');
+      sEl.textContent=String(secs).padStart(2,'0');
+      /* label */
+      var days=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+      var d=info.target;
+      label.innerHTML='Next: <span>'+info.service.icon+' '+info.service.name+'</span> — '+days[d.getDay()]+' '+String(d.getHours()).padStart(2,'0')+':00';
+      /* highlight active */
+      var svcCards=svcs.querySelectorAll('.mp-svc');
+      svcCards.forEach(function(c){c.classList.remove('active');});
+      var idx=services.indexOf(info.service);
+      if(idx>=0&&svcCards[idx])svcCards[idx].classList.add('active');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown,1000);
+  })();
+
+  /* ═══════════════════════════════════════════════════
+     TASKFLOW KANBAN — DRAG AND DROP
+     ═══════════════════════════════════════════════════ */
+  (function(){
+    var board=document.getElementById('tf-board');
+    if(!board)return;
+
+    var cols=board.querySelectorAll('.tf-kb-col');
+    var draggedCard=null;
+
+    function updateCounts(){
+      cols.forEach(function(col){
+        var count=col.querySelectorAll('.tf-kb-card').length;
+        var badge=col.querySelector('[data-count]');
+        if(badge)badge.textContent=count;
+      });
+      var total=board.querySelectorAll('.tf-kb-card').length;
+      var sprintEl=board.closest('.tf-live').querySelector('.tf-kb-sprint');
+      if(sprintEl)sprintEl.textContent='Sprint 3 · '+total+' tasks';
+    }
+
+    function setupDrag(card){
+      card.addEventListener('dragstart',function(e){
+        draggedCard=card;
+        card.classList.add('dragging');
+        e.dataTransfer.effectAllowed='move';
+        e.dataTransfer.setData('text/plain',card.dataset.id);
+        /* ghost image opacity */
+        setTimeout(function(){card.style.opacity='.3';},0);
+      });
+      card.addEventListener('dragend',function(){
+        if(draggedCard)draggedCard.classList.remove('dragging');
+        if(draggedCard)draggedCard.style.opacity='1';
+        draggedCard=null;
+        cols.forEach(function(c){c.classList.remove('dragover');});
+        /* remove placeholders */
+        board.querySelectorAll('.tf-kb-placeholder').forEach(function(p){p.remove();});
+        updateCounts();
+      });
+    }
+
+    /* Setup drag on all cards */
+    board.querySelectorAll('.tf-kb-card').forEach(setupDrag);
+
+    /* Column drop zones */
+    cols.forEach(function(col){
+      col.addEventListener('dragover',function(e){
+        e.preventDefault();
+        e.dataTransfer.dropEffect='move';
+        col.classList.add('dragover');
+        /* find insertion point */
+        var after=getDragAfterElement(col,e.clientY);
+        var placeholder=col.querySelector('.tf-kb-placeholder');
+        if(!placeholder){
+          placeholder=document.createElement('div');
+          placeholder.className='tf-kb-placeholder';
+        }
+        if(after){
+          col.insertBefore(placeholder,after);
+        }else{
+          col.appendChild(placeholder);
+        }
+      });
+
+      col.addEventListener('dragleave',function(e){
+        if(!col.contains(e.relatedTarget)){
+          col.classList.remove('dragover');
+          var ph=col.querySelector('.tf-kb-placeholder');
+          if(ph)ph.remove();
+        }
+      });
+
+      col.addEventListener('drop',function(e){
+        e.preventDefault();
+        col.classList.remove('dragover');
+        if(!draggedCard)return;
+        var placeholder=col.querySelector('.tf-kb-placeholder');
+        if(placeholder){
+          col.insertBefore(draggedCard,placeholder);
+          placeholder.remove();
+        }else{
+          col.appendChild(draggedCard);
+        }
+        draggedCard.classList.remove('dragging');
+        draggedCard.style.opacity='1';
+        /* animate progress bar based on column */
+        var colName=col.dataset.col;
+        var bar=draggedCard.querySelector('.tf-kb-bar-fill');
+        if(bar){
+          if(colName==='todo')bar.style.width='0%';
+          else if(colName==='doing')bar.style.width='50%';
+          else bar.style.width='100%';
+        }
+        /* toggle done state */
+        if(colName==='done'){
+          draggedCard.classList.add('tf-kb-done');
+          var check=draggedCard.querySelector('.tf-kb-check');
+          if(!check){
+            var title=draggedCard.querySelector('.tf-kb-card-title');
+            if(title&&!title.querySelector('.tf-kb-check')){
+              var sp=document.createElement('span');
+              sp.className='tf-kb-check';
+              sp.textContent='✓';
+              title.insertBefore(sp,title.firstChild);
+            }
+          }
+        }else{
+          draggedCard.classList.remove('tf-kb-done');
+          var check2=draggedCard.querySelector('.tf-kb-check');
+          if(check2)check2.remove();
+        }
+        /* remove pulse from moved cards */
+        var pulse=draggedCard.querySelector('.tf-kb-pulse');
+        if(pulse&&colName!=='doing')pulse.remove();
+        /* add pulse if moved to doing */
+        if(colName==='doing'&&!draggedCard.querySelector('.tf-kb-pulse')){
+          var title2=draggedCard.querySelector('.tf-kb-card-title');
+          if(title2){
+            var pulse2=document.createElement('span');
+            pulse2.className='tf-kb-pulse';
+            pulse2.style.background='#fbbf24';
+            title2.insertBefore(pulse2,title2.firstChild);
+          }
+        }
+        updateCounts();
+      });
+    });
+
+    function getDragAfterElement(col,y){
+      var cards=Array.from(col.querySelectorAll('.tf-kb-card:not(.dragging)'));
+      var closest={offset:Number.NEGATIVE_INFINITY,element:null};
+      cards.forEach(function(card){
+        var box=card.getBoundingClientRect();
+        var offset=y-box.top-box.height/2;
+        if(offset<0&&offset>closest.offset){
+          closest={offset:offset,element:card};
+        }
+      });
+      return closest.element;
+    }
+
+    /* ── Add Task button (creates new card) ── */
+    var addBtn=board.closest('.tf-live').querySelector('.tf-kb-pill-add');
+    if(addBtn){
+      addBtn.addEventListener('click',function(){
+        var todoCol=board.querySelector('[data-col="todo"]');
+        if(!todoCol)return;
+        var id=Date.now();
+        var card=document.createElement('div');
+        card.className='tf-kb-card';
+        card.draggable=true;
+        card.dataset.id=id;
+        card.innerHTML='<div class="tf-kb-card-title">New task #'+(board.querySelectorAll('.tf-kb-card').length+1)+'</div>'
+          +'<div class="tf-kb-card-tags"><span class="tf-kb-tag tf-kb-tag-amber">New</span></div>'
+          +'<div class="tf-kb-card-bar"><div class="tf-kb-bar-fill tf-kb-bar-amber" style="width:0%"></div></div>';
+        setupDrag(card);
+        todoCol.appendChild(card);
+        /* pulse animation */
+        card.style.animation='fadeIn .3s ease';
+        updateCounts();
+      });
+    }
+
+    updateCounts();
+  })();
 
 })();

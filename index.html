@@ -403,141 +403,74 @@
 
 
 <!-- PROJECTS -->
+<!-- PROJECTS -->
 <section class="sec" id="projects">
   <div class="si">
     <div class="rv"><div class="eyebrow">03 — Projects</div><h2 class="sec-h">Featured <em>Work</em></h2></div>
 
     <!-- ═══════════════ PROJECT 1: Misión Panamericana ═══════════════ -->
-    <div class="pj rv">
+    <div class="pj rv" id="pj-mp">
       <div class="pj-inner" data-num="01">
+        <div class="pj-glow"></div>
 
-        <!-- ── Browser Mockup ── -->
-        <div class="pj-browser">
-          <div class="pj-browser-bar">
-            <div class="pj-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
-            <div class="pj-url">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span class="pj-url-text">misionpanamericana.vercel.app</span>
+        <!-- ── Living Church Portal ── -->
+        <div class="mp-portal">
+          <div class="mp-rays"></div>
+
+          <div class="mp-header">
+            <div class="mp-cross">✝️</div>
+            <div class="mp-church-name">Misión Panamericana</div>
+            <div class="mp-church-sub">Centro de Fe y Esperanza · Paz de Ariporo</div>
+          </div>
+
+          <!-- Live countdown to next service -->
+          <div class="mp-countdown-wrap">
+            <div class="mp-countdown-label">⏰ Next service starts in</div>
+            <div class="mp-countdown" id="mp-countdown">
+              <div class="mp-cd-block"><div class="mp-cd-val" id="mp-cd-h">00</div><div class="mp-cd-unit">Hours</div></div>
+              <div class="mp-cd-block"><div class="mp-cd-val" id="mp-cd-m">00</div><div class="mp-cd-unit">Min</div></div>
+              <div class="mp-cd-block"><div class="mp-cd-val" id="mp-cd-s">00</div><div class="mp-cd-unit">Sec</div></div>
             </div>
-            <a href="https://misionpanamericana.vercel.app/" target="_blank" class="pj-external" title="Open live site">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
+            <div class="mp-next-service" id="mp-next-label">Loading...</div>
           </div>
 
-          <!-- ── Tab Switcher ── -->
-          <div class="pj-tabs" data-project="mp">
-            <button class="pj-tab act" data-view="mp-home">🏠 Home</button>
-            <button class="pj-tab" data-view="mp-admin">📊 Admin Panel</button>
-            <button class="pj-tab" data-view="mp-events">🎉 Events</button>
-          </div>
-
-          <!-- ── View: Home ── -->
-          <div class="pj-view act" id="mp-home">
-            <div class="mp-home">
-              <div class="mp-hero">
-                <div class="mp-hero-content">
-                  <div class="mp-church-logo">✝️</div>
-                  <div class="mp-hero-title">Misión Panamericana</div>
-                  <div class="mp-hero-sub">Centro de Fe y Esperanza</div>
-                  <div class="mp-hero-verse">"Todo lo puedo en Cristo que me fortalece" — Filipenses 4:13</div>
-                </div>
-              </div>
-              <div class="mp-services-row">
-                <div class="mp-svc-card">
-                  <div class="mp-svc-icon">🟡</div>
-                  <div class="mp-svc-name">Oración</div>
-                  <div class="mp-svc-time">Jue 7:00 PM</div>
-                </div>
-                <div class="mp-svc-card">
-                  <div class="mp-svc-icon">🟢</div>
-                  <div class="mp-svc-name">Jóvenes</div>
-                  <div class="mp-svc-time">Sáb 5:00 PM</div>
-                </div>
-                <div class="mp-svc-card">
-                  <div class="mp-svc-icon">🔵</div>
-                  <div class="mp-svc-name">Ayuno</div>
-                  <div class="mp-svc-time">Dom 6:00 AM</div>
-                </div>
-                <div class="mp-svc-card">
-                  <div class="mp-svc-icon">🔴</div>
-                  <div class="mp-svc-name">General</div>
-                  <div class="mp-svc-time">Dom 10:00 AM</div>
-                </div>
-              </div>
-              <div class="mp-cta">
-                <div class="mp-cta-btn">🙏 Agendar Cita Pastoral</div>
-                <div class="mp-cta-btn mp-cta-outline">💝 Donar</div>
-              </div>
+          <!-- Services carousel -->
+          <div class="mp-services-scroll" id="mp-services">
+            <div class="mp-svc active" data-day="4" data-hour="19">
+              <div class="mp-svc-icon">🟡</div>
+              <div class="mp-svc-name">Oración</div>
+              <div class="mp-svc-time">Jue 7:00 PM</div>
+              <div class="mp-svc-dot mp-svc-dot-next"></div>
+            </div>
+            <div class="mp-svc" data-day="6" data-hour="17">
+              <div class="mp-svc-icon">🟢</div>
+              <div class="mp-svc-name">Jóvenes</div>
+              <div class="mp-svc-time">Sáb 5:00 PM</div>
+              <div class="mp-svc-dot mp-svc-dot-next"></div>
+            </div>
+            <div class="mp-svc" data-day="0" data-hour="6">
+              <div class="mp-svc-icon">🔵</div>
+              <div class="mp-svc-name">Ayuno</div>
+              <div class="mp-svc-time">Dom 6:00 AM</div>
+              <div class="mp-svc-dot mp-svc-dot-next"></div>
+            </div>
+            <div class="mp-svc" data-day="0" data-hour="10">
+              <div class="mp-svc-icon">🔴</div>
+              <div class="mp-svc-name">General</div>
+              <div class="mp-svc-time">Dom 10:00 AM</div>
+              <div class="mp-svc-dot mp-svc-dot-next"></div>
+            </div>
+            <div class="mp-svc" data-day="0" data-hour="18">
+              <div class="mp-svc-icon">🟣</div>
+              <div class="mp-svc-name">Vespertina</div>
+              <div class="mp-svc-time">Dom 6:00 PM</div>
+              <div class="mp-svc-dot mp-svc-dot-next"></div>
             </div>
           </div>
 
-          <!-- ── View: Admin Panel ── -->
-          <div class="pj-view" id="mp-admin">
-            <div class="mp-admin">
-              <div class="mp-admin-side">
-                <div class="mp-admin-logo">✝️ MP</div>
-                <div class="mp-admin-nav mp-aact">📊 Dashboard</div>
-                <div class="mp-admin-nav">👤 Personas</div>
-                <div class="mp-admin-nav">📅 Citas</div>
-                <div class="mp-admin-nav">🎉 Eventos</div>
-                <div class="mp-admin-nav">⚙️ Usuarios</div>
-              </div>
-              <div class="mp-admin-main">
-                <div class="mp-admin-topbar">
-                  <span>Dashboard</span>
-                  <div class="mp-admin-avatar">CR</div>
-                </div>
-                <div class="mp-admin-stats">
-                  <div class="mp-astat">
-                    <div class="mp-astat-val" data-count="45">0</div>
-                    <div class="mp-astat-lbl">Members</div>
-                  </div>
-                  <div class="mp-astat">
-                    <div class="mp-astat-val" data-count="12">0</div>
-                    <div class="mp-astat-lbl">Pending</div>
-                  </div>
-                  <div class="mp-astat">
-                    <div class="mp-astat-val" data-count="9">0</div>
-                    <div class="mp-astat-lbl">Events</div>
-                  </div>
-                </div>
-                <div class="mp-admin-table">
-                  <div class="mp-row mp-row-h"><span>Name</span><span>Role</span><span>Status</span></div>
-                  <div class="mp-row"><span>María López</span><span>Miembro</span><span class="mp-st-active">Active</span></div>
-                  <div class="mp-row"><span>Pedro García</span><span>Líder</span><span class="mp-st-active">Active</span></div>
-                  <div class="mp-row"><span>Ana Martínez</span><span>Diacono</span><span class="mp-st-pending">Pending</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── View: Events ── -->
-          <div class="pj-view" id="mp-events">
-            <div class="mp-events">
-              <div class="mp-evt-header">Upcoming Events</div>
-              <div class="mp-evt-grid">
-                <div class="mp-evt-card">
-                  <div class="mp-evt-badge mp-evt-special">Special</div>
-                  <div class="mp-evt-name">Cumbre Ministerial</div>
-                  <div class="mp-evt-date">📅 Aug 15, 2026</div>
-                </div>
-                <div class="mp-evt-card">
-                  <div class="mp-evt-badge mp-evt-prayer">Night Prayer</div>
-                  <div class="mp-evt-name">Vigilia de Oración</div>
-                  <div class="mp-evt-date">📅 Every Friday</div>
-                </div>
-                <div class="mp-evt-card">
-                  <div class="mp-evt-badge mp-evt-celebrate">Celebration</div>
-                  <div class="mp-evt-name">Fiesta de Primicias</div>
-                  <div class="mp-evt-date">📅 Sep 20, 2026</div>
-                </div>
-                <div class="mp-evt-card">
-                  <div class="mp-evt-badge mp-evt-youth">Youth</div>
-                  <div class="mp-evt-name">Encuentro de Jóvenes</div>
-                  <div class="mp-evt-date">📅 Every Saturday</div>
-                </div>
-              </div>
-            </div>
+          <div class="mp-cta">
+            <div class="mp-btn mp-btn-gold">🙏 Agendar Cita</div>
+            <div class="mp-btn mp-btn-ghost">💝 Donar</div>
           </div>
         </div>
 
@@ -588,141 +521,112 @@
     </div>
 
     <!-- ═══════════════ PROJECT 2: TaskFlow ═══════════════ -->
-    <div class="pj rv">
+    <div class="pj rv" id="pj-tf">
       <div class="pj-inner" data-num="02">
+        <div class="pj-glow"></div>
 
-        <!-- ── Browser Mockup ── -->
-        <div class="pj-browser">
-          <div class="pj-browser-bar">
-            <div class="pj-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
-            <div class="pj-url">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span class="pj-url-text">taskflow-frontend-taupe.vercel.app</span>
+        <!-- ── Living Kanban Board ── -->
+        <div class="tf-live">
+          <div class="tf-mesh"></div>
+
+          <div class="tf-kb-head">
+            <div>
+              <div class="tf-kb-title">⚡ TaskFlow Board</div>
+              <div class="tf-kb-sprint">Sprint 3 · 10 tasks</div>
             </div>
-            <a href="https://taskflow-frontend-taupe.vercel.app/" target="_blank" class="pj-external" title="Open live app">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-
-          <!-- ── Tab Switcher ── -->
-          <div class="pj-tabs" data-project="tf">
-            <button class="pj-tab act" data-view="tf-board">📋 Kanban Board</button>
-            <button class="pj-tab" data-view="tf-login">🔐 Login</button>
-            <button class="pj-tab" data-view="tf-api">⚡ API Docs</button>
-          </div>
-
-          <!-- ── View: Kanban Board ── -->
-          <div class="pj-view act" id="tf-board">
-            <div class="tf-board-wrap">
-              <div class="tf-sidebar-mock">
-                <div class="tf-sl-logo">⚡ TaskFlow</div>
-                <div class="tf-sl-nav tf-sl-active">📋 Dashboard</div>
-                <div class="tf-sl-nav">✅ My Tasks</div>
-                <div class="tf-sl-nav">👥 Teams</div>
-                <div class="tf-sl-nav">📊 Analytics</div>
-              </div>
-              <div class="tf-board-mock">
-                <div class="tf-board-top">
-                  <span>🚀 Sprint 3</span>
-                  <div class="tf-board-top-btns">
-                    <span class="tf-sm-pill">Filter</span>
-                    <span class="tf-sm-pill tf-sm-pri">+ Add Task</span>
-                  </div>
-                </div>
-                <div class="tf-cols">
-                  <div class="tf-col-mock">
-                    <div class="tf-col-h"><span>🔵 To Do</span><span class="tf-col-c">3</span></div>
-                    <div class="tf-card-mock tf-card-t"><div class="tf-cm-title">Setup CI/CD pipeline</div><div class="tf-cm-tags"><span class="tf-cm-tag tf-cm-blue">DevOps</span></div></div>
-                    <div class="tf-card-mock tf-card-t"><div class="tf-cm-title">Write integration tests</div><div class="tf-cm-tags"><span class="tf-cm-tag tf-cm-purple">Testing</span></div></div>
-                  </div>
-                  <div class="tf-col-mock">
-                    <div class="tf-col-h"><span>🟡 In Progress</span><span class="tf-col-c">3</span></div>
-                    <div class="tf-card-mock tf-card-p">
-                      <div class="tf-cm-title"><span class="tf-pulse"></span>JWT Authentication</div>
-                      <div class="tf-cm-progress"><div class="tf-cm-bar" style="width:75%"></div></div>
-                    </div>
-                    <div class="tf-card-mock tf-card-p">
-                      <div class="tf-cm-title"><span class="tf-pulse" style="background:#60a5fa"></span>React dashboard</div>
-                      <div class="tf-cm-progress"><div class="tf-cm-bar tf-cm-bar-blue" style="width:50%"></div></div>
-                    </div>
-                    <div class="tf-card-mock tf-card-p">
-                      <div class="tf-cm-title"><span class="tf-pulse" style="background:#a78bfa"></span>Pagination</div>
-                      <div class="tf-cm-progress"><div class="tf-cm-bar tf-cm-bar-purple" style="width:30%"></div></div>
-                    </div>
-                  </div>
-                  <div class="tf-col-mock">
-                    <div class="tf-col-h"><span>🟢 Done</span><span class="tf-col-c">4</span></div>
-                    <div class="tf-card-mock tf-card-d"><div class="tf-cm-title"><span class="tf-check">✓</span>REST API v1.0</div></div>
-                    <div class="tf-card-mock tf-card-d"><div class="tf-cm-title"><span class="tf-check">✓</span>PostgreSQL schema</div></div>
-                    <div class="tf-card-mock tf-card-d"><div class="tf-cm-title"><span class="tf-check">✓</span>Docker Compose</div></div>
-                    <div class="tf-card-mock tf-card-d"><div class="tf-cm-title"><span class="tf-check">✓</span>User auth flow</div></div>
-                  </div>
-                </div>
-              </div>
+            <div class="tf-kb-actions">
+              <div class="tf-kb-pill">Filter</div>
+              <div class="tf-kb-pill tf-kb-pill-add">+ Add Task</div>
             </div>
           </div>
 
-          <!-- ── View: Login ── -->
-          <div class="pj-view" id="tf-login">
-            <div class="tf-login-wrap">
-              <div class="tf-login-card">
-                <div class="tf-login-logo">⚡</div>
-                <div class="tf-login-title">Welcome back</div>
-                <div class="tf-login-sub">Sign in to TaskFlow</div>
-                <div class="tf-login-field">
-                  <div class="tf-login-label">Email</div>
-                  <div class="tf-login-input">camilo@example.com</div>
+          <div class="tf-kb-cols" id="tf-board">
+            <!-- TO DO column -->
+            <div class="tf-kb-col" data-col="todo">
+              <div class="tf-kb-col-head">
+                <div class="tf-kb-col-title">🔵 To Do</div>
+                <div class="tf-kb-col-count" data-count>3</div>
+              </div>
+              <div class="tf-kb-card" draggable="true" data-id="1">
+                <div class="tf-kb-card-title">Setup CI/CD pipeline</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-blue">DevOps</span>
                 </div>
-                <div class="tf-login-field">
-                  <div class="tf-login-label">Password</div>
-                  <div class="tf-login-input tf-login-pw">••••••••</div>
+                <div class="tf-kb-card-bar"><div class="tf-kb-bar-fill tf-kb-bar-blue" style="width:0%"></div></div>
+              </div>
+              <div class="tf-kb-card" draggable="true" data-id="2">
+                <div class="tf-kb-card-title">Write integration tests</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-purple">Testing</span>
                 </div>
-                <div class="tf-login-btn">Sign In</div>
-                <div class="tf-login-footer">Don't have an account? <span>Sign up</span></div>
+                <div class="tf-kb-card-bar"><div class="tf-kb-bar-fill tf-kb-bar-purple" style="width:0%"></div></div>
+              </div>
+              <div class="tf-kb-card" draggable="true" data-id="3">
+                <div class="tf-kb-card-title">Design system tokens</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-amber">Design</span>
+                </div>
+                <div class="tf-kb-card-bar"><div class="tf-kb-bar-fill tf-kb-bar-amber" style="width:0%"></div></div>
               </div>
             </div>
-          </div>
 
-          <!-- ── View: API Docs ── -->
-          <div class="pj-view" id="tf-api">
-            <div class="tf-api-wrap">
-              <div class="tf-api-sidebar">
-                <div class="tf-api-logo">⚡ Swagger</div>
-                <div class="tf-api-section">
-                  <div class="tf-api-sec-title">🔐 auth</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-post">POST</span>/auth/login</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-post">POST</span>/auth/register</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-get">GET</span>/auth/me</div>
+            <!-- IN PROGRESS column -->
+            <div class="tf-kb-col" data-col="doing">
+              <div class="tf-kb-col-head">
+                <div class="tf-kb-col-title">🟡 In Progress</div>
+                <div class="tf-kb-col-count" data-count>3</div>
+              </div>
+              <div class="tf-kb-card" draggable="true" data-id="4">
+                <div class="tf-kb-card-title"><span class="tf-kb-pulse" style="background:#fbbf24"></span>JWT Authentication</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-green">Backend</span>
                 </div>
-                <div class="tf-api-section">
-                  <div class="tf-api-sec-title">📋 tasks</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-get">GET</span>/tasks/</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-post">POST</span>/tasks/</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-put">PUT</span>/tasks/:id</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-del">DEL</span>/tasks/:id</div>
+                <div class="tf-kb-card-bar"><div class="tf-kb-bar-fill tf-kb-bar-green" style="width:75%"></div></div>
+              </div>
+              <div class="tf-kb-card" draggable="true" data-id="5">
+                <div class="tf-kb-card-title"><span class="tf-kb-pulse" style="background:#60a5fa"></span>React dashboard</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-blue">Frontend</span>
                 </div>
-                <div class="tf-api-section">
-                  <div class="tf-api-sec-title">👥 teams</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-get">GET</span>/teams/</div>
-                  <div class="tf-api-endpoint"><span class="tf-method tf-post">POST</span>/teams/</div>
+                <div class="tf-kb-card-bar"><div class="tf-kb-bar-fill tf-kb-bar-blue" style="width:50%"></div></div>
+              </div>
+              <div class="tf-kb-card" draggable="true" data-id="6">
+                <div class="tf-kb-card-title"><span class="tf-kb-pulse" style="background:#a78bfa"></span>Pagination</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-purple">API</span>
+                </div>
+                <div class="tf-kb-card-bar"><div class="tf-kb-bar-fill tf-kb-bar-purple" style="width:30%"></div></div>
+              </div>
+            </div>
+
+            <!-- DONE column -->
+            <div class="tf-kb-col" data-col="done">
+              <div class="tf-kb-col-head">
+                <div class="tf-kb-col-title">🟢 Done</div>
+                <div class="tf-kb-col-count" data-count>4</div>
+              </div>
+              <div class="tf-kb-card tf-kb-done" draggable="true" data-id="7">
+                <div class="tf-kb-card-title"><span class="tf-kb-check">✓</span>REST API v1.0</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-green">Backend</span>
                 </div>
               </div>
-              <div class="tf-api-main">
-                <div class="tf-api-title">TaskFlow API v1.0</div>
-                <div class="tf-api-desc">FastAPI + PostgreSQL — RESTful API for task management</div>
-                <div class="tf-api-response">
-                  <div class="tf-api-res-h">Response — GET /tasks/</div>
-                  <div class="tf-api-code">
-{<br>
-&nbsp;&nbsp;"tasks": [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;{ "id": 1, "title": "Setup CI/CD",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "todo", "team_id": 1 },<br>
-&nbsp;&nbsp;&nbsp;&nbsp;{ "id": 2, "title": "JWT Auth",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "in_progress", "team_id": 1 }<br>
-&nbsp;&nbsp;],<br>
-&nbsp;&nbsp;"total": 10, "page": 1<br>
-}
-                  </div>
+              <div class="tf-kb-card tf-kb-done" draggable="true" data-id="8">
+                <div class="tf-kb-card-title"><span class="tf-kb-check">✓</span>PostgreSQL schema</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-blue">Database</span>
+                </div>
+              </div>
+              <div class="tf-kb-card tf-kb-done" draggable="true" data-id="9">
+                <div class="tf-kb-card-title"><span class="tf-kb-check">✓</span>Docker Compose</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-purple">DevOps</span>
+                </div>
+              </div>
+              <div class="tf-kb-card tf-kb-done" draggable="true" data-id="10">
+                <div class="tf-kb-card-title"><span class="tf-kb-check">✓</span>User auth flow</div>
+                <div class="tf-kb-card-tags">
+                  <span class="tf-kb-tag tf-kb-tag-green">Backend</span>
                 </div>
               </div>
             </div>
@@ -736,7 +640,7 @@
             <div class="pj-badge">Personal Project · 2026</div>
           </div>
           <div class="pj-title">TaskFlow — <em>Full Stack App</em></div>
-          <p class="pj-desc">Professional task management platform — Jira-style kanban board with real-time team collaboration. Python REST API + React frontend, fully containerized.</p>
+          <p class="pj-desc">Professional task management platform — Jira-style kanban board with real-time team collaboration. Drag cards between columns to try it. Python REST API + React frontend, fully containerized.</p>
           <ul class="pj-flist">
             <li>JWT Authentication — secure register, login, protected routes</li>
             <li>Teams &amp; Tasks with ownership validation</li>
@@ -792,6 +696,7 @@
     </div>
   </div>
 </section>
+
 
 
 <hr class="fancy"/>
