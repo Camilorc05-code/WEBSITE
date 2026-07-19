@@ -1292,7 +1292,7 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   margin-bottom:2.5rem;min-height:520px;
   display:grid;grid-template-columns:1fr 1fr;
   border:1px solid var(--glass-border);
-  background:var(--bg1);
+  background:var(--bg1);z-index:0;
 }
 .hero-proj::before{
   content:'';position:absolute;inset:0;
@@ -1310,7 +1310,7 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   justify-content:center;overflow:hidden;min-height:520px;
 }
 .hero-vis::before{
-  content:'';position:absolute;inset:0;opacity:.12;
+  content:'';position:absolute;inset:0;opacity:.12;pointer-events:none;
   background:radial-gradient(ellipse at 30% 40%,var(--acc) 0%,transparent 60%),
              radial-gradient(ellipse at 70% 80%,var(--acc3) 0%,transparent 50%);
   animation:heroGlow 6s ease-in-out infinite alternate;
@@ -1319,6 +1319,61 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   0%{opacity:.1;transform:scale(1)}
   100%{opacity:.18;transform:scale(1.1)}
 }
+/* ── Spotlight cursor effect ── */
+.hero-vis .spotlight{
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  opacity:0;transition:opacity .4s;
+  background:radial-gradient(circle 350px at var(--mx,50%) var(--my,50%),rgba(255,255,255,.06),transparent);
+}
+.hero-proj:hover .hero-vis .spotlight{opacity:1}
+
+/* ── Magnetic hover on metric cards ── */
+.hero-metric{transition:border-color .3s,transform .25s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;perspective:600px}
+.hero-metric:hover{border-color:rgba(0,245,192,.25)}
+
+/* ── Tech badge unique colors ── */
+.hero-badge[data-tech="react"]{color:#61dafb;border-color:rgba(97,218,251,.2)}
+.hero-badge[data-tech="react"]:hover{background:rgba(97,218,251,.1);border-color:rgba(97,218,251,.4)}
+.hero-badge[data-tech="vite"]{color:#bd34fe;border-color:rgba(189,52,254,.2)}
+.hero-badge[data-tech="vite"]:hover{background:rgba(189,52,254,.1);border-color:rgba(189,52,254,.4)}
+.hero-badge[data-tech="tailwind"]{color:#38bdf8;border-color:rgba(56,189,248,.2)}
+.hero-badge[data-tech="tailwind"]:hover{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.4)}
+.hero-badge[data-tech="framer"]{color:#ff4d8d;border-color:rgba(255,77,141,.2)}
+.hero-badge[data-tech="framer"]:hover{background:rgba(255,77,141,.1);border-color:rgba(255,77,141,.4)}
+.hero-badge[data-tech="express"]{color:#68a063;border-color:rgba(104,160,99,.2)}
+.hero-badge[data-tech="express"]:hover{background:rgba(104,160,99,.1);border-color:rgba(104,160,99,.4)}
+.hero-badge[data-tech="prisma"]{color:#9179e8;border-color:rgba(145,121,232,.2)}
+.hero-badge[data-tech="prisma"]:hover{background:rgba(145,121,232,.1);border-color:rgba(145,121,232,.4)}
+.hero-badge[data-tech="postgres"]{color:#336791;border-color:rgba(51,103,145,.2)}
+.hero-badge[data-tech="postgres"]:hover{background:rgba(51,103,145,.1);border-color:rgba(51,103,145,.4)}
+.hero-badge[data-tech="supabase"]{color:#3ecf8e;border-color:rgba(62,207,142,.2)}
+.hero-badge[data-tech="supabase"]:hover{background:rgba(62,207,142,.1);border-color:rgba(62,207,142,.4)}
+.hero-badge[data-tech="jwt"]{color:#fb7185;border-color:rgba(251,113,133,.2)}
+.hero-badge[data-tech="jwt"]:hover{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.4)}
+.hero-badge[data-tech="vercel"]{color:#fff;border-color:rgba(255,255,255,.2)}
+.hero-badge[data-tech="vercel"]:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+.hero-badge[data-tech="python"]{color:#ffd43b;border-color:rgba(255,212,59,.2)}
+.hero-badge[data-tech="python"]:hover{background:rgba(255,212,59,.1);border-color:rgba(255,212,59,.4)}
+.hero-badge[data-tech="fastapi"]{color:#009688;border-color:rgba(0,150,136,.2)}
+.hero-badge[data-tech="fastapi"]:hover{background:rgba(0,150,136,.1);border-color:rgba(0,150,136,.4)}
+.hero-badge[data-tech="sqlalchemy"]{color:#d71f00;border-color:rgba(215,31,0,.2)}
+.hero-badge[data-tech="sqlalchemy"]:hover{background:rgba(215,31,0,.1);border-color:rgba(215,31,0,.4)}
+.hero-badge[data-tech="docker"]{color:#2496ed;border-color:rgba(36,150,237,.2)}
+.hero-badge[data-tech="docker"]:hover{background:rgba(36,150,237,.1);border-color:rgba(36,150,237,.4)}
+.hero-badge[data-tech="pytest"]{color:#0a9edc;border-color:rgba(10,158,220,.2)}
+.hero-badge[data-tech="pytest"]:hover{background:rgba(10,158,220,.1);border-color:rgba(10,158,220,.4)}
+
+/* ── Animated gradient border on hover ── */
+.hero-proj::after{
+  content:'';position:absolute;inset:-1px;border-radius:29px;
+  background:conic-gradient(from var(--angle,0deg),var(--acc),var(--acc2),var(--acc3),var(--acc));
+  opacity:0;transition:opacity .5s;pointer-events:none;z-index:-1;
+  filter:blur(15px);
+}
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes borderSpin{to{--angle:360deg}}
+.hero-proj:hover::after{opacity:.15;animation:borderSpin 4s linear infinite}
+
 .hero-num{
   font-size:clamp(6rem,12vw,14rem);font-weight:900;line-height:.85;
   color:rgba(255,255,255,.03);position:absolute;top:-.2em;left:.3rem;

@@ -310,32 +310,89 @@ window.switchSk=function(i){
 
 
 /* ═══════════════════════════════════════════════════════
-   PROJECT SHOWCASE — ANIMATIONS
+   PROJECT SHOWCASE — ANIMATIONS & INTERACTIONS
    ═══════════════════════════════════════════════════════ */
 (function(){
 
-  /* ── Staggered badge reveal on scroll ── */
+  /* ── Spotlight cursor tracking ── */
+  document.querySelectorAll('.hero-vis').forEach(function(vis){
+    var spot=vis.querySelector('.spotlight');
+    if(!spot)return;
+    vis.addEventListener('mousemove',function(e){
+      var rect=vis.getBoundingClientRect();
+      var x=((e.clientX-rect.left)/rect.width)*100;
+      var y=((e.clientY-rect.top)/rect.height)*100;
+      spot.style.setProperty('--mx',x+'%');
+      spot.style.setProperty('--my',y+'%');
+    });
+  });
+
+  /* ── Magnetic hover on metric cards ── */
+  document.querySelectorAll('.hero-metric').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var rect=card.getBoundingClientRect();
+      var x=e.clientX-rect.left-rect.width/2;
+      var y=e.clientY-rect.top-rect.height/2;
+      var tiltX=(y/rect.height)*-8;
+      var tiltY=(x/rect.width)*8;
+      card.style.transform='perspective(600px) rotateX('+tiltX+'deg) rotateY('+tiltY+'deg) scale(1.03)';
+    });
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='';
+    });
+  });
+
+  /* ── Staggered reveal on scroll ── */
   var cards=document.querySelectorAll('.hero-proj');
   if(cards.length){
     var bObs=new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(!entry.isIntersecting)return;
         var card=entry.target;
+        var vis=card.querySelector('.hero-vis');
+        var data=card.querySelector('.hero-data');
+
+        /* Left side: name and subtitle */
+        var name=vis.querySelector('.hero-name');
+        var sub=vis.querySelector('.hero-subtitle');
+        if(name){name.style.opacity='0';name.style.transform='translateY(20px)';name.style.transition='opacity .6s ease .1s,transform .6s ease .1s';requestAnimationFrame(function(){name.style.opacity='1';name.style.transform='translateY(0)'});}
+        if(sub){sub.style.opacity='0';sub.style.transform='translateY(15px)';sub.style.transition='opacity .6s ease .25s,transform .6s ease .25s';requestAnimationFrame(function(){sub.style.opacity='1';sub.style.transform='translateY(0)'});}
+
+        /* Badges: staggered */
         var badges=card.querySelectorAll('.hero-badge');
         badges.forEach(function(b,i){
-          b.style.opacity='0';b.style.transform='translateY(10px)';
-          b.style.transition='opacity .4s ease,transform .4s ease';
-          setTimeout(function(){b.style.opacity='1';b.style.transform='translateY(0)'},120+i*60);
+          b.style.opacity='0';b.style.transform='translateY(12px) scale(.9)';
+          b.style.transition='opacity .4s ease '+(0.4+i*0.06)+'s,transform .4s ease '+(0.4+i*0.06)+'s';
+          requestAnimationFrame(function(){b.style.opacity='1';b.style.transform='translateY(0) scale(1)'});
         });
+
+        /* CTA buttons */
+        var ctas=card.querySelectorAll('.hero-cta a');
+        ctas.forEach(function(c,i){
+          c.style.opacity='0';c.style.transform='translateY(10px)';
+          c.style.transition='opacity .4s ease '+(0.6+i*0.08)+'s,transform .4s ease '+(0.6+i*0.08)+'s';
+          requestAnimationFrame(function(){c.style.opacity='1';c.style.transform='translateY(0)'});
+        });
+
+        /* Right side: metrics */
+        var metrics=card.querySelectorAll('.hero-metric');
+        metrics.forEach(function(m,i){
+          m.style.opacity='0';m.style.transform='translateX(20px)';
+          m.style.transition='opacity .5s ease '+(0.3+i*0.1)+'s,transform .5s ease '+(0.3+i*0.1)+'s';
+          requestAnimationFrame(function(){m.style.opacity='1';m.style.transform='translateX(0)'});
+        });
+
+        /* Right side: features */
         var feats=card.querySelectorAll('.hero-features li');
         feats.forEach(function(f,i){
-          f.style.opacity='0';f.style.transform='translateX(-10px)';
-          f.style.transition='opacity .4s ease,transform .4s ease';
-          setTimeout(function(){f.style.opacity='1';f.style.transform='translateX(0)'},300+i*80);
+          f.style.opacity='0';f.style.transform='translateX(15px)';
+          f.style.transition='opacity .4s ease '+(0.5+i*0.07)+'s,transform .4s ease '+(0.5+i*0.07)+'s';
+          requestAnimationFrame(function(){f.style.opacity='1';f.style.transform='translateX(0)'});
         });
+
         bObs.unobserve(card);
       });
-    },{threshold:0.15});
+    },{threshold:0.12});
     cards.forEach(function(c){bObs.observe(c);});
   }
 
@@ -348,7 +405,8 @@ window.switchSk=function(i){
         var target=parseInt(sv.dataset.count);
         if(isNaN(target)||target===0)return;
         var current=0;
-        var step=Math.max(20,1000/target);
+        var duration=1200;
+        var step=duration/target;
         var timer=setInterval(function(){
           current++;
           sv.textContent=current;
@@ -359,17 +417,5 @@ window.switchSk=function(i){
     });
   },{threshold:0.3});
   document.querySelectorAll('.hero-metrics').forEach(function(m){mObs.observe(m);});
-
-  /* ── Gentle badge hover float (CSS handles most, this adds magnetic pull) ── */
-  document.querySelectorAll('.hero-badge').forEach(function(badge){
-    badge.addEventListener('mouseenter',function(){
-      this.style.transition='all .2s cubic-bezier(.4,0,.2,1)';
-      this.style.transform='translateY(-4px) scale(1.04)';
-    });
-    badge.addEventListener('mouseleave',function(){
-      this.style.transition='all .3s cubic-bezier(.4,0,.2,1)';
-      this.style.transform='';
-    });
-  });
 
 })();
