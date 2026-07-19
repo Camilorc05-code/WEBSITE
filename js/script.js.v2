@@ -309,11 +309,38 @@ window.switchSk=function(i){
 };
 
 /* ═══════════════════════════════════════════════════════
-   PROJECT CARDS — REVEAL + ANIMATIONS
+   IMMERSIVE PROJECT CARDS — 3D TILT + GLOW + REVEAL
    ═══════════════════════════════════════════════════════ */
 (function(){
   var cards=document.querySelectorAll('.proj-im');
   if(!cards.length)return;
+
+  cards.forEach(function(card){
+    var inner=card.querySelector('.proj-im-inner');
+    var glow=card.querySelector('.proj-im-glow');
+
+    /* ── 3D Tilt on mouse move ── */
+    card.addEventListener('mousemove',function(e){
+      var rect=card.getBoundingClientRect();
+      var x=e.clientX-rect.left;
+      var y=e.clientY-rect.top;
+      var cx=rect.width/2;
+      var cy=rect.height/2;
+      var rotY=((x-cx)/cx)*6;
+      var rotX=-((y-cy)/cy)*6;
+      card.style.transform='perspective(800px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) scale3d(1.01,1.01,1.01)';
+
+      /* ── Glow position ── */
+      if(glow){
+        glow.style.left=x+'px';
+        glow.style.top=y+'px';
+      }
+    });
+
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    });
+  });
 
   /* ── Staggered tag reveal on scroll ── */
   var tagObs=new IntersectionObserver(function(entries){
@@ -323,10 +350,10 @@ window.switchSk=function(i){
       var tags=card.querySelectorAll('.proj-im-tag');
       tags.forEach(function(tag,i){
         setTimeout(function(){
-          tag.style.transition='opacity .5s ease,transform .5s ease';
+          tag.style.transition='opacity .4s ease,transform .4s ease';
           tag.style.opacity='1';
           tag.style.transform='translateY(0)';
-        },i*90);
+        },i*80);
       });
       card.classList.add('revealed');
       tagObs.unobserve(card);
@@ -342,12 +369,12 @@ window.switchSk=function(i){
       var lines=codeBody.querySelectorAll('span');
       lines.forEach(function(line,i){
         line.style.opacity='0';
-        line.style.transform='translateX(-10px)';
-        line.style.transition='opacity .35s ease,transform .35s ease';
+        line.style.transform='translateX(-8px)';
+        line.style.transition='opacity .3s ease,transform .3s ease';
         setTimeout(function(){
           line.style.opacity='1';
           line.style.transform='translateX(0)';
-        },i*65);
+        },i*60);
       });
       codeObs.unobserve(codeBody);
     });

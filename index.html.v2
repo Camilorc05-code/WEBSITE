@@ -409,7 +409,8 @@
 
     <!-- ═══════════════ PROJECT 1: Misión Panamericana ═══════════════ -->
     <div class="proj-im rv">
-      <div class="proj-im-inner" data-num="01">
+      <div class="proj-im-glow"></div>
+      <div class="proj-im-inner">
         <div class="proj-im-content">
           <div class="proj-im-label">
             <div class="proj-im-live"><span class="proj-im-live-dot"></span>Live on Vercel</div>
@@ -489,7 +490,8 @@
 
     <!-- ═══════════════ PROJECT 2: TaskFlow ═══════════════ -->
     <div class="proj-im rv">
-      <div class="proj-im-inner" data-num="02">
+      <div class="proj-im-glow"></div>
+      <div class="proj-im-inner">
         <div class="proj-im-content">
           <div class="proj-im-label">
             <div class="proj-im-live"><span class="proj-im-live-dot"></span>Live on Vercel</div>
