@@ -23,6 +23,7 @@ img{display:block;max-width:100%}
   --b3:rgba(255,255,255,.16);
   --acc:#00f5c0;
   --acc2:#00c49a;
+  --acc3:#6366f1;
   --adim:rgba(0,245,192,.08);
   --aglow:rgba(0,245,192,.25);
   --blu:#38bdf8;
@@ -54,6 +55,7 @@ img{display:block;max-width:100%}
   --b3:rgba(0,0,0,.18);
   --acc:#00a87e;
   --acc2:#007d62;
+  --acc3:#6366f1;
   --adim:rgba(0,168,126,.09);
   --aglow:rgba(0,168,126,.22);
   --blu:#0284c7;
