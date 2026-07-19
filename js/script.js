@@ -310,42 +310,9 @@ window.switchSk=function(i){
 
 
 /* ═══════════════════════════════════════════════════════
-   LIVING PROJECT SHOWCASE — INTERACTIVE MINI-APPS
+   PROJECT SHOWCASE — INTERACTIVE MINI-APPS
    ═══════════════════════════════════════════════════════ */
 (function(){
-
-  /* ── 3D Parallax Tilt + Ambient Glow ── */
-  document.querySelectorAll('.pj').forEach(function(card){
-    var inner=card.querySelector('.pj-inner');
-    var glow=card.querySelector('.pj-glow');
-    if(!inner)return;
-
-    card.addEventListener('mousemove',function(e){
-      var rect=card.getBoundingClientRect();
-      var x=e.clientX-rect.left;
-      var y=e.clientY-rect.top;
-      var cx=rect.width/2;
-      var cy=rect.height/2;
-      var rotateY=((x-cx)/cx)*6;
-      var rotateX=((cy-y)/cy)*6;
-      inner.style.transform='rotateX('+rotateX+'deg) rotateY('+rotateY+'deg) scale(1.01)';
-      inner.style.transition='transform .08s linear';
-      if(glow){
-        glow.style.left=x+'px';
-        glow.style.top=y+'px';
-        glow.style.opacity='1';
-      }
-      /* conic gradient angle */
-      var angle=Math.atan2(y-cy,x-cx)*(180/Math.PI)+180;
-      card.style.setProperty('--pj-angle',angle+'deg');
-    });
-
-    card.addEventListener('mouseleave',function(){
-      inner.style.transform='rotateX(0deg) rotateY(0deg) scale(1)';
-      inner.style.transition='transform .5s cubic-bezier(.23,1,.32,1)';
-      if(glow)glow.style.opacity='0';
-    });
-  });
 
   /* ── Staggered tag reveal on scroll ── */
   var cards=document.querySelectorAll('.pj');
@@ -391,17 +358,30 @@ window.switchSk=function(i){
   document.querySelectorAll('.pj-stats').forEach(function(s){statObs.observe(s);});
 
   /* ═══════════════════════════════════════════════════
-     CHURCH COUNTDOWN — LIVE TIMER
+     CHURCH PORTAL — NAVIGATION + COUNTDOWN
      ═══════════════════════════════════════════════════ */
   (function(){
+    /* ── Navigation switching ── */
+    document.querySelectorAll('[data-mp-view]').forEach(function(link){
+      link.addEventListener('click',function(){
+        var portal=link.closest('.mp-portal');
+        if(!portal)return;
+        var targetId=link.dataset.mpView;
+        portal.querySelectorAll('.mp-nav-link').forEach(function(l){l.classList.remove('mp-nact')});
+        link.classList.add('mp-nact');
+        portal.querySelectorAll('.mp-view').forEach(function(v){v.classList.remove('mp-act')});
+        var target=portal.querySelector('#'+targetId);
+        if(target)target.classList.add('mp-act');
+      });
+    });
+
+    /* ── Live countdown ── */
     var hEl=document.getElementById('mp-cd-h');
     var mEl=document.getElementById('mp-cd-m');
     var sEl=document.getElementById('mp-cd-s');
     var label=document.getElementById('mp-next-label');
-    var svcs=document.getElementById('mp-services');
-    if(!hEl||!svcs)return;
+    if(!hEl)return;
 
-    /* Services: [dayOfWeek(0=Sun), hour24] */
     var services=[
       {day:4,hour:19,name:'Oración',icon:'🟡'},
       {day:6,hour:17,name:'Jóvenes',icon:'🟢'},
@@ -417,10 +397,8 @@ window.switchSk=function(i){
       for(var i=0;i<services.length;i++){
         var s=services[i];
         var target=new Date(now);
-        /* days until this service */
         var daysAhead=(s.day-now.getDay()+7)%7;
         if(daysAhead===0){
-          /* today — check if already passed */
           if(now.getHours()>=s.hour+1)daysAhead=7;
         }
         target.setDate(target.getDate()+daysAhead);
@@ -435,7 +413,7 @@ window.switchSk=function(i){
     function updateCountdown(){
       var info=getNextService();
       if(!info)return;
-      var diff=info.diff-((Date.now()%1000)); /* sub-second jitter */
+      var diff=info.diff;
       if(diff<0)diff=0;
       var totalSec=Math.floor(diff/1000);
       var hrs=Math.floor(totalSec/3600);
@@ -444,15 +422,14 @@ window.switchSk=function(i){
       hEl.textContent=String(hrs).padStart(2,'0');
       mEl.textContent=String(mins).padStart(2,'0');
       sEl.textContent=String(secs).padStart(2,'0');
-      /* label */
       var days=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
       var d=info.target;
-      label.innerHTML='Next: <span>'+info.service.icon+' '+info.service.name+'</span> — '+days[d.getDay()]+' '+String(d.getHours()).padStart(2,'0')+':00';
-      /* highlight active */
-      var svcCards=svcs.querySelectorAll('.mp-svc');
-      svcCards.forEach(function(c){c.classList.remove('active');});
+      label.innerHTML='Próximo: <b>'+info.service.icon+' '+info.service.name+'</b> — '+days[d.getDay()]+' '+String(d.getHours()).padStart(2,'0')+':00';
+      /* highlight active service card */
+      var svcCards=document.querySelectorAll('.mp-svc-card');
+      svcCards.forEach(function(c){c.classList.remove('mp-svc-active')});
       var idx=services.indexOf(info.service);
-      if(idx>=0&&svcCards[idx])svcCards[idx].classList.add('active');
+      if(idx>=0&&svcCards[idx])svcCards[idx].classList.add('mp-svc-active');
     }
 
     updateCountdown();

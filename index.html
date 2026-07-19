@@ -415,53 +415,160 @@
 
         <!-- Living Church Portal -->
         <div class="mp-portal">
-          <div class="mp-header">
-            <div class="mp-cross">✝️</div>
-            <div class="mp-church-name">Misión Panamericana</div>
-            <div class="mp-church-sub">Centro de Fe y Esperanza · Paz de Ariporo</div>
-          </div>
-
-          <div class="mp-countdown-wrap">
-            <div class="mp-countdown-label">Next service in</div>
-            <div class="mp-countdown" id="mp-countdown">
-              <div class="mp-cd-block"><div class="mp-cd-val" id="mp-cd-h">00</div><div class="mp-cd-unit">Hrs</div></div>
-              <div class="mp-cd-block"><div class="mp-cd-val" id="mp-cd-m">00</div><div class="mp-cd-unit">Min</div></div>
-              <div class="mp-cd-block"><div class="mp-cd-val" id="mp-cd-s">00</div><div class="mp-cd-unit">Sec</div></div>
-            </div>
-            <div class="mp-next-service" id="mp-next-label">Loading...</div>
-          </div>
-
-          <div class="mp-services-scroll" id="mp-services">
-            <div class="mp-svc active" data-day="4" data-hour="19">
-              <div class="mp-svc-icon">🟡</div>
-              <div class="mp-svc-name">Oración</div>
-              <div class="mp-svc-time">Jue 7:00 PM</div>
-            </div>
-            <div class="mp-svc" data-day="6" data-hour="17">
-              <div class="mp-svc-icon">🟢</div>
-              <div class="mp-svc-name">Jóvenes</div>
-              <div class="mp-svc-time">Sáb 5:00 PM</div>
-            </div>
-            <div class="mp-svc" data-day="0" data-hour="6">
-              <div class="mp-svc-icon">🔵</div>
-              <div class="mp-svc-name">Ayuno</div>
-              <div class="mp-svc-time">Dom 6:00 AM</div>
-            </div>
-            <div class="mp-svc" data-day="0" data-hour="10">
-              <div class="mp-svc-icon">🔴</div>
-              <div class="mp-svc-name">General</div>
-              <div class="mp-svc-time">Dom 10:00 AM</div>
-            </div>
-            <div class="mp-svc" data-day="0" data-hour="18">
-              <div class="mp-svc-icon">🟣</div>
-              <div class="mp-svc-name">Vespertina</div>
-              <div class="mp-svc-time">Dom 6:00 PM</div>
+          <!-- Mini navbar -->
+          <div class="mp-nav">
+            <div class="mp-nav-brand"><span>✝️</span> Misión Panamericana</div>
+            <div class="mp-nav-links">
+              <div class="mp-nav-link mp-nact" data-mp-view="mp-home">Inicio</div>
+              <div class="mp-nav-link" data-mp-view="mp-svcs">Servicios</div>
+              <div class="mp-nav-link" data-mp-view="mp-events">Eventos</div>
+              <div class="mp-nav-link" data-mp-view="mp-contact">Contacto</div>
             </div>
           </div>
 
-          <div class="mp-cta">
-            <div class="mp-btn mp-btn-gold">🙏 Agendar Cita</div>
-            <div class="mp-btn mp-btn-ghost">💝 Donar</div>
+          <!-- HOME view -->
+          <div class="mp-view mp-act" id="mp-home">
+            <div class="mp-home-hero">
+              <div class="mp-home-cross">✝️</div>
+              <div class="mp-home-title">Centro de Fe y Esperanza</div>
+              <div class="mp-home-sub">Paz de Ariporo, Casanare</div>
+              <div class="mp-home-verse">"Todo lo puedo en Cristo que me fortalece" — Filipenses 4:13</div>
+            </div>
+            <div class="mp-svcs">
+              <div class="mp-svc-card mp-svc-active">
+                <div class="mp-svc-emoji">🟡</div>
+                <div class="mp-svc-label">Oración</div>
+                <div class="mp-svc-schedule">Jue 7:00 PM</div>
+              </div>
+              <div class="mp-svc-card">
+                <div class="mp-svc-emoji">🟢</div>
+                <div class="mp-svc-label">Jóvenes</div>
+                <div class="mp-svc-schedule">Sáb 5:00 PM</div>
+              </div>
+              <div class="mp-svc-card">
+                <div class="mp-svc-emoji">🔵</div>
+                <div class="mp-svc-label">Ayuno</div>
+                <div class="mp-svc-schedule">Dom 6:00 AM</div>
+              </div>
+              <div class="mp-svc-card">
+                <div class="mp-svc-emoji">🔴</div>
+                <div class="mp-svc-label">General</div>
+                <div class="mp-svc-schedule">Dom 10:00 AM</div>
+              </div>
+            </div>
+            <div class="mp-cd-section">
+              <div class="mp-cd-label">Próximo servicio en</div>
+              <div class="mp-cd-row">
+                <div class="mp-cd-item"><div class="mp-cd-num" id="mp-cd-h">00</div><div class="mp-cd-txt">Hrs</div></div>
+                <div class="mp-cd-item"><div class="mp-cd-num" id="mp-cd-m">00</div><div class="mp-cd-txt">Min</div></div>
+                <div class="mp-cd-item"><div class="mp-cd-num" id="mp-cd-s">00</div><div class="mp-cd-txt">Sec</div></div>
+              </div>
+              <div class="mp-cd-next" id="mp-next-label">Cargando...</div>
+            </div>
+            <div class="mp-cta-row">
+              <div class="mp-cta-btn mp-cta-gold">Agendar Cita Pastoral</div>
+              <div class="mp-cta-btn mp-cta-outline">Donar</div>
+            </div>
+          </div>
+
+          <!-- SERVICES view -->
+          <div class="mp-view" id="mp-svcs">
+            <div class="mp-svcs-list">
+              <div class="mp-svc-row">
+                <div class="mp-svc-row-icon">🟡</div>
+                <div class="mp-svc-row-info"><div class="mp-svc-row-name">Servicio de Oración</div><div class="mp-svc-row-time">Jueves 7:00 PM</div></div>
+                <div class="mp-svc-row-badge mp-badge-next">Próximo</div>
+              </div>
+              <div class="mp-svc-row">
+                <div class="mp-svc-row-icon">🟢</div>
+                <div class="mp-svc-row-info"><div class="mp-svc-row-name">Reunión de Jóvenes</div><div class="mp-svc-row-time">Sábados 5:00 PM</div></div>
+                <div class="mp-svc-row-badge mp-badge-weekly">Semanal</div>
+              </div>
+              <div class="mp-svc-row">
+                <div class="mp-svc-row-icon">🔵</div>
+                <div class="mp-svc-row-info"><div class="mp-svc-row-name">Ayuno y Oración</div><div class="mp-svc-row-time">Domingos 6:00 AM</div></div>
+                <div class="mp-svc-row-badge mp-badge-weekly">Semanal</div>
+              </div>
+              <div class="mp-svc-row">
+                <div class="mp-svc-row-icon">🔴</div>
+                <div class="mp-svc-row-info"><div class="mp-svc-row-name">Servicio General</div><div class="mp-svc-row-time">Domingos 10:00 AM</div></div>
+                <div class="mp-svc-row-badge mp-badge-weekly">Semanal</div>
+              </div>
+              <div class="mp-svc-row">
+                <div class="mp-svc-row-icon">🟣</div>
+                <div class="mp-svc-row-info"><div class="mp-svc-row-name">Servicio Vespertino</div><div class="mp-svc-row-time">Domingos 6:00 PM</div></div>
+                <div class="mp-svc-row-badge mp-badge-weekly">Semanal</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EVENTS view -->
+          <div class="mp-view" id="mp-events">
+            <div class="mp-events-list">
+              <div class="mp-event-card">
+                <div class="mp-event-top">
+                  <div class="mp-event-name">Cumbre Ministerial 2026</div>
+                  <div class="mp-event-badge mp-eb-special">Especial</div>
+                </div>
+                <div class="mp-event-date">15 Agosto, 2026</div>
+                <div class="mp-event-desc">Conferencia de líderes ministeriales con oradores invitados.</div>
+              </div>
+              <div class="mp-event-card">
+                <div class="mp-event-top">
+                  <div class="mp-event-name">Vigilia de Oración</div>
+                  <div class="mp-event-badge mp-eb-prayer">Oración</div>
+                </div>
+                <div class="mp-event-date">Cada Viernes</div>
+                <div class="mp-event-desc">Noche de oración y adoración comunitaria.</div>
+              </div>
+              <div class="mp-event-card">
+                <div class="mp-event-top">
+                  <div class="mp-event-name">Fiesta de Primicias</div>
+                  <div class="mp-event-badge mp-eb-celebrate">Celebración</div>
+                </div>
+                <div class="mp-event-date">20 Septiembre, 2026</div>
+                <div class="mp-event-desc">Celebración de ofrendas y bendiciones.</div>
+              </div>
+              <div class="mp-event-card">
+                <div class="mp-event-top">
+                  <div class="mp-event-name">Encuentro de Jóvenes</div>
+                  <div class="mp-event-badge mp-eb-youth">Jóvenes</div>
+                </div>
+                <div class="mp-event-date">Cada Sábado</div>
+                <div class="mp-event-desc">Actividades, worship y palabra para jóvenes.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTACT view -->
+          <div class="mp-view" id="mp-contact">
+            <div class="mp-contact">
+              <div class="mp-contact-grid">
+                <div class="mp-contact-card">
+                  <div class="mp-contact-icon">📍</div>
+                  <div class="mp-contact-title">Dirección</div>
+                  <div class="mp-contact-detail">Calle 12 #10-19<br>Paz de Ariporo, Casanare</div>
+                </div>
+                <div class="mp-contact-card">
+                  <div class="mp-contact-icon">🕐</div>
+                  <div class="mp-contact-title">Horarios</div>
+                  <div class="mp-contact-detail">Dom: 6AM, 10AM, 6PM<br>Jue: 7PM · Sáb: 5PM</div>
+                </div>
+              </div>
+              <div class="mp-contact-card">
+                <div class="mp-contact-icon">📧</div>
+                <div class="mp-contact-title">Cita Pastoral</div>
+                <div class="mp-contact-detail">Agenda tu cita con el pastor</div>
+              </div>
+              <div class="mp-contact-card">
+                <div class="mp-contact-icon">🌐</div>
+                <div class="mp-contact-title">Síguenos</div>
+                <div class="mp-social-row">
+                  <div class="mp-social-pill">Facebook</div>
+                  <div class="mp-social-pill">Instagram</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
