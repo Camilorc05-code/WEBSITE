@@ -314,6 +314,19 @@ window.switchSk=function(i){
    ═══════════════════════════════════════════════════════ */
 (function(){
 
+  /* ── Spotlight cursor tracking ── */
+  document.querySelectorAll('.hero-vis').forEach(function(vis){
+    var spot=vis.querySelector('.spotlight');
+    if(!spot)return;
+    vis.addEventListener('mousemove',function(e){
+      var rect=vis.getBoundingClientRect();
+      var x=((e.clientX-rect.left)/rect.width)*100;
+      var y=((e.clientY-rect.top)/rect.height)*100;
+      spot.style.setProperty('--mx',x+'%');
+      spot.style.setProperty('--my',y+'%');
+    });
+  });
+
   /* ── Staggered reveal on scroll ── */
   var cards=document.querySelectorAll('.hero-proj');
   if(cards.length){
@@ -321,43 +334,35 @@ window.switchSk=function(i){
       entries.forEach(function(entry){
         if(!entry.isIntersecting)return;
         var card=entry.target;
-        var info=card.querySelector('.hero-info');
-        if(!info)return;
-
-        /* Type label */
-        var type=info.querySelector('.hero-type');
-        if(type){type.style.opacity='0';type.style.transition='opacity .5s ease .1s';requestAnimationFrame(function(){type.style.opacity='1'});}
+        var vis=card.querySelector('.hero-vis');
+        var data=card.querySelector('.hero-data');
 
         /* Name */
-        var name=info.querySelector('.hero-name');
-        if(name){name.style.opacity='0';name.style.transform='translateY(15px)';name.style.transition='opacity .6s ease .15s,transform .6s ease .15s';requestAnimationFrame(function(){name.style.opacity='1';name.style.transform='translateY(0)'});}
-
-        /* Description */
-        var desc=info.querySelector('.hero-desc');
-        if(desc){desc.style.opacity='0';desc.style.transition='opacity .5s ease .25s';requestAnimationFrame(function(){desc.style.opacity='1'});}
+        var name=vis.querySelector('.hero-name');
+        if(name){name.style.opacity='0';name.style.transform='translateY(20px)';name.style.transition='opacity .6s ease .1s,transform .6s ease .1s';requestAnimationFrame(function(){name.style.opacity='1';name.style.transform='translateY(0)'});}
 
         /* Badges: staggered */
-        var badges=info.querySelectorAll('.hero-badge');
+        var badges=vis.querySelectorAll('.hero-badge');
         badges.forEach(function(b,i){
-          b.style.opacity='0';b.style.transform='translateY(8px) scale(.9)';
-          b.style.transition='opacity .35s ease '+(0.35+i*0.05)+'s,transform .35s ease '+(0.35+i*0.05)+'s';
+          b.style.opacity='0';b.style.transform='translateY(12px) scale(.9)';
+          b.style.transition='opacity .4s ease '+(0.4+i*0.06)+'s,transform .4s ease '+(0.4+i*0.06)+'s';
           requestAnimationFrame(function(){b.style.opacity='1';b.style.transform='translateY(0) scale(1)'});
         });
 
-        /* Features */
-        var feats=info.querySelectorAll('.hero-features li');
-        feats.forEach(function(f,i){
-          f.style.opacity='0';f.style.transform='translateX(10px)';
-          f.style.transition='opacity .4s ease '+(0.45+i*0.06)+'s,transform .4s ease '+(0.45+i*0.06)+'s';
-          requestAnimationFrame(function(){f.style.opacity='1';f.style.transform='translateX(0)'});
+        /* CTA buttons */
+        var ctas=vis.querySelectorAll('.hero-cta a');
+        ctas.forEach(function(c,i){
+          c.style.opacity='0';c.style.transform='translateY(10px)';
+          c.style.transition='opacity .4s ease '+(0.6+i*0.08)+'s,transform .4s ease '+(0.6+i*0.08)+'s';
+          requestAnimationFrame(function(){c.style.opacity='1';c.style.transform='translateY(0)'});
         });
 
-        /* CTA */
-        var ctas=info.querySelectorAll('.hero-cta a');
-        ctas.forEach(function(c,i){
-          c.style.opacity='0';c.style.transform='translateY(8px)';
-          c.style.transition='opacity .4s ease '+(0.55+i*0.07)+'s,transform .4s ease '+(0.55+i*0.07)+'s';
-          requestAnimationFrame(function(){c.style.opacity='1';c.style.transform='translateY(0)'});
+        /* Features */
+        var feats=data.querySelectorAll('.hero-features li');
+        feats.forEach(function(f,i){
+          f.style.opacity='0';f.style.transform='translateX(15px)';
+          f.style.transition='opacity .4s ease '+(0.3+i*0.07)+'s,transform .4s ease '+(0.3+i*0.07)+'s';
+          requestAnimationFrame(function(){f.style.opacity='1';f.style.transform='translateX(0)'});
         });
 
         bObs.unobserve(card);
@@ -370,7 +375,7 @@ window.switchSk=function(i){
   document.querySelectorAll('.hero-badge').forEach(function(badge){
     badge.addEventListener('mouseenter',function(){
       this.style.transition='all .2s cubic-bezier(.4,0,.2,1)';
-      this.style.transform='translateY(-3px) scale(1.04)';
+      this.style.transform='translateY(-4px) scale(1.04)';
     });
     badge.addEventListener('mouseleave',function(){
       this.style.transition='all .3s cubic-bezier(.4,0,.2,1)';
