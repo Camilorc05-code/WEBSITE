@@ -1285,7 +1285,7 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 }
 
 /* ═══════════════════════════════════════════════════════
-   PROJECT SHOWCASE — VISUAL IDENTITY + FEATURES
+   PROJECT SHOWCASE
    ═══════════════════════════════════════════════════════ */
 
 /* ── Outer wrapper ── */
@@ -1334,28 +1334,28 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   color:rgba(255,255,255,.03);position:absolute;top:-.2em;left:.3rem;
   font-family:'Outfit',sans-serif;letter-spacing:-.08em;pointer-events:none;
 }
+.hero-vis-content{position:relative;z-index:1}
 .hero-type{
   display:inline-flex;align-items:center;gap:.4rem;
   font-size:.6rem;font-family:'JetBrains Mono',monospace;
   color:var(--acc);letter-spacing:.08em;text-transform:uppercase;
-  margin-bottom:1rem;position:relative;z-index:1;
+  margin-bottom:1rem;
 }
 .hero-type::after{content:'';flex:1;height:1px;background:var(--acc);opacity:.3;min-width:2rem;margin-left:.5rem}
 .hero-name{
   font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;
   color:var(--txt);letter-spacing:-.05em;line-height:1.05;
-  margin-bottom:.5rem;position:relative;z-index:1;
+  margin-bottom:.5rem;
 }
 .hero-name em{font-style:normal;display:block;color:var(--acc);font-size:clamp(1.4rem,3vw,2.4rem)}
 .hero-subtitle{
   font-size:.85rem;color:var(--txt2);line-height:1.7;max-width:26rem;
-  position:relative;z-index:1;margin-bottom:1.5rem;
+  margin-bottom:1.5rem;
 }
 
 /* ── Floating tech badges ── */
 .hero-badges{
-  display:flex;flex-wrap:wrap;gap:.4rem;position:relative;z-index:1;
-  margin-bottom:1.5rem;
+  display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem;
 }
 .hero-badge{
   display:inline-flex;align-items:center;gap:.3rem;
@@ -1364,15 +1364,8 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   background:rgba(255,255,255,.06);backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,.08);color:var(--txt2);
   transition:all .3s;cursor:default;
-  animation:badgeFloat 3s ease-in-out infinite;
 }
-.hero-badge:nth-child(2n){animation-delay:-.5s}
-.hero-badge:nth-child(3n){animation-delay:-1.2s}
-.hero-badge:nth-child(5n){animation-delay:-2s}
-@keyframes badgeFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-3px)}
-}
+.hero-badge:hover{transform:translateY(-2px)}
 
 /* Tech badge unique colors */
 .hero-badge[data-tech="react"]{color:#61dafb;border-color:rgba(97,218,251,.2)}
@@ -1406,19 +1399,39 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
 .hero-badge[data-tech="pytest"]{color:#0a9edc;border-color:rgba(10,158,220,.2)}
 .hero-badge[data-tech="pytest"]:hover{background:rgba(10,158,220,.1);border-color:rgba(10,158,220,.4)}
 
-/* ── Right: features ── */
-.hero-data{padding:2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1rem;position:relative;z-index:1}
-.hero-features{list-style:none;padding:0;margin:0}
-.hero-features li{
-  display:flex;align-items:flex-start;gap:.6rem;
-  padding:.55rem 0;font-size:.78rem;color:var(--txt2);line-height:1.7;
-  border-bottom:1px solid rgba(255,255,255,.04);
+/* ── Right: feature cards ── */
+.hero-data{
+  padding:2.5rem 2.2rem;display:flex;flex-direction:column;
+  justify-content:center;gap:1.2rem;position:relative;z-index:1;
 }
-.hero-features li:last-child{border-bottom:none}
-.hero-features .fi{color:var(--acc);flex-shrink:0;margin-top:.15rem;font-size:.65rem}
+.hd-label{
+  font-size:.55rem;font-family:'JetBrains Mono',monospace;
+  color:var(--txt3);text-transform:uppercase;letter-spacing:.12em;
+  margin-bottom:.2rem;
+}
+.hd-cards{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.hd-card{
+  padding:1.1rem 1.2rem;border-radius:14px;
+  background:rgba(255,255,255,.03);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.06);
+  transition:all .3s;cursor:default;
+}
+.hd-card:hover{
+  border-color:rgba(0,245,192,.2);
+  background:rgba(255,255,255,.05);
+  transform:translateY(-2px);
+}
+.hd-card-icon{font-size:1.4rem;margin-bottom:.5rem}
+.hd-card-title{
+  font-size:.75rem;font-weight:700;color:var(--txt);
+  margin-bottom:.25rem;letter-spacing:-.01em;
+}
+.hd-card-desc{
+  font-size:.62rem;color:var(--txt2);line-height:1.6;
+}
 
 /* CTA */
-.hero-cta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;position:relative;z-index:1}
+.hero-cta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.3rem}
 .hero-cta a{
   display:inline-flex;align-items:center;gap:.35rem;
   padding:.55rem 1.2rem;border-radius:10px;
@@ -1442,10 +1455,12 @@ hr.fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var
   .hero-proj{grid-template-columns:1fr;min-height:auto}
   .hero-vis{min-height:280px;padding:2rem}
   .hero-data{padding:1.5rem 2rem}
+  .hd-cards{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
   .hero-name{font-size:1.8rem}
   .hero-name em{font-size:1.2rem}
+  .hd-cards{grid-template-columns:1fr}
 }
 
 /* ══════════════ MINI PROJECTS ══════════════ */
