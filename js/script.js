@@ -314,19 +314,6 @@ window.switchSk=function(i){
    ═══════════════════════════════════════════════════════ */
 (function(){
 
-  /* ── Spotlight cursor tracking ── */
-  document.querySelectorAll('.hero-preview').forEach(function(preview){
-    var spot=preview.querySelector('.spotlight');
-    if(!spot)return;
-    preview.addEventListener('mousemove',function(e){
-      var rect=preview.getBoundingClientRect();
-      var x=((e.clientX-rect.left)/rect.width)*100;
-      var y=((e.clientY-rect.top)/rect.height)*100;
-      spot.style.setProperty('--mx',x+'%');
-      spot.style.setProperty('--my',y+'%');
-    });
-  });
-
   /* ── Staggered reveal on scroll ── */
   var cards=document.querySelectorAll('.hero-proj');
   if(cards.length){
