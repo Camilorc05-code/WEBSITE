@@ -9,7 +9,7 @@ thBtn.addEventListener('click',function(){
 });
 
 /* ── Typewriter ──────────────────────── */
-var phrases=['Backend Developer','Python Engineer','FastAPI Specialist','Remote-First Builder','API Architect'];
+var phrases=['Desarrollador Backend','Ingeniero Python','Especialista en FastAPI','Creador Remoto','Arquitecto de APIs'];
 var ti=0,ci=0,deleting=false;
 var typed=document.getElementById('typed-text');
 function typeStep(){

@@ -1,22 +1,21 @@
-# Personal Portfolio
+# Portafolio Personal
 
-Modern backend developer portfolio built with HTML, CSS and JavaScript.
+Portafolio moderno de desarrollador backend creado con HTML, CSS y JavaScript.
 
-## Features
+## Características
 
-* Responsive design
-* Smooth animations
-* Modern UI
-* Downloadable CV
-* Interactive effects
+* Diseño adaptable (responsive)
+* Animaciones suaves
+* UI moderna
+* CV descargable
+* Efectos interactivos
 
-## Technologies
+## Tecnologías
 
 * HTML5
 * CSS3
 * JavaScript
 
-## Author
+## Autor
 
-Jhojan Camilo Rodriguez Castañeda
-
+Jhojan Camilo Rodríguez Castañeda
